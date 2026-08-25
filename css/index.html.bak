@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>バイク買取 ティーバイティーガレージ｜動かなくても、壊れていても無料出張査定</title>
+<meta name="description" content="故障車・不動車・倉庫に眠ったバイクもOK。ティーバイティーガレージの無料出張査定で、あなたのバイクの価値をチェック。">
+
+<style>
+  :root{
+    --blue:#38a1db;        /* メインカラー(指定) */
+    --blue-dark:#2b84b8;
+    --blue-deep:#1c5a80;
+    --black:#141414;
+    --black-soft:#1d1d1d;
+    --white:#ffffff;
+    --gray-100:#f5f5f5;
+    --gray-300:#dcdde0;
+    --gray-500:#8a8d93;
+    --accent:#ffcc00;      /* 差し色イエロー(指定) */
+    --accent-dark:#e6b800;
+    --danger:#ff5a3c;
+    --line-green:#06c755;  /* LINE公式ブランドカラー */
+    --radius:14px;
+    --maxw:480px;
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,"Yu Gothic",sans-serif;
+    color:var(--black);
+    background:var(--white);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+  .hidden{display:none !important;}
+
+  /* ---------- アイコン(シルエットSVG／絵文字は使用しない) ---------- */
+  .icon{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .icon-fill{fill:currentColor;stroke:none;}
+  .icon-lg{width:28px;height:28px;}
+
+  /* ---------- 共通パーツ／画像プレースホルダー ---------- */
+  .placeholder-img{
+    background:repeating-linear-gradient(45deg,#e7eef3,#e7eef3 10px,#eef4f8 10px,#eef4f8 20px);
+    border:1px dashed #a9c3d4;
+    border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:#7597ab;
+    font-size:11px;
+    text-align:center;
+    padding:8px;
+    gap:4px;
+  }
+  .placeholder-img .icon{width:22px;height:22px;color:#a9c3d4;}
+  .placeholder-dark{
+    background:repeating-linear-gradient(45deg,#26343d,#26343d 10px,#2c3d47 10px,#2c3d47 20px);
+    border:1px dashed #4a6273;color:#8fb2c7;
+  }
+  .placeholder-dark .icon{color:#4a6273;}
+  .badge{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--black);
+    font-weight:700;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:999px;
+    letter-spacing:.02em;
+  }
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;
+    padding:16px 20px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:16px;
+    border:none;
+    text-align:center;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:var(--black);
+    box-shadow:0 6px 0 var(--accent-dark), 0 10px 18px rgba(0,0,0,.18);
+  }
+  .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--accent-dark);}
+  .btn-primary:disabled{background:#e6e6e6;color:#aaa;box-shadow:none;}
+  .btn-blue{
+    background:var(--blue);
+    color:#fff;
+    box-shadow:0 6px 0 var(--blue-dark), 0 10px 18px rgba(0,0,0,.15);
+  }
+  .btn-blue:active{transform:translateY(4px);box-shadow:0 2px 0 var(--blue-dark);}
+  .btn-line{
+    background:var(--line-green);
+    color:#fff;
+    box-shadow:0 6px 0 #05a548, 0 10px 18px rgba(0,0,0,.18);
+  }
+  .btn-line:active{transform:translateY(4px);box-shadow:0 2px 0 #05a548;}
+  .btn-outline{
+    background:transparent;
+    color:var(--black);
+    border:1.5px solid var(--black);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--gray-500);
+    font-size:13px;
+    text-decoration:underline;
+    padding:8px;
+  }
+  .section{padding:52px 0;}
+  .section.dark{background:var(--black);color:var(--white);}
+  .section.gray{background:var(--gray-100);}
+  .section.tight{padding-top:0;}
+  .eyebrow{
+    color:var(--blue);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-align:center;
+    margin-bottom:8px;
+  }
+  .section.dark .eyebrow{color:var(--blue);}
+  h2.h-title{
+    font-size:23px;
+    font-weight:800;
+    text-align:center;
+    margin:0 0 30px;
+    line-height:1.5;
+  }
+  .note{font-size:12px;color:var(--gray-500);}
+  .disclaimer-box{
+    background:#fff8e1;
+    border:1px solid #f0e0a6;
+    border-radius:10px;
+    padding:10px 14px;
+    font-size:12px;
+    color:#7a6a1f;
+    margin:16px 0;
+  }
+
+  /* ---------- ヘッダー ---------- */
+  header.site-header{
+    position:sticky;top:0;z-index:50;
+    background:var(--blue);
+    color:#fff;
+  }
+  .header-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 16px;
+    gap:10px;
+  }
+  .logo-mark{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px;line-height:1.3;}
+  .logo-box{
+    width:34px;height:34px;border-radius:8px;
+    background:var(--accent);color:var(--black);
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;flex:none;
+  }
+  .header-cta{display:flex;gap:8px;}
+  .tel-btn{
+    background:#fff;color:var(--blue-dark);
+    font-weight:800;font-size:12px;
+    padding:8px 12px;border-radius:999px;
+    display:flex;align-items:center;gap:5px;
+    white-space:nowrap;
+  }
+  .tel-btn .icon{width:14px;height:14px;}
+
+  /* ---------- ヒーロー：ファーストビューは1枚の写真に集約 ---------- */
+  .hero{background:var(--blue-deep);color:#fff;}
+  .hero-photo{
+    height:66vh;min-height:380px;max-height:520px;
+    position:relative;
+    background:linear-gradient(180deg, rgba(20,40,55,.15) 0%, rgba(15,30,42,.92) 82%), var(--blue-deep);
+  }
+  .hero-photo .hero-badges{
+    position:absolute;top:14px;left:20px;right:20px;
+    display:flex;gap:6px;flex-wrap:wrap;
+  }
+  .hero-badges span{
+    font-size:11px;font-weight:700;background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.5);
+    padding:3px 9px;border-radius:999px;color:#fff;
+  }
+  .hero-photo-note{
+    position:absolute;top:50%;left:20px;right:20px;transform:translateY(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    text-align:center;color:rgba(255,255,255,.55);font-size:11px;
+  }
+  .hero-photo-note .icon{width:22px;height:22px;}
+  .hero-photo .headline-box{
+    position:absolute;left:20px;right:20px;bottom:20px;
+  }
+  .hero-photo h1{
+    font-size:26px;font-weight:900;line-height:1.45;margin:0 0 8px;
+  }
+  .hero-photo h1 .accent{color:var(--accent);white-space:nowrap;}
+  .hero-photo .hero-sub{
+    font-size:13px;color:#e8f1f8;font-weight:500;margin:0;line-height:1.6;
+  }
+
+  .hero-cta-row{
+    padding:16px 20px 0;display:flex;flex-direction:column;gap:10px;
+  }
+
+  /* トラストストリップ：お約束・強みを1本の帯にまとめて縦の長さを圧縮 */
+  .trust-strip{
+    margin:16px 0 0;padding:12px 0;
+    background:rgba(255,255,255,.07);border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15);
+  }
+  .trust-strip-track{
+    display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;padding:0 20px;
+  }
+  .trust-strip-track::-webkit-scrollbar{display:none;}
+  .trust-strip-item{
+    flex:none;display:flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:700;color:#fff;white-space:nowrap;
+  }
+  .trust-strip-item .icon{width:16px;height:16px;color:var(--accent);}
+
+  .hero-quiz{
+    margin:20px 20px 0;background:#fff;color:var(--black);
+    border-radius:16px;padding:18px 16px 20px;
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+  }
+  .hero-quiz .quiz-lead{
+    text-align:center;font-weight:900;font-size:16px;margin-bottom:2px;
+  }
+  .hero-quiz .quiz-sub{
+    text-align:center;font-size:12px;color:var(--gray-500);margin-bottom:14px;
+  }
+  .quiz-count-badge{
+    display:block;margin:0 auto 12px;width:fit-content;
+    background:var(--accent);color:var(--black);font-weight:900;font-size:12px;
+    padding:4px 12px;border-radius:999px;
+  }
+  .quiz-body{display:flex;gap:10px;align-items:flex-end;margin-bottom:16px;}
+  .quiz-mascot{
+    flex:none;width:64px;height:64px;border-radius:50%;
+  }
+  .quiz-mascot .icon{width:26px;height:26px;}
+  .quiz-bubble{
+    flex:1;background:var(--gray-100);border-radius:12px;border-bottom-left-radius:2px;
+    padding:10px 12px;font-size:12.5px;font-weight:700;
+  }
+  .quiz-field-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .quiz-field-num{
+    flex:none;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;
+  }
+  .hero-quiz select, .hero-quiz input[type="text"]{
+    flex:1;width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--gray-300);
+    font-size:15px;background:#fff;font-family:inherit;
+  }
+
+  /* ---------- 悩みチェック ---------- */
+  .check-grid{display:flex;flex-direction:column;gap:14px;}
+  .check-card{
+    position:relative;
+    display:flex;align-items:center;gap:14px;
+    background:#fff;border:1px solid var(--gray-300);
+    border-radius:var(--radius);
+    padding:14px;
+  }
+  .check-photo{
+    flex:none;width:64px;height:64px;border-radius:12px;
+  }
+  .check-card h3{margin:0 0 4px;font-size:15px;font-weight:800;display:flex;align-items:center;gap:6px;}
+  .check-card h3 .icon{color:var(--blue);width:16px;height:16px;}
+  .check-card p{margin:0;font-size:12.5px;color:#555;}
+  .check-ok{
+    position:absolute;top:10px;right:10px;
+    background:var(--accent);color:var(--black);
+    font-size:10px;font-weight:800;line-height:1.3;
+    padding:4px 8px;border-radius:8px;text-align:center;
+  }
+  .check-lead{
+    text-align:center;font-weight:700;margin:26px 0 14px;font-size:15px;
+  }
+
+  /* ---------- 査定スタイル選択（2択カード） ---------- */
+  .style-cards{display:flex;flex-direction:column;gap:16px;}
+  .style-card{
+    position:relative;background:#fff;border:2px solid var(--black);border-radius:16px;
+    padding:22px 18px 20px;
+  }
+  .style-card-main{border-color:var(--blue);background:#f3faff;}
+  .style-badge{
+    position:absolute;top:-12px;left:18px;
+    background:var(--blue);color:#fff;font-weight:900;font-size:11px;
+    padding:4px 12px;border-radius:999px;
+  }
+  .style-icon{
+    width:46px;height:46px;border-radius:12px;background:var(--black);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;margin-bottom:10px;
+  }
+  .style-card h3{font-size:16.5px;font-weight:900;margin:0 0 10px;}
+  .style-card ul{margin:0 0 16px;padding-left:18px;font-size:12.5px;color:#444;}
+  .style-card li{margin-bottom:4px;}
+
+  /* ---------- REASONブロック ---------- */
+  .reason-block{margin-bottom:30px;}
+  .reason-block:last-child{margin-bottom:0;}
+  .reason-tag{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--black);color:var(--accent);
+    font-weight:900;font-size:12px;padding:5px 12px;border-radius:999px;margin-bottom:10px;
+  }
+  .reason-block h3{font-size:17px;font-weight:900;margin:0 0 8px;}
+  .reason-photo{height:150px;border-radius:var(--radius);margin-bottom:10px;}
+  .reason-block p{font-size:13px;color:#555;margin:0;}
+  .reason-block mark{background:#fff2b0;padding:0 2px;}
+
+  /* ---------- 強み(4step手前の1枚) ---------- */
+  .value-item{
+    display:flex;gap:14px;
+    background:var(--black);color:#fff;
+    border-radius:var(--radius);
+    padding:18px;
+    align-items:flex-start;
+  }
+  .value-photo{flex:none;width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;}
+  .value-photo .icon{color:var(--blue);width:22px;height:22px;}
+  .value-item h3{margin:0 0 6px;font-size:15.5px;font-weight:800;}
+  .value-item p{margin:0;font-size:13px;color:#ccc;}
+
+  /* ---------- 4ステップ ---------- */
+  .step-list{position:relative;padding-left:30px;}
+  .step-list::before{
+    content:"";position:absolute;left:14px;top:6px;bottom:6px;width:2px;
+    background:var(--gray-300);
+  }
+  .step-item{position:relative;padding-bottom:26px;}
+  .step-item:last-child{padding-bottom:0;}
+  .step-num{
+    position:absolute;left:-30px;top:0;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--blue);color:#fff;
+    font-weight:900;font-size:13px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step-item h3{margin:0 0 4px;font-size:15px;font-weight:800;}
+  .step-item p{margin:0;font-size:12.5px;color:#555;}
+
+  /* ---------- 買取強化車種カルーセル ---------- */
+  .carousel-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -20px;padding:0 20px;}
+  .carousel-wrap::-webkit-scrollbar{display:none;}
+  .carousel-track{display:flex;gap:12px;}
+  .model-card{
+    flex:none;width:140px;background:#fff;border:1px solid var(--gray-300);border-radius:12px;overflow:hidden;
+  }
+  .model-photo{height:90px;}
+  .model-info{padding:10px;}
+  .model-info .mk{font-size:10px;color:var(--gray-500);}
+  .model-info .mn{font-size:12.5px;font-weight:800;margin:2px 0 4px;}
+  .model-info .mp{font-size:14px;font-weight:900;color:var(--blue-dark);}
+  .carousel-hint{text-align:center;font-size:11px;color:var(--gray-500);margin-top:8px;}
+
+  /* ---------- 実績/声(写真タイプ) ---------- */
+  .voice-disclaimer{
+    text-align:center;font-size:11px;color:var(--gray-500);margin:-18px 0 22px;
+  }
+  .voice-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;}
+  .voice-scroll::-webkit-scrollbar{display:none;}
+  .voice-card-v2{
+    flex:none;width:210px;
+    background:#fff;border:1px solid var(--gray-300);border-radius:var(--radius);overflow:hidden;
+  }
+  .voice-photo{height:130px;position:relative;}
+  .voice-age{
+    position:absolute;left:8px;bottom:8px;
+    background:var(--black);color:var(--accent);
+    font-size:11px;font-weight:800;padding:3px 9px;border-radius:6px;
+  }
+  .voice-headline{
+    background:var(--blue);color:#fff;font-weight:800;font-size:12.5px;
+    padding:8px 10px;
+  }
+  .voice-body{padding:10px;}
+  .voice-model{font-size:11px;color:var(--gray-500);margin-bottom:4px;}
+  .voice-body p{font-size:12px;color:#444;margin:0;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--gray-300);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;
+    padding:16px 4px;font-weight:700;font-size:13.5px;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  .faq-q .q-mark{color:var(--blue);font-weight:900;flex:none;}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .25s ease;
+    font-size:13px;color:#555;padding:0 4px;
+  }
+  .faq-item.open .faq-a{max-height:200px;padding-bottom:16px;}
+  .faq-toggle-icon{transition:transform .2s ease;flex:none;color:var(--blue);}
+  .faq-item.open .faq-toggle-icon{transform:rotate(135deg);}
+
+  /* ---------- 最終CTA/フッター ---------- */
+  .final-cta{
+    background:linear-gradient(180deg,var(--blue-dark),var(--blue-deep));
+    color:#fff;text-align:center;
+  }
+  .final-cta h2{font-size:21px;font-weight:900;margin:0 0 8px;}
+  .final-cta p{font-size:13px;color:#eaf4fb;margin:0 0 22px;}
+  footer{
+    background:var(--black);color:var(--gray-300);
+    padding:28px 0 100px;font-size:12px;
+  }
+  footer .company-box{
+    border-top:1px solid #333;border-bottom:1px solid #333;
+    padding:16px 0;margin:16px 0;
+  }
+  footer .company-box dt{color:var(--gray-500);font-size:11px;}
+  footer .company-box dd{margin:0 0 10px;}
+  footer .foot-links{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:10px;}
+  footer .foot-links a{text-decoration:underline;color:var(--gray-300);}
+
+  /* ---------- フローティングCTA(下部固定) ---------- */
+  .float-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:#fff;border-top:1px solid var(--gray-300);
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    display:flex;gap:8px;
+    box-shadow:0 -6px 16px rgba(0,0,0,.08);
+  }
+  .float-cta .btn{padding:14px 8px;font-size:13px;}
+  .float-cta .btn-line{flex:1;}
+  .float-cta .btn-primary{flex:1.3;}
+
+  /* ================= 査定フォーム／サンクス ビュー ================= */
+  #view-form, #view-thanks{
+    min-height:100vh;
+    background:var(--gray-100);
+    padding-bottom:40px;
+  }
+  .form-header{
+    position:sticky;top:0;z-index:40;
+    background:#fff;border-bottom:1px solid var(--gray-300);
+    padding:12px 16px;
+  }
+  .form-header-row{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .form-title{font-size:13px;font-weight:800;}
+  .close-x{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--gray-100);border:none;color:#555;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .progress-track{
+    max-width:var(--maxw);margin:10px auto 0;
+    height:6px;background:var(--gray-300);border-radius:999px;overflow:hidden;
+  }
+  .progress-fill{height:100%;background:var(--blue);width:33%;transition:width .3s ease;}
+  .progress-label{
+    max-width:var(--maxw);margin:6px auto 0;
+    font-size:11px;color:var(--gray-500);text-align:right;
+  }
+
+  .form-body{max-width:var(--maxw);margin:0 auto;padding:22px 16px 100px;}
+  .form-step{display:none;}
+  .form-step.active{display:block;animation:fadeIn .25s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .form-step h2{font-size:18px;font-weight:800;margin:0 0 6px;}
+  .form-step .step-desc{font-size:13px;color:#666;margin:0 0 22px;}
+
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;}
+  .field .required{color:var(--danger);font-size:11px;margin-left:4px;}
+  .field select, .field input[type="text"], .field input[type="tel"], .field input[type="email"], .field textarea{
+    width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--gray-300);
+    font-size:15px;background:#fff;font-family:inherit;
+  }
+  .field select:focus, .field input:focus, .field textarea:focus{outline:2px solid var(--blue);outline-offset:1px;}
+  .field textarea{resize:vertical;min-height:80px;}
+  .check-options{display:flex;flex-wrap:wrap;gap:8px;}
+  .check-options label{
+    display:flex;align-items:center;gap:6px;
+    border:1px solid var(--gray-300);border-radius:999px;
+    padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;
+    background:#fff;width:auto;margin:0;
+  }
+  .check-options input{accent-color:var(--blue);}
+  .check-options label.on{background:#eaf5fc;border-color:var(--blue);color:var(--blue-deep);}
+  .radio-rows label{
+    display:flex;align-items:center;gap:8px;
+    border:1px solid var(--gray-300);border-radius:10px;
+    padding:12px 14px;font-size:14px;margin-bottom:8px;background:#fff;
+  }
+  .radio-rows input{accent-color:var(--blue);}
+
+  .bike-match-card{
+    display:flex;gap:12px;background:#fff;border:1px solid var(--gray-300);
+    border-radius:var(--radius);padding:14px;margin-bottom:12px;
+  }
+  .bike-match-img{width:80px;height:64px;border-radius:8px;flex:none;font-size:10px;}
+  .bike-match-info h4{margin:0 0 4px;font-size:14px;font-weight:800;}
+  .bike-match-price{font-size:16px;font-weight:900;color:var(--blue-dark);}
+  .bike-match-tags{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;}
+  .bike-match-tags span{
+    font-size:10px;background:var(--black);color:var(--accent);
+    padding:2px 7px;border-radius:6px;
+  }
+
+  .confirm-box{
+    background:#fff;border:1px solid var(--gray-300);border-radius:var(--radius);
+    padding:16px;margin-bottom:18px;font-size:13px;
+  }
+  .confirm-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--gray-300);}
+  .confirm-row:last-child{border-bottom:none;}
+  .confirm-row .k{color:var(--gray-500);}
+
+  .agree-row{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#555;margin:18px 0;}
+  .agree-row a{text-decoration:underline;}
+
+  .form-nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:55;
+    background:#fff;border-top:1px solid var(--gray-300);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  }
+  .form-nav-inner{display:flex;gap:10px;width:100%;max-width:var(--maxw);margin:0 auto;}
+  .form-nav .btn-outline{flex:0 0 90px;}
+
+  /* サンクス */
+  .thanks-wrap{max-width:var(--maxw);margin:0 auto;padding:56px 20px;text-align:center;}
+  .thanks-icon{
+    width:70px;height:70px;border-radius:50%;background:var(--blue);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+    color:#fff;
+  }
+  .thanks-icon .icon{width:32px;height:32px;}
+  .thanks-wrap h2{font-size:20px;font-weight:900;margin:0 0 12px;}
+  .thanks-wrap p{font-size:14px;color:#555;margin:0 0 26px;}
+  .thanks-cta{display:flex;flex-direction:column;gap:10px;max-width:320px;margin:0 auto;}
+
+  /* ---------- 離脱防止モーダル（バイク王の実際の挙動を参考に再現） ---------- */
+  #exit-modal-overlay{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(0,0,0,.6);
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+  }
+  #exit-modal-overlay.hidden{display:none;}
+  .exit-modal{
+    position:relative;
+    width:100%;max-width:340px;
+    background:#fff;border-radius:14px;
+    overflow:hidden;
+    animation:popIn .2s ease;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+  }
+  @keyframes popIn{from{transform:scale(.92);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .exit-modal-close{
+    position:absolute;top:8px;right:8px;z-index:2;
+    width:26px;height:26px;border-radius:50%;
+    background:rgba(255,255,255,.9);border:none;color:#333;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .exit-modal-banner{
+    position:relative;height:190px;padding:16px;
+    background:linear-gradient(120deg, #fff 0%, #fff 55%, #eef7f0 55%, #eef7f0 100%);
+  }
+  .exit-modal-badge{
+    position:absolute;top:10px;right:10px;
+    background:var(--line-green);color:#fff;font-weight:800;font-size:9.5px;
+    padding:4px 8px;border-radius:6px;line-height:1.3;text-align:center;max-width:90px;
+  }
+  .exit-modal-copy{position:relative;z-index:1;max-width:66%;}
+  .exit-modal-copy .lead{font-size:12px;color:#333;font-weight:700;margin:0 0 2px;}
+  .exit-modal-copy .headline{font-size:19px;font-weight:900;line-height:1.35;margin:0 0 8px;color:#111;}
+  .exit-modal-copy .sub{font-size:11.5px;color:#555;font-weight:700;margin:0;}
+  .exit-modal-phone{
+    position:absolute;top:44px;right:16px;width:54px;height:54px;border-radius:50%;
+    background:#fff;border:2px solid var(--line-green);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
+  }
+  .exit-modal-thumbrow{display:flex;gap:4px;position:absolute;left:16px;right:16px;bottom:14px;}
+  .exit-modal-thumbrow .placeholder-img{flex:1;height:34px;font-size:0;}
+  .exit-modal-body{padding:14px 18px 20px;}
+  .exit-modal .btn{margin-bottom:8px;}
+  .exit-modal-detail{
+    display:block;text-align:center;font-size:12.5px;color:#444;
+    text-decoration:underline;
+  }
+
+  /* ==========================================================
+     ティーバイティー「らしさ」パーツ
+     （公式サイトのコミック調・実写スポークスパーソン・
+       サインボード風実績カードのトーンを参考に追加）
+  ========================================================== */
+
+  /* コミック調の縁取り文字 */
+  .comic-text{
+    color:var(--accent);
+    font-weight:900;
+    -webkit-text-stroke:2px var(--black);
+    text-shadow:2px 0 0 var(--black),-2px 0 0 var(--black),0 2px 0 var(--black),0 -2px 0 var(--black),2px 2px 0 var(--black),-2px -2px 0 var(--black),2px -2px 0 var(--black),-2px 2px 0 var(--black);
+    letter-spacing:.02em;
+  }
+
+  /* 「え!?こんなバイクまで!?」リアクション */
+  .reaction-strip{background:var(--accent);padding:26px 0;}
+  .reaction-inner{display:flex;align-items:center;gap:14px;}
+  .reaction-avatar{
+    flex:none;width:60px;height:60px;border-radius:50%;border:3px solid var(--black);
+  }
+  .reaction-bubble{
+    background:#fff;border:2px solid var(--black);border-radius:14px;border-bottom-left-radius:2px;
+    padding:6px 12px;font-weight:900;font-size:13px;display:inline-block;margin-bottom:6px;
+  }
+  .reaction-strip h3{font-size:22px;margin:0 0 4px;line-height:1.3;}
+  .reaction-strip p{font-size:12px;color:#4a4116;margin:0;font-weight:700;}
+  .reaction-photorow{display:flex;gap:8px;margin-top:16px;}
+  .reaction-photorow .placeholder-img{flex:1;height:60px;}
+
+  /* お客様の声：実績カード（サインボード風） */
+  .proof-card{
+    background:#fff;border:2px solid var(--black);border-radius:14px;overflow:hidden;margin-bottom:16px;
+  }
+  .proof-photo{height:200px;position:relative;}
+  .proof-sign{
+    position:absolute;bottom:10px;right:10px;
+    background:#ffe6f2;border:2px solid var(--black);border-radius:50%;
+    width:70px;height:70px;display:flex;align-items:center;justify-content:center;
+    text-align:center;font-size:11px;font-weight:900;color:#c02a72;transform:rotate(-8deg);
+    line-height:1.2;
+  }
+  .proof-body{padding:14px;}
+  .proof-type-row{display:flex;gap:8px;align-items:center;font-size:12px;margin-bottom:8px;}
+  .proof-type-row .lbl{background:var(--black);color:#fff;font-weight:800;padding:3px 8px;border-radius:4px;font-size:11px;}
+  .proof-price-lbl{
+    display:inline-block;background:var(--black);color:#fff;font-weight:800;font-size:11px;
+    padding:3px 10px;border-radius:4px;margin-bottom:4px;
+  }
+  .proof-price{font-size:28px;font-weight:900;color:var(--blue-dark);margin-bottom:10px;}
+  .proof-price span{font-size:13px;font-weight:700;color:var(--gray-500);}
+  .proof-comment{
+    background:var(--gray-100);border-radius:12px;border-top-left-radius:2px;
+    padding:10px 12px;font-size:12.5px;color:#444;display:flex;gap:10px;align-items:flex-start;
+  }
+  .proof-comment .mini-avatar{flex:none;width:32px;height:32px;border-radius:50%;}
+
+  .mini-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+  .mini-proof{background:#fff;border:2px solid var(--black);border-radius:10px;overflow:hidden;}
+  .mini-proof-photo{height:90px;}
+  .mini-proof-tags{padding:8px;}
+  .mini-proof-tags .name{font-weight:800;font-size:12px;margin-bottom:4px;}
+  .mini-proof-tags .chip{
+    display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;margin:0 4px 4px 0;
+  }
+  .chip-loc{background:#e2defa;color:#4d3fa8;}
+  .chip-model{background:var(--black);color:#fff;}
+
+  /* FAQ：黒枠ボックス型 */
+  .faq-title-bar{
+    display:inline-block;background:var(--black);color:#fff;font-weight:900;
+    font-size:13px;padding:6px 16px;margin-bottom:14px;
+  }
+  .faq-v2{border:2px solid var(--black);border-radius:10px;margin-bottom:10px;overflow:hidden;background:#fff;}
+  .faq-v2 .faq-q{padding:14px;}
+  .faq-v2 .q-mark{
+    flex:none;width:24px;height:24px;border:2px solid var(--black);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--black);
+  }
+  .faq-v2 .faq-toggle-icon{
+    width:22px;height:22px;border-radius:50%;background:var(--gray-100);color:var(--black);padding:3px;
+  }
+  .faq-v2 .faq-a{padding:0 14px;}
+  .faq-v2.open .faq-a{padding-bottom:14px;}
+
+  /* 買取以外もT×T：クロスセル */
+  .cross-sell{display:flex;gap:10px;justify-content:center;margin-top:18px;}
+  .cross-sell-item{
+    flex:1;max-width:100px;text-align:center;background:#fff;border:2px solid var(--black);
+    border-radius:10px;padding:10px 4px;font-size:11px;font-weight:800;
+  }
+  .cross-sell-item .placeholder-img{height:40px;margin-bottom:6px;}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     アイコン定義（シルエットSVG／絵文字不使用）
+========================================================= -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="ic-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol>
+    <symbol id="ic-alert" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="ic-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="ic-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+    <symbol id="ic-photo" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5z"/></symbol>
+    <symbol id="ic-truck" viewBox="0 0 24 24"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6" fill="currentColor" stroke="none"/><circle cx="17.5" cy="19" r="1.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="ic-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+    <symbol id="ic-store" viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5"/><path d="M3 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"/><path d="M4 9v10h16V9"/></symbol>
+    <symbol id="ic-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M9 13.5 7 22l5-3 5 3-2-8.5"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================ -->
+<!-- 0. メインLPビュー -->
+<!-- ============================================================ -->
+<div id="view-lp">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-mark">
+        <span class="logo-box">T×T</span>
+        <span>ティーバイティー<br>ガレージ<span style="font-weight:400;font-size:10px;">（バイク買取）</span></span>
+      </div>
+      <div class="header-cta">
+        <a class="tel-btn" href="tel:0000000000">
+          <svg class="icon"><use href="#ic-phone"/></svg>
+          <span>000-0000-0000<br><span style="font-weight:400;">（ダミー）</span></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーロー：ファーストビューは1枚の写真に集約 -->
+  <section class="hero">
+    <div class="hero-photo">
+      <div class="hero-badges">
+        <span>出張査定￥0</span><span>キャンセル無料</span><span>全国対応</span>
+      </div>
+      <div class="hero-photo-note">
+        <svg class="icon"><use href="#ic-photo"/></svg>
+        <span>画像プレースホルダー：バイクの写真を配置予定</span>
+      </div>
+      <div class="headline-box">
+        <h1>その眠ったバイク、<br><span class="comic-text accent">いくらになる？</span></h1>
+        <p class="hero-sub">動かなくても、壊れていても査定OK。無料出張査定で価値を確かめよう。</p>
+      </div>
+    </div>
+
+    <div class="hero-cta-row">
+      <button class="btn btn-primary" onclick="openForm()">無料出張査定を申し込む</button>
+      <button class="btn btn-line" onclick="openLineDummy('hero-cta')">LINEで写真を送って査定</button>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-strip-track">
+        <span class="trust-strip-item"><svg class="icon"><use href="#ic-check"/></svg>他社で断られた車両も相談OK</span>
+        <span class="trust-strip-item"><svg class="icon"><use href="#ic-check"/></svg>出張費・査定費0円</span>
+        <span class="trust-strip-item"><svg class="icon"><use href="#ic-check"/></svg>面倒な手続きも代行</span>
+      </div>
+    </div>
+
+    <!-- 簡易査定フォーム（ヒーロー埋め込み型：3項目を最初から表示） -->
+    <div class="hero-quiz">
+      <p class="quiz-lead">たった3つの質問で査定スタート</p>
+      <p class="quiz-sub">無料でお試し査定！ご所有のバイクについて教えてください</p>
+      <span class="quiz-count-badge">たった3項目！</span>
+      <div class="quiz-body">
+        <div class="quiz-mascot placeholder-img"><svg class="icon"><use href="#ic-user"/></svg></div>
+        <div class="quiz-bubble">分かる範囲でOKです！まずは3つ教えてください</div>
+      </div>
+
+      <div class="quiz-field-row">
+        <span class="quiz-field-num">1</span>
+        <select id="hero-maker">
+          <option value="">メーカー</option>
+          <option value="honda">ホンダ</option>
+          <option value="yamaha">ヤマハ</option>
+          <option value="suzuki">スズキ</option>
+          <option value="kawasaki">カワサキ</option>
+          <option value="other">その他・輸入車</option>
+          <option value="unknown">わからない</option>
+        </select>
+      </div>
+      <div class="quiz-field-row">
+        <span class="quiz-field-num">2</span>
+        <select id="hero-displacement">
+          <option value="">排気量</option>
+          <option value="〜125cc">〜125cc</option>
+          <option value="126〜250cc">126〜250cc</option>
+          <option value="251〜400cc">251〜400cc</option>
+          <option value="401cc〜">401cc〜</option>
+          <option value="わからない">わからない</option>
+        </select>
+      </div>
+      <div class="quiz-field-row">
+        <span class="quiz-field-num">3</span>
+        <input type="text" id="hero-model" placeholder="バイク名（わかれば）例：CB400SF">
+      </div>
+
+      <button class="btn btn-primary" id="hero-quiz-next" onclick="heroStartAssessment()" disabled>この内容で無料査定に進む →</button>
+    </div>
+  </section>
+
+  <!-- リアクション演出：ティーバイティーらしいノリ -->
+  <section class="reaction-strip">
+    <div class="wrap">
+      <div class="reaction-inner">
+        <div class="reaction-avatar placeholder-img"><svg class="icon"><use href="#ic-user"/></svg></div>
+        <div>
+          <div class="reaction-bubble">え！？</div>
+          <h3>こんなバイクまで！？</h3>
+        </div>
+      </div>
+      <p>売れるか不安なバイクでも、まずはご相談ください！壊れてても、動かなくても、ティーバイティーは全部買います。</p>
+      <div class="reaction-photorow">
+        <div class="placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+        <div class="placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+        <div class="placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow">CHECK</div>
+      <h2 class="h-title">こんなバイク、<br>ありませんか？</h2>
+      <div class="check-grid">
+        <div class="check-card">
+          <div class="check-photo placeholder-img"><svg class="icon"><use href="#ic-wrench"/></svg></div>
+          <div>
+            <h3>壊れたバイク</h3>
+            <p>事故・故障でそのまま放置している</p>
+          </div>
+          <div class="check-ok">査定<br>OK</div>
+        </div>
+        <div class="check-card">
+          <div class="check-photo placeholder-img"><svg class="icon"><use href="#ic-alert"/></svg></div>
+          <div>
+            <h3>動かないバイク</h3>
+            <p>エンジンがかからない・不動車になった</p>
+          </div>
+          <div class="check-ok">査定<br>OK</div>
+        </div>
+        <div class="check-card">
+          <div class="check-photo placeholder-img"><svg class="icon"><use href="#ic-moon"/></svg></div>
+          <div>
+            <h3>眠ってるバイク</h3>
+            <p>倉庫や車庫に長期間しまったまま</p>
+          </div>
+          <div class="check-ok">査定<br>OK</div>
+        </div>
+      </div>
+      <p class="check-lead">1つでも当てはまったら、<br>まずは無料査定へ。</p>
+      <button class="btn btn-primary" onclick="openForm()">無料出張査定に申し込む</button>
+    </div>
+  </section>
+
+  <!-- 査定は選べます：出張 or LINE（表ではなく2択カードで提示） -->
+  <section class="section gray">
+    <div class="wrap">
+      <div class="eyebrow">STYLE</div>
+      <h2 class="h-title">査定は、<br>好きなスタイルで。</h2>
+      <div class="style-cards">
+        <div class="style-card style-card-main">
+          <span class="style-badge">おすすめ</span>
+          <div class="style-icon"><svg class="icon"><use href="#ic-truck"/></svg></div>
+          <h3>スタッフが自宅まで出張</h3>
+          <ul>
+            <li>実車を見て、その場で金額を提示</li>
+            <li>立ち会うだけでOK。搬出作業もお任せ</li>
+            <li>出張費・査定費はずっと0円</li>
+          </ul>
+          <button class="btn btn-primary" onclick="openForm()">出張査定を申し込む</button>
+        </div>
+        <div class="style-card">
+          <div class="style-icon"><svg class="icon"><use href="#ic-chat"/></svg></div>
+          <h3>LINEで写真を送るだけ</h3>
+          <ul>
+            <li>おうちから出ずに概算がわかる</li>
+            <li>バイクの写真を数枚送るだけ</li>
+            <li>気になったら出張査定に切り替えOK</li>
+          </ul>
+          <button class="btn btn-line" onclick="openLineDummy('style-card')">LINEで査定する</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REASON：どこでも無料出張／どんなバイクでもOK -->
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow">REASON</div>
+      <h2 class="h-title">ティーバイティーが<br>選ばれる理由</h2>
+
+      <div class="reason-block">
+        <span class="reason-tag">REASON 1</span>
+        <h3>自宅の車庫まで、スタッフが直接お伺いします</h3>
+        <div class="reason-photo placeholder-img">
+          <svg class="icon icon-lg"><use href="#ic-truck"/></svg>
+          [画像プレースホルダー]出張引き取り風景の写真
+        </div>
+        <p>店舗に持ち込む手間はいりません。<mark>ご自宅の車庫や倉庫まで</mark>スタッフが直接お伺いし、その場で査定・搬出まで対応します。（一部離島を除く／ダミー文言）</p>
+      </div>
+
+      <div class="reason-block">
+        <span class="reason-tag">REASON 2</span>
+        <h3>「これは無理かも…」でも、まずは聞いてください</h3>
+        <div class="reason-photo placeholder-img">
+          <svg class="icon icon-lg"><use href="#ic-store"/></svg>
+          [画像プレースホルダー]店舗外観の写真
+        </div>
+        <p>車検切れ、書類なし、パーツ欠品…諦める前に一度ご相談ください。<mark>断る前に、まず価値を確認</mark>するのがティーバイティーのやり方です。（ダミー文言）</p>
+      </div>
+
+      <div class="reason-block">
+        <span class="reason-tag">REASON 3</span>
+        <h3>面倒な手続きも、まるごと代行</h3>
+        <div class="reason-photo placeholder-img">
+          <svg class="icon icon-lg"><use href="#ic-doc"/></svg>
+          [画像プレースホルダー]手続き・書類対応の写真
+        </div>
+        <p>名義変更や廃車手続きなど、<mark>面倒な書類関係もティーバイティーが無料で代行</mark>します。（ダミー文言）</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <div class="eyebrow">WHY T×T GARAGE</div>
+      <h2 class="h-title" style="color:#fff;">ティーバイティーは、<br>全部買う。</h2>
+      <div class="value-item">
+        <div class="value-photo"><svg class="icon"><use href="#ic-shield"/></svg></div>
+        <div>
+          <h3>0円と決めつけません。</h3>
+          <p>事故車・不動車・書類なしでも、まずは価値を確認。パーツ単位でも査定します。（ダミー文言）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gray">
+    <div class="wrap">
+      <div class="eyebrow">FLOW</div>
+      <h2 class="h-title">申し込みから買取まで<br>迷わない4ステップ</h2>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <h3>無料査定に申し込む</h3>
+          <p>フォームまたはLINEから60秒で入力完了。</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <h3>日程を調整</h3>
+          <p>ご都合の良い日時に出張査定の日程を調整します。</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <h3>出張査定・その場で商談</h3>
+          <p>経験豊富な査定士がバイクの状態を確認し、その場で金額をご提示します。</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <h3>ご成約・お支払い</h3>
+          <p>ご納得いただけたら即日成約。お支払いも迅速に対応します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 買取強化車種カルーセル -->
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow">MODEL</div>
+      <h2 class="h-title">こんなバイクも<br>買取実績あり<span style="display:block;font-size:12px;font-weight:400;">もちろん掲載車種以外も大歓迎！</span></h2>
+    </div>
+    <div class="wrap">
+      <div class="carousel-wrap">
+        <div class="carousel-track">
+          <div class="model-card">
+            <div class="model-photo placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+            <div class="model-info"><div class="mk">ヤマハ</div><div class="mn">ドラッグスター250</div><div class="mp">〜24万円</div></div>
+          </div>
+          <div class="model-card">
+            <div class="model-photo placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+            <div class="model-info"><div class="mk">ホンダ</div><div class="mn">CBR250RR</div><div class="mp">〜58万円</div></div>
+          </div>
+          <div class="model-card">
+            <div class="model-photo placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+            <div class="model-info"><div class="mk">ホンダ</div><div class="mn">レブル250</div><div class="mp">〜50万円</div></div>
+          </div>
+          <div class="model-card">
+            <div class="model-photo placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+            <div class="model-info"><div class="mk">カワサキ</div><div class="mn">Ninja400</div><div class="mp">〜45万円</div></div>
+          </div>
+          <div class="model-card">
+            <div class="model-photo placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+            <div class="model-info"><div class="mk">スズキ</div><div class="mn">GSX-R750</div><div class="mp">〜60万円</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="carousel-hint">← 横にスワイプできます →</p>
+      <p class="note" style="text-align:center;">※直近3ヶ月以内の査定買取価格（ダミー・税込）</p>
+    </div>
+  </section>
+
+  <section class="section gray">
+    <div class="wrap">
+      <div class="eyebrow">VOICE</div>
+      <h2 class="h-title">バイク<br>買取らせていただきました！</h2>
+      <p class="voice-disclaimer">※掲載用のサンプルです。実際のお客様の声・お写真に差し替え予定です。</p>
+
+      <div class="proof-card">
+        <div class="proof-photo placeholder-img">
+          <svg class="icon icon-lg"><use href="#ic-photo"/></svg>
+          [画像プレースホルダー]お客様＋買取車両の写真
+          <div class="proof-sign">親切<br>丁寧</div>
+        </div>
+        <div class="proof-body">
+          <div class="proof-type-row"><span class="lbl">種類</span><span>スズキ　GS1200SS（ダミー）</span></div>
+          <div class="proof-price-lbl">買取価格</div>
+          <div class="proof-price">95<span>万円（参考）</span></div>
+          <div class="proof-comment">
+            <div class="mini-avatar placeholder-img"><svg class="icon" style="width:14px;height:14px;"><use href="#ic-user"/></svg></div>
+            <p>長年大切にされてきた愛車をご売却いただきました！エンジンがかからない不動車や、ホコリをかぶって眠っているバイクでも大丈夫。まずはお気軽にご相談ください！（サンプル文言）</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mini-proof-grid">
+        <div class="mini-proof">
+          <div class="mini-proof-photo placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+          <div class="mini-proof-tags">
+            <div class="name">W様</div>
+            <span class="chip chip-loc">北海道紋別市</span><span class="chip chip-model">カワサキ バイク…</span>
+          </div>
+        </div>
+        <div class="mini-proof">
+          <div class="mini-proof-photo placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>
+          <div class="mini-proof-tags">
+            <div class="name">O様</div>
+            <span class="chip chip-loc">北海道河東郡</span><span class="chip chip-model">ヤマハ バイク…</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:18px;">
+        <button class="btn btn-outline" onclick="return false;">買取実績 一覧を見る（ダミー）</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="faq-title-bar">FAQ</div>
+      <h2 class="h-title" style="text-align:left;margin-top:0;">バイク買取のよくあるご質問</h2>
+      <div id="faq-list">
+        <div class="faq-item faq-v2">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span style="display:flex;align-items:center;gap:10px;"><span class="q-mark">Q</span> 本当に動かないバイクでも査定してもらえますか？</span>
+            <svg class="icon faq-toggle-icon"><use href="#ic-plus"/></svg>
+          </button>
+          <div class="faq-a"><p>はい。事故車・不動車・長期保管のバイクも査定実績多数です。まずはお気軽にご相談ください。</p></div>
+        </div>
+        <div class="faq-item faq-v2">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span style="display:flex;align-items:center;gap:10px;"><span class="q-mark">Q</span> 出張査定に費用はかかりますか？</span>
+            <svg class="icon faq-toggle-icon"><use href="#ic-plus"/></svg>
+          </button>
+          <div class="faq-a"><p>出張費・査定費は全国どこでも無料です（一部離島を除く）。</p></div>
+        </div>
+        <div class="faq-item faq-v2">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span style="display:flex;align-items:center;gap:10px;"><span class="q-mark">Q</span> 名義が自分ではないのですが大丈夫ですか？</span>
+            <svg class="icon faq-toggle-icon"><use href="#ic-plus"/></svg>
+          </button>
+          <div class="faq-a"><p>事前にご相談いただければ対応可能な場合がございます。まずはお問い合わせください。</p></div>
+        </div>
+        <div class="faq-item faq-v2">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span style="display:flex;align-items:center;gap:10px;"><span class="q-mark">Q</span> 査定後にキャンセルはできますか？</span>
+            <svg class="icon faq-toggle-icon"><use href="#ic-plus"/></svg>
+          </button>
+          <div class="faq-a"><p>もちろん可能です。ご納得いただけない場合、無理な引き取りは致しません。</p></div>
+        </div>
+        <div class="faq-item faq-v2">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span style="display:flex;align-items:center;gap:10px;"><span class="q-mark">Q</span> LINEでの査定は何が必要ですか？</span>
+            <svg class="icon faq-toggle-icon"><use href="#ic-plus"/></svg>
+          </button>
+          <div class="faq-a"><p>バイクの写真を数枚お送りいただくだけで、概算価格をご案内します。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <p style="text-align:center;font-weight:800;font-size:13px;color:var(--gray-500);">バイク以外もティーバイティー！</p>
+      <div class="cross-sell">
+        <div class="cross-sell-item"><div class="placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>クルマ買取</div>
+        <div class="cross-sell-item"><div class="placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>ボート買取</div>
+        <div class="cross-sell-item"><div class="placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg></div>農機具買取</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="wrap">
+      <h2>そのバイク、眠らせておくのは<br>もったいない。</h2>
+      <p>動かなくても、古くても、壊れていても。<br>ティーバイティーが無料で出張査定します。</p>
+      <div class="hero-cta-group" style="display:flex;flex-direction:column;gap:10px;">
+        <button class="btn btn-primary" onclick="openForm()">
+          <svg class="icon"><use href="#ic-search"/></svg> 無料出張査定を申し込む
+        </button>
+        <button class="btn btn-line" onclick="openLineDummy('final')">
+          <svg class="icon"><use href="#ic-chat"/></svg> LINEで査定を相談する
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="logo-mark" style="color:#fff;">
+        <span class="logo-box">T×T</span> <span>ティーバイティーガレージ（バイク買取）</span>
+      </div>
+      <dl class="company-box">
+        <dt>運営会社</dt><dd>株式会社ティーバイティーガレージ（表記ダミー）</dd>
+        <dt>フリーダイヤル</dt><dd>000-0000-0000（ダミー・8:00〜20:00）</dd>
+        <dt>LINE公式アカウント</dt><dd>@txt-garage-bike（ダミーID）</dd>
+        <dt>対応エリア</dt><dd>全国対応（ダミー記載・一部離島を除く）</dd>
+      </dl>
+      <div class="foot-links">
+        <a href="#" onclick="return false;">特定商取引法に基づく表記（ダミー）</a>
+        <a href="#" onclick="return false;">プライバシーポリシー（ダミー）</a>
+        <a href="#" onclick="return false;">会社概要（ダミー）</a>
+      </div>
+      <p class="note" style="margin-top:16px;">※本ページはデザイン確認用のモックアップです。写真・電話番号・LINE ID・実績数値・お客様の声等は全てダミーです。</p>
+      <p class="note">© T×T GARAGE（ダミー表記）</p>
+    </div>
+  </footer>
+
+  <div class="float-cta">
+    <button class="btn btn-outline" style="flex:1;" onclick="window.location.href='tel:0000000000'">
+      <svg class="icon"><use href="#ic-phone"/></svg> 電話
+    </button>
+    <button class="btn btn-line" onclick="openLineDummy('float')">
+      <svg class="icon"><use href="#ic-chat"/></svg> LINE査定
+    </button>
+    <button class="btn btn-primary" onclick="openForm()">無料査定</button>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 1. 無料おためし査定フォーム ビュー -->
+<!-- ============================================================ -->
+<div id="view-form" class="hidden">
+
+  <div class="form-header">
+    <div class="form-header-row">
+      <div class="form-title">無料おためし査定</div>
+      <button class="close-x" onclick="requestExit('close-x')"><svg class="icon" style="width:14px;height:14px;"><use href="#ic-close"/></svg></button>
+    </div>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">STEP 1 / 3　バイク情報の入力</div>
+
+  <div class="form-body">
+
+    <!-- STEP1: 情報入力 -->
+    <div class="form-step active" id="step-1">
+      <h2>バイクの情報を教えてください</h2>
+      <p class="step-desc">分かる範囲でOKです。不明な項目は「わからない」を選んでください。</p>
+
+      <div class="field">
+        <label>メーカー<span class="required">必須</span></label>
+        <select id="f-maker">
+          <option value="">選択してください</option>
+          <option value="honda">ホンダ</option>
+          <option value="yamaha">ヤマハ</option>
+          <option value="suzuki">スズキ</option>
+          <option value="kawasaki">カワサキ</option>
+          <option value="other">その他・輸入車</option>
+          <option value="unknown">わからない</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>車種名（分かれば）</label>
+        <input type="text" id="f-model" placeholder="例：CB400SF">
+      </div>
+
+      <div class="field">
+        <label>排気量</label>
+        <select id="f-displacement">
+          <option value="">選択してください</option>
+          <option value="〜125cc">〜125cc</option>
+          <option value="126〜250cc">126〜250cc</option>
+          <option value="251〜400cc">251〜400cc</option>
+          <option value="401cc〜">401cc〜</option>
+          <option value="わからない">わからない</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>年式</label>
+        <select id="f-year">
+          <option value="">選択してください</option>
+          <option>〜2000年</option>
+          <option>2001〜2010年</option>
+          <option>2011〜2020年</option>
+          <option>2021年〜</option>
+          <option>わからない</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>走行距離</label>
+        <select id="f-mileage">
+          <option value="">選択してください</option>
+          <option>〜5,000km</option>
+          <option>5,000〜20,000km</option>
+          <option>20,000〜50,000km</option>
+          <option>50,000km以上</option>
+          <option>わからない</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>バイクの状態（複数選択可）</label>
+        <div class="check-options" id="condition-options">
+          <label><input type="checkbox" value="壊れている（事故・故障）" onchange="toggleOptionStyle(this)">壊れている（事故・故障）</label>
+          <label><input type="checkbox" value="動かない（不動車）" onchange="toggleOptionStyle(this)">動かない（不動車）</label>
+          <label><input type="checkbox" value="長期間保管（倉庫・車庫）" onchange="toggleOptionStyle(this)">長期保管（倉庫・車庫）</label>
+          <label><input type="checkbox" value="車検切れ" onchange="toggleOptionStyle(this)">車検切れ</label>
+          <label><input type="checkbox" value="書類なし" onchange="toggleOptionStyle(this)">書類なし</label>
+          <label><input type="checkbox" value="特に問題なし" onchange="toggleOptionStyle(this)">特に問題なし</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>お住まいの都道府県（出張エリア確認用）</label>
+        <select id="f-pref">
+          <option value="">選択してください</option>
+          <option>北海道・東北</option>
+          <option>関東</option>
+          <option>中部・北陸</option>
+          <option>関西</option>
+          <option>中国・四国</option>
+          <option>九州・沖縄</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- STEP2: バイク一覧表示（参考価格） -->
+    <div class="form-step" id="step-2">
+      <h2>参考買取価格の目安です</h2>
+      <p class="step-desc">入力内容に近いバイクの参考価格帯です。実際の金額は出張査定でご提示します。</p>
+
+      <div id="bike-match-list"></div>
+
+      <div class="disclaimer-box">
+        ※価格はダミーデータによる表示イメージです。実際の相場データに差し替えて運用してください。
+      </div>
+    </div>
+
+    <!-- STEP3: 連絡先入力 -->
+    <div class="form-step" id="step-3">
+      <h2>ご連絡先を入力してください</h2>
+      <p class="step-desc">査定結果・日程調整のご連絡に使用します。</p>
+
+      <div class="field">
+        <label>お名前<span class="required">必須</span></label>
+        <input type="text" id="f-name" placeholder="例：山田 太郎">
+      </div>
+      <div class="field">
+        <label>電話番号<span class="required">必須</span></label>
+        <input type="tel" id="f-tel" placeholder="例：090-1234-5678">
+      </div>
+      <div class="field">
+        <label>メールアドレス<span class="required">必須</span></label>
+        <input type="email" id="f-email" placeholder="例：sample@example.com">
+      </div>
+      <div class="field">
+        <label>ご希望の連絡方法</label>
+        <div class="radio-rows">
+          <label><input type="radio" name="contact-method" value="電話" checked>電話</label>
+          <label><input type="radio" name="contact-method" value="メール">メール</label>
+          <label><input type="radio" name="contact-method" value="LINE">LINE</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>ご希望の査定日時</label>
+        <select id="f-datetime">
+          <option value="">選択してください</option>
+          <option>平日 午前</option>
+          <option>平日 午後</option>
+          <option>土日 午前</option>
+          <option>土日 午後</option>
+          <option>いつでも可</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>備考（任意）</label>
+        <textarea id="f-note" placeholder="鍵が見つからない、車検証がない、などご自由にご記入ください"></textarea>
+      </div>
+
+      <div class="confirm-box" id="confirm-summary"></div>
+
+      <label class="agree-row">
+        <input type="checkbox" id="f-agree">
+        <span><a href="#" onclick="return false;">プライバシーポリシー（ダミー）</a>に同意の上、送信します。</span>
+      </label>
+    </div>
+
+  </div>
+
+  <div class="form-nav">
+    <div class="form-nav-inner">
+      <button class="btn btn-outline hidden" id="btn-back" onclick="prevStep()">戻る</button>
+      <button class="btn btn-primary" id="btn-next" onclick="nextStep()">バイクの参考価格を見る →</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 2. サンクスビュー -->
+<!-- ============================================================ -->
+<div id="view-thanks" class="hidden">
+  <div class="thanks-wrap">
+    <div class="thanks-icon"><svg class="icon" style="stroke:#fff;"><use href="#ic-check"/></svg></div>
+    <h2>お申し込みありがとうございます！</h2>
+    <p>担当者より1営業日以内にご連絡いたします。<br>お急ぎの方はお電話またはLINEでもご相談いただけます。<br><br>
+    <span class="note">（本ページはモックアップのため、実際の送信・メール転送・LINE連携は行われていません）</span></p>
+    <div class="thanks-cta">
+      <button class="btn btn-primary" onclick="window.location.href='tel:0000000000'">
+        <svg class="icon"><use href="#ic-phone"/></svg> 電話をかける（ダミー）
+      </button>
+      <button class="btn btn-line" onclick="openLineDummy('thanks')">
+        <svg class="icon"><use href="#ic-chat"/></svg> LINEで相談する
+      </button>
+      <button class="btn btn-outline" onclick="backToLp()">トップページに戻る</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 離脱防止：LINE査定案内モーダル -->
+<!-- ============================================================ -->
+<div id="exit-modal-overlay" class="hidden">
+  <div class="exit-modal">
+    <button class="exit-modal-close" onclick="closeExitModal()"><svg class="icon" style="width:13px;height:13px;"><use href="#ic-close"/></svg></button>
+    <div class="exit-modal-banner">
+      <span class="exit-modal-badge">査定でのやり取り不要！<br>LINEで完結</span>
+      <div class="exit-modal-copy">
+        <p class="lead">バイクのお試し査定を</p>
+        <p class="headline">もっと簡単に。</p>
+        <p class="sub">簡単3ステップでLINEから<br>買取上限金額がわかる</p>
+      </div>
+      <div class="exit-modal-phone">
+        <svg class="icon" style="width:26px;height:26px;color:var(--line-green);"><use href="#ic-chat"/></svg>
+      </div>
+      <div class="exit-modal-thumbrow">
+        <div class="placeholder-img"><svg class="icon" style="width:12px;height:12px;"><use href="#ic-photo"/></svg></div>
+        <div class="placeholder-img"><svg class="icon" style="width:12px;height:12px;"><use href="#ic-photo"/></svg></div>
+        <div class="placeholder-img"><svg class="icon" style="width:12px;height:12px;"><use href="#ic-photo"/></svg></div>
+      </div>
+    </div>
+    <div class="exit-modal-body">
+      <button class="btn btn-line" onclick="openLineDummy('exit-modal')">LINE査定</button>
+      <a class="exit-modal-detail" onclick="openLineDetailDummy()">＞ 詳細はこちら</a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* =========================================================
+   ダミーデータ：バイクの参考買取価格（メーカー別）
+   本番運用時は実際の相場データ/APIに差し替えてください
+========================================================= */
+const BIKE_PRICE_DATA = {
+  honda:   [{name:"ホンダ CB400SF", low:8, high:25},{name:"ホンダ PCX", low:5, high:18},{name:"ホンダ モンキー125", low:10, high:22}],
+  yamaha:  [{name:"ヤマハ セロー250", low:6, high:20},{name:"ヤマハ MT-07", low:15, high:40},{name:"ヤマハ トリシティ", low:4, high:15}],
+  suzuki:  [{name:"スズキ GSX-R", low:12, high:35},{name:"スズキ アドレス110", low:2, high:8},{name:"スズキ バンディット", low:7, high:22}],
+  kawasaki:[{name:"カワサキ Ninja250", low:10, high:28},{name:"カワサキ Z900", low:20, high:55},{name:"カワサキ エストレヤ", low:6, high:18}],
+  other:   [{name:"輸入車・その他モデルA", low:5, high:30},{name:"輸入車・その他モデルB", low:3, high:20}],
+  unknown: [{name:"国産バイク（一般的な相場例）", low:3, high:25}]
+};
+
+function el(id){ return document.getElementById(id); }
+
+/* ---------- ヒーロー埋め込みミニ査定（3項目を最初から表示） ---------- */
+const heroMakerSelect = el('hero-maker');
+const heroDisplacementSelect = el('hero-displacement');
+const heroModelInput = el('hero-model');
+const heroNextBtn = el('hero-quiz-next');
+heroMakerSelect.addEventListener('change', () => {
+  heroNextBtn.disabled = !heroMakerSelect.value;
+});
+function heroStartAssessment(){
+  if(!heroMakerSelect.value) return;
+  el('f-maker').value = heroMakerSelect.value;
+  if(heroDisplacementSelect.value){ el('f-displacement').value = heroDisplacementSelect.value; }
+  if(heroModelInput.value){ el('f-model').value = heroModelInput.value; }
+  openForm();
+}
+
+/* ---------- ビュー切り替え ---------- */
+function openForm(){
+  el('view-lp').classList.add('hidden');
+  el('view-thanks').classList.add('hidden');
+  el('view-form').classList.remove('hidden');
+  window.scrollTo(0,0);
+  goToStep(1);
+  armExitGuard();
+}
+function backToLp(){
+  el('view-form').classList.add('hidden');
+  el('view-thanks').classList.add('hidden');
+  el('view-lp').classList.remove('hidden');
+  window.scrollTo(0,0);
+  disarmExitGuard();
+}
+function goThanks(){
+  el('view-form').classList.add('hidden');
+  el('view-thanks').classList.remove('hidden');
+  window.scrollTo(0,0);
+  disarmExitGuard();
+}
+
+/* ---------- LINE（ダミー）誘導 ---------- */
+function openLineDummy(source){
+  alert('【モックアップ】LINE公式アカウントの友だち追加画面へ遷移します。\n（遷移元: ' + source + '）\n\n本番実装では実際のLINE公式アカウントの追加URL（https://lin.ee/xxxxxxx など）に置き換えてください。');
+}
+function openLineDetailDummy(){
+  alert('【モックアップ】LINE査定の詳細説明ページへ遷移します。\n（遷移元: exit-modal 詳細リンク）\n\n本番実装ではLINE査定の流れを説明するページ／セクションへのリンクに置き換えてください。');
+}
+
+/* ---------- FAQ ---------- */
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+/* ---------- チェックボックス見た目 ---------- */
+function toggleOptionStyle(input){
+  input.closest('label').classList.toggle('on', input.checked);
+}
+
+/* =========================================================
+   査定フォーム：ステップ制御
+========================================================= */
+let currentStep = 1;
+const totalSteps = 3;
+const stepLabels = ['バイク情報の入力', '参考価格の確認', 'ご連絡先の入力'];
+
+function goToStep(n){
+  currentStep = n;
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  el('step-' + n).classList.add('active');
+  el('progress-fill').style.width = Math.round((n/totalSteps)*100) + '%';
+  el('progress-label').textContent = 'STEP ' + n + ' / ' + totalSteps + '　' + stepLabels[n-1];
+  el('btn-back').classList.toggle('hidden', n === 1);
+
+  if(n === 1){ el('btn-next').textContent = 'バイクの参考価格を見る →'; }
+  if(n === 2){ el('btn-next').textContent = 'この内容で無料査定を申し込む →'; renderBikeMatches(); }
+  if(n === 3){ el('btn-next').textContent = '送信する'; renderConfirmSummary(); }
+
+  window.scrollTo(0,0);
+}
+
+function nextStep(){
+  if(currentStep === 1){
+    if(!el('f-maker').value){
+      alert('メーカーを選択してください。');
+      return;
+    }
+  }
+  if(currentStep === 3){
+    if(!el('f-name').value || !el('f-tel').value || !el('f-email').value){
+      alert('お名前・電話番号・メールアドレスをご入力ください。');
+      return;
+    }
+    if(!el('f-agree').checked){
+      alert('プライバシーポリシーへの同意にチェックをお願いします。');
+      return;
+    }
+    submitForm();
+    return;
+  }
+  if(currentStep < totalSteps){
+    goToStep(currentStep + 1);
+  }
+}
+function prevStep(){
+  if(currentStep > 1){ goToStep(currentStep - 1); }
+}
+
+function renderBikeMatches(){
+  const maker = el('f-maker').value || 'unknown';
+  const list = BIKE_PRICE_DATA[maker] || BIKE_PRICE_DATA.unknown;
+  const conditions = Array.from(document.querySelectorAll('#condition-options input:checked')).map(i => i.value);
+  const isImmobile = conditions.some(c => c.includes('動かない') || c.includes('壊れている'));
+
+  let html = '';
+  list.forEach(b => {
+    html += `
+      <div class="bike-match-card">
+        <div class="bike-match-img placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg>画像準備中</div>
+        <div class="bike-match-info">
+          <h4>${b.name}</h4>
+          <div class="bike-match-price">${b.low}万円 〜 ${b.high}万円（目安）</div>
+          <div class="bike-match-tags">
+            ${isImmobile ? '<span>不動車OK</span>' : ''}
+            <span>出張査定￥0</span>
+          </div>
+        </div>
+      </div>`;
+  });
+  el('bike-match-list').innerHTML = html;
+}
+
+function renderConfirmSummary(){
+  const maker = el('f-maker').selectedOptions[0]?.text || '未選択';
+  const model = el('f-model').value || '未入力';
+  const displacement = el('f-displacement').value || '未選択';
+  const conditions = Array.from(document.querySelectorAll('#condition-options input:checked')).map(i => i.value).join('、') || 'なし';
+  el('confirm-summary').innerHTML = `
+    <div class="confirm-row"><span class="k">メーカー</span><span>${maker}</span></div>
+    <div class="confirm-row"><span class="k">車種</span><span>${model}</span></div>
+    <div class="confirm-row"><span class="k">排気量</span><span>${displacement}</span></div>
+    <div class="confirm-row"><span class="k">状態</span><span>${conditions}</span></div>
+  `;
+}
+
+function submitForm(){
+  /*
+    TODO(バックエンド連携):
+    ここで査定申し込み内容をサーバーAPIへPOSTし、
+    1) 査定担当者宛への申し込み内容メール転送
+    2) お客様宛の自動返信メール送信
+    3) 必要であればLINE公式アカウントとの顧客連携
+    を行う処理を実装してください（本モックアップでは未実装）。
+  */
+  el('btn-next').textContent = '送信中...';
+  setTimeout(() => {
+    goThanks();
+  }, 500);
+}
+
+/* =========================================================
+   離脱防止：入力中に離脱しようとしたらLINE査定モーダルを強制表示
+   - 上方向へのマウス移動（PC：exit intent）
+   - 閉じる(×)ボタン
+   - ブラウザの戻る操作（popstate）
+========================================================= */
+let exitGuardArmed = false;
+let exitIntentShown = false;
+
+function armExitGuard(){
+  exitGuardArmed = true;
+  exitIntentShown = false;
+  history.pushState({txtGarageForm:true}, '');
+  document.addEventListener('mouseout', onMouseOutExitIntent);
+  window.addEventListener('popstate', onPopStateExitIntent);
+}
+function disarmExitGuard(){
+  exitGuardArmed = false;
+  document.removeEventListener('mouseout', onMouseOutExitIntent);
+  window.removeEventListener('popstate', onPopStateExitIntent);
+}
+function onMouseOutExitIntent(e){
+  if(!exitGuardArmed || exitIntentShown) return;
+  if(e.clientY <= 0){
+    showExitModal();
+  }
+}
+function onPopStateExitIntent(){
+  if(!exitGuardArmed) return;
+  showExitModal();
+  // ユーザーがまだフォーム上にいる想定で履歴を積み戻す
+  history.pushState({txtGarageForm:true}, '');
+}
+function requestExit(source){
+  showExitModal();
+}
+function showExitModal(){
+  exitIntentShown = true;
+  el('exit-modal-overlay').classList.remove('hidden');
+}
+function closeExitModal(){
+  el('exit-modal-overlay').classList.add('hidden');
+}
+</script>
+
+</body>
+</html>
