@@ -32,32 +32,35 @@
     <symbol id="ic-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
     <symbol id="ic-store" viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5"/><path d="M3 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"/><path d="M4 9v10h16V9"/></symbol>
     <symbol id="ic-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M9 13.5 7 22l5-3 5 3-2-8.5"/></symbol>
-    <symbol id="ic-facebook" viewBox="0 0 24 24"><path d="M17 3h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3.5l.5-4H13V8a1 1 0 0 1 1-1h3z" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="ic-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" fill="none"/></symbol>
-    <symbol id="ic-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
     <symbol id="ic-play" viewBox="0 0 24 24"><polygon points="9 6 19 12 9 18" fill="currentColor" stroke="none"/></symbol>
   </defs>
 </svg>
 
 <!-- ============================================================ -->
+<!-- 共通ヘッダー：LP／フォームどちらの画面でも同じものを常時表示する。
+     以前は #view-form 側に別デザインの .form-header を持たせていたため、
+     フォームに進むとヘッダーが差し替わって見えていた。
+     view-lp / view-form の外に置き、どちらの表示状態でも隠さない。 -->
+<!-- ============================================================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo-mark" href="./" onclick="return goTop()">
+      <img class="logo-img" src="img/logo.svg" alt="ティーバイティーガレージ">
+      <span class="logo-sub">バイク<br>買取</span>
+    </a>
+    <div class="header-cta">
+      <a class="tel-btn" href="tel:0120999999">
+        <img class="tel-img" src="img/tel.svg" alt="フリーダイヤル 0120-999-999" width="326" height="36">
+        <span class="tel-hours">【受付時間】8：00〜20：00</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ -->
 <!-- 0. メインLPビュー -->
 <!-- ============================================================ -->
 <div id="view-lp">
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo-mark" href="./" onclick="return goTop()">
-        <img class="logo-img" src="img/logo.svg" alt="ティーバイティーガレージ">
-        <span class="logo-sub">バイク<br>買取</span>
-      </a>
-      <div class="header-cta">
-        <a class="tel-btn" href="tel:0120999999">
-          <img class="tel-img" src="img/tel.svg" alt="フリーダイヤル 0120-999-999" width="326" height="36">
-          <span class="tel-hours">【受付時間】8：00〜20：00</span>
-        </a>
-      </div>
-    </div>
-  </header>
 
   <!-- ヒーロー：ファーストビューは1枚の写真に集約 -->
   <section class="hero">
@@ -67,17 +70,15 @@
          ただし h1 は SEO とスクリーンリーダー用に .sr-only で残す。 -->
     <h1 class="sr-only">壊れたバイク・動かないバイク・眠ってるバイク、買取ります｜ティーバイティーガレージの全国無料出張査定</h1>
     <div class="hero-photo">
-      <!-- ★キービジュアル：img/hero.jpg（960×1056）＝アセット9（黒帯なし版）。
-           黒い訴求ブロックは下の .hero-points としてHTMLで実装しているため、
-           画像には焼き込まれていない版を使用する -->
-      <img class="hero-key" src="img/hero.jpg" width="960" height="1056"
+      <!-- ★キービジュアル：img/hero2.jpg（960×1081） -->
+      <img class="hero-key" src="img/hero2.jpg" width="960" height="1081"
            fetchpriority="high" decoding="async"
            alt="バイクを売るのもティーバイティーガレージ。壊れたバイク・動かないバイク・眠ってるバイク、買取ります"
            onerror="this.remove()"
            onload="var n=this.parentNode.querySelector('.hero-photo-note'); if(n) n.remove();">
       <div class="hero-photo-note">
         <svg class="icon"><use href="#ic-photo"/></svg>
-        <span>img/hero.jpg</span>
+        <span>img/hero2.jpg</span>
         <span style="opacity:.7;">を置くとここに表示されます</span>
       </div>
     </div>
@@ -109,49 +110,60 @@
           </li>
         </ul>
 
-        <button class="btn btn-primary hp-cta" onclick="openForm()">無料出張査定を申し込む</button>
+        <button class="btn btn-primary hp-cta" onclick="scrollToQuiz()">無料出張査定を申し込む</button>
       </div>
     </div>
 
-    <!-- 簡易査定フォーム（ヒーロー埋め込み型：3項目を最初から表示） -->
-    <div class="hero-quiz">
-      <p class="quiz-lead">たった3つの質問で査定スタート</p>
-      <p class="quiz-sub">無料でお試し査定！ご所有のバイクについて教えてください</p>
-      <span class="quiz-count-badge">たった3項目！</span>
-      <div class="quiz-body">
-        <div class="quiz-mascot placeholder-img"><img src="img/shinjo01.png" width="192" height="192" alt="ティーバイティーガレージの査定スタッフ" loading="lazy" onerror="this.remove()"><svg class="icon"><use href="#ic-user"/></svg></div>
-        <div class="quiz-bubble">分かる範囲でOKです！まずは3つ教えてください</div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 3項目ミニ査定：ヒーローから切り離し、白背景の独立セクションに。
+       枠内は水色パネルで色を持たせ、見出しはスクロールでポップイン。 -->
+  <!-- ============================================================ -->
+  <section class="section quiz-section">
+    <div class="wrap">
+      <p class="quiz-lead punch-anim">たった3つの質問で<br class="quiz-lead-br">査定スタート</p>
+      <div class="quiz-sub-row fade-anim">
+        <span class="quiz-count-badge">たった3項目！</span>
+        <p class="quiz-sub">無料でお試し査定！ご所有のバイクについて教えてください</p>
       </div>
 
-      <div class="quiz-field-row">
-        <span class="quiz-field-num">1</span>
-        <select id="hero-maker">
-          <option value="">メーカー</option>
-          <option value="honda">ホンダ</option>
-          <option value="yamaha">ヤマハ</option>
-          <option value="suzuki">スズキ</option>
-          <option value="kawasaki">カワサキ</option>
-          <option value="other">その他・輸入車</option>
-          <option value="unknown">わからない</option>
-        </select>
-      </div>
-      <div class="quiz-field-row">
-        <span class="quiz-field-num">2</span>
-        <select id="hero-displacement">
-          <option value="">排気量</option>
-          <option value="〜125cc">〜125cc</option>
-          <option value="126〜250cc">126〜250cc</option>
-          <option value="251〜400cc">251〜400cc</option>
-          <option value="401cc〜">401cc〜</option>
-          <option value="わからない">わからない</option>
-        </select>
-      </div>
-      <div class="quiz-field-row">
-        <span class="quiz-field-num">3</span>
-        <input type="text" id="hero-model" placeholder="バイク名（わかれば）例：CB400SF">
-      </div>
+      <div class="quiz-panel">
+        <div class="quiz-body">
+          <div class="quiz-mascot placeholder-img"><img src="img/shinjo01.png" width="192" height="192" alt="ティーバイティーガレージの査定スタッフ" loading="lazy" onerror="this.remove()"><svg class="icon"><use href="#ic-user"/></svg></div>
+          <div class="quiz-bubble">分かる範囲でOKです！まずは3つ教えてください</div>
+        </div>
 
-      <button class="btn btn-primary" id="hero-quiz-next" onclick="heroStartAssessment()" disabled>この内容で無料査定に進む →</button>
+        <div class="quiz-field-row">
+          <span class="quiz-field-num">1</span>
+          <select id="hero-maker">
+            <option value="">メーカー</option>
+            <option value="honda">ホンダ</option>
+            <option value="yamaha">ヤマハ</option>
+            <option value="suzuki">スズキ</option>
+            <option value="kawasaki">カワサキ</option>
+            <option value="other">その他・輸入車</option>
+            <option value="unknown">わからない</option>
+          </select>
+        </div>
+        <div class="quiz-field-row">
+          <span class="quiz-field-num">2</span>
+          <select id="hero-displacement">
+            <option value="">排気量</option>
+            <option value="〜125cc">〜125cc</option>
+            <option value="126〜250cc">126〜250cc</option>
+            <option value="251〜400cc">251〜400cc</option>
+            <option value="401cc〜">401cc〜</option>
+            <option value="わからない">わからない</option>
+          </select>
+        </div>
+        <div class="quiz-field-row">
+          <span class="quiz-field-num">3</span>
+          <input type="text" id="hero-model" placeholder="バイク名（わかれば）例：CB400SF">
+        </div>
+
+        <button class="btn btn-primary" id="hero-quiz-next" onclick="heroStartAssessment()" disabled>この内容で無料査定に進む →</button>
+      </div>
     </div>
   </section>
 
@@ -206,7 +218,7 @@
         </div>
       </div>
       <p class="check-lead">1つでも当てはまったら、まずは無料査定へ。</p>
-      <button class="btn btn-primary" onclick="openForm()">無料出張査定に申し込む</button>
+      <button class="btn btn-primary" onclick="scrollToQuiz()">無料出張査定に申し込む</button>
     </div>
   </section>
 
@@ -255,7 +267,7 @@
 
       <div class="reason-block">
         <span class="reason-tag">REASON 1</span>
-        <h3><span class="hl-orange">&ldquo;買取り最低保証付き&rdquo;</span>ゼロ査定はしません</h3>
+        <h3><span class="hl-orange">&ldquo;10分スピード査定&rdquo;</span>お手間取らせません！</h3>
         <div class="reason-photo placeholder-img"><img src="img/REASON1.jpg" width="720" height="480" alt="お客様からのご相談を電話で受けるスタッフ" loading="lazy" onerror="this.remove()">
           <svg class="icon icon-lg"><use href="#ic-store"/></svg>
           [画像プレースホルダー]相談受付の写真
@@ -349,7 +361,7 @@
           <div class="flow-icon"><img src="img/flow_01_pc.svg" width="154" height="154" alt="" loading="lazy"></div>
           <h3>査定のお申込み</h3>
           <p>無料出張査定のお申込みは、お電話もしくは当サイトからお申込みください。</p>
-          <button class="btn btn-primary flow-cta" onclick="openForm()">今すぐ無料査定を申し込む</button>
+          <button class="btn btn-primary flow-cta" onclick="scrollToQuiz()">今すぐ無料査定を申し込む</button>
         </div>
 
         <div class="flow-card">
@@ -415,27 +427,13 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="wrap">
-      <p style="text-align:center;font-weight:800;font-size:13px;color:var(--gray-500);">バイク以外もティーバイティー！</p>
-      <div class="cross-sell">
-        <div class="cross-sell-item"><div class="placeholder-img"><img src="img/cross-car.jpg" alt="クルマ買取" loading="lazy" onerror="this.remove()"><svg class="icon"><use href="#ic-photo"/></svg></div>クルマ買取</div>
-        <div class="cross-sell-item"><div class="placeholder-img"><img src="img/cross-boat.jpg" alt="ボート買取" loading="lazy" onerror="this.remove()"><svg class="icon"><use href="#ic-photo"/></svg></div>ボート買取</div>
-        <div class="cross-sell-item"><div class="placeholder-img"><img src="img/cross-farm.jpg" alt="農機具買取" loading="lazy" onerror="this.remove()"><svg class="icon"><use href="#ic-photo"/></svg></div>農機具買取</div>
-      </div>
-    </div>
-  </section>
-
   <section class="section final-cta">
     <div class="wrap">
       <h2>そのバイク、眠らせておくのは<br>もったいない。</h2>
       <p>動かなくても、古くても、壊れていても。<br>ティーバイティーが無料で出張査定します。</p>
       <div class="hero-cta-group" style="display:flex;flex-direction:column;gap:10px;">
-        <button class="btn btn-primary" onclick="openForm()">
+        <button class="btn btn-primary" onclick="scrollToQuiz()">
           <svg class="icon"><use href="#ic-search"/></svg> 無料出張査定を申し込む
-        </button>
-        <button class="btn btn-line" onclick="openLineDummy('final')">
-          <svg class="icon"><use href="#ic-chat"/></svg> LINEで査定を相談する
         </button>
       </div>
     </div>
@@ -452,16 +450,83 @@
         <img src="img/tel.svg" alt="フリーダイヤル 0120-999-999" width="326" height="36">
       </a>
       <p class="fb-tel-hours">【受付時間】8：00〜20：00</p>
-      <button class="btn btn-primary fb-cta" onclick="openForm()">無料出張査定に申し込む</button>
+      <button class="btn btn-primary fb-cta" onclick="scrollToQuiz()">無料出張査定に申し込む</button>
 
-      <!-- 公式SNSアカウント（txt-garage.jp 記載の実アカウント） -->
+      <!-- 公式SNSアカウント（txt-garage.jp 記載の実アカウント。アイコンは公式配布の色付きSVG） -->
       <div class="fb-sns">
-        <a href="https://www.facebook.com/txtgarage/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#ic-facebook"/></svg></a>
-        <a href="https://x.com/txtgarage" target="_blank" rel="noopener" aria-label="X（旧Twitter）"><svg class="icon"><use href="#ic-x"/></svg></a>
-        <a href="https://www.instagram.com/txtgarage/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#ic-instagram"/></svg></a>
+        <a href="https://www.facebook.com/txtgarage/" target="_blank" rel="noopener" aria-label="Facebook"><img src="img/icon_facebook.svg" width="32" height="32" alt=""></a>
+        <a href="https://x.com/txtgarage" target="_blank" rel="noopener" aria-label="X（旧Twitter）"><img src="img/icon_x.svg" width="32" height="32" alt=""></a>
+        <a href="https://www.instagram.com/txtgarage/" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/icon_instagram.svg" width="32" height="32" alt=""></a>
       </div>
     </div>
   </section>
+
+  <!-- ============================================================ -->
+  <!-- サイトメニュー（公式サイト txt-garage.jp の下部アコーディオンに合わせる）
+       各カテゴリはネイティブの <details> で開閉。
+       リンク先はすべて公式サイト(txt-garage.jp)の実ページ。
+       当LPはバイク買取専用の1ページ構成のため、他事業のページは
+       すべて外部リンク（別タブ）として扱う。 -->
+  <!-- ============================================================ -->
+  <nav class="footer-nav">
+    <a class="footer-nav-top" href="https://www.txt-garage.jp/" target="_blank" rel="noopener">TOP</a>
+
+    <details class="footer-nav-item">
+      <summary>クルマを売りたい</summary>
+      <ul>
+        <li><a href="https://www.txt-garage.jp/" target="_blank" rel="noopener">クルマ買取</a></li>
+        <li><a href="https://www.txt-garage.jp/selltire/" target="_blank" rel="noopener">タイヤ・ホイール買取</a></li>
+        <li><a href="https://www.txt-garage.jp/selljobcar/" target="_blank" rel="noopener">農機具買取</a></li>
+        <li><a href="https://www.txt-garage.jp/jobmachine/" target="_blank" rel="noopener">建機買取</a></li>
+        <li><a href="https://www.txt-garage.jp/scrap/" target="_blank" rel="noopener">廃車</a></li>
+        <li><a href="https://www.txt-garage.jp/sellhobby/" target="_blank" rel="noopener">バイク・ホビー・ボート買取</a></li>
+        <li><a href="https://www.txt-garage.jp/truck/" target="_blank" rel="noopener">トラック買取</a></li>
+      </ul>
+    </details>
+
+    <details class="footer-nav-item">
+      <summary>クルマを買いたい</summary>
+      <ul>
+        <li><a href="https://www.txt-garage.jp/imamiru/" target="_blank" rel="noopener">クルマ販売</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/" target="_blank" rel="noopener">店舗を探す</a></li>
+      </ul>
+    </details>
+
+    <details class="footer-nav-item">
+      <summary>店舗一覧</summary>
+      <ul>
+        <li><a href="https://www.txt-garage.jp/shop/hokkaido/" target="_blank" rel="noopener">北海道エリア</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/tohoku/" target="_blank" rel="noopener">東北エリア</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/hokuriku/" target="_blank" rel="noopener">北陸エリア</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/kanto/" target="_blank" rel="noopener">関東エリア</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/tokai/" target="_blank" rel="noopener">東海エリア</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/kansai/" target="_blank" rel="noopener">関西エリア</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/nishinihon/" target="_blank" rel="noopener">西日本エリア</a></li>
+        <li><a href="https://www.txt-garage.jp/shop/okinawa/" target="_blank" rel="noopener">沖縄エリア</a></li>
+      </ul>
+    </details>
+
+    <details class="footer-nav-item">
+      <summary>ティーバイティーを知る</summary>
+      <ul>
+        <li><a href="https://www.txt-garage.jp/sell/" target="_blank" rel="noopener">ティーバイティーガレージとは</a></li>
+        <li><a href="https://www.txt-garage.jp/flow/" target="_blank" rel="noopener">詳しい無料査定の流れ</a></li>
+        <li><a href="https://www.txt-garage.jp/faqs/" target="_blank" rel="noopener">よくあるご質問</a></li>
+        <li><a href="https://www.txt-garage.jp/cm/" target="_blank" rel="noopener">テレビCMを見る</a></li>
+        <li><a href="https://www.txt-garage.jp/guinness/" target="_blank" rel="noopener">ギネス世界記録</a></li>
+      </ul>
+    </details>
+
+    <details class="footer-nav-item">
+      <summary>その他</summary>
+      <ul>
+        <li><a href="https://www.txt-garage.jp/topics/" target="_blank" rel="noopener">お知らせ</a></li>
+        <li><a href="https://www.txt-garage.jp/results/" target="_blank" rel="noopener">わたしたちティーバイティーに売りました</a></li>
+        <li><a href="https://www.txt-garage.jp/valuation/" target="_blank" rel="noopener">買取相場</a></li>
+        <li><a href="https://www.txt-garage.jp/review/" target="_blank" rel="noopener">クチコミを見る</a></li>
+      </ul>
+    </details>
+  </nav>
 
   <footer>
     <div class="wrap">
@@ -475,17 +540,28 @@
         <dt>LINE公式アカウント</dt><dd><a href="https://page.line.me/936rygvj" target="_blank" rel="noopener">友だち追加はこちら</a></dd>
         <dt>対応エリア</dt><dd>全国対応（ダミー記載・一部離島を除く）</dd>
       </dl>
-      <!-- 会社情報・プライバシー・利用規約は、同ブランドの公式サイト(txt-garage.jp)に
-           実在するページへリンクしている。当LPには専用ページを持たないための措置。
-           特定商取引法の表記のみ、対応するURLが確認できなかったためダミーのまま。 -->
+
+      <!-- 2列リンクは公式サイト(txt-garage.jp)の並び順そのまま。
+           企業情報・採用情報・商標利用規約は親会社(txt-holdings.com)の実ページ、
+           個人情報保護方針・利用規約・サイトマップは txt-garage.jp の実ページ。
+           特定商取引法の表記のみ対応URLが確認できなかったためダミーのまま7項目目に追加。 -->
       <div class="foot-links">
-        <a href="#" onclick="return false;">特定商取引法に基づく表記（ダミー）</a>
-        <a href="https://www.txt-garage.jp/privacypolicy/" target="_blank" rel="noopener">個人情報保護方針</a>
-        <a href="https://www.txt-garage.jp/terms/" target="_blank" rel="noopener">利用規約</a>
         <a href="https://txt-holdings.com/" target="_blank" rel="noopener">企業情報</a>
         <a href="https://txt-holdings.com/recruit/" target="_blank" rel="noopener">採用情報</a>
+        <a href="https://www.txt-garage.jp/privacypolicy/" target="_blank" rel="noopener">個人情報保護方針</a>
+        <a href="https://txt-holdings.com/trademark/" target="_blank" rel="noopener">商標利用規約</a>
+        <a href="https://www.txt-garage.jp/terms/" target="_blank" rel="noopener">利用規約</a>
         <a href="https://www.txt-garage.jp/sitemap/" target="_blank" rel="noopener">サイトマップ</a>
+        <a href="#" onclick="return false;" class="foot-links-wide">特定商取引法に基づく表記（ダミー）</a>
       </div>
+
+      <!-- バナー3種（公式サイト下部と同じ並び：YouTube→TikTok→ギネス世界記録） -->
+      <div class="footer-banners">
+        <a href="https://www.youtube.com/@txt_garage" target="_blank" rel="noopener"><img src="img/bnr_youtube.png" width="328" height="112" alt="T×T公式チャンネル CM公開中"></a>
+        <a href="https://www.tiktok.com/@txt_garage" target="_blank" rel="noopener"><img src="img/bnr_tiktok.jpg" width="328" height="112" alt="TikTok CMでおなじみのあの方も！お得情報発信！"></a>
+        <a href="https://www.txt-garage.jp/guinness/" target="_blank" rel="noopener"><img src="img/bnr_gwr.png" width="328" height="112" alt="T×T GARAGE ギネス世界記録™達成!!"></a>
+      </div>
+
       <p class="note" style="margin-top:16px;">※本ページはデザイン確認用のモックアップです。ロゴ・電話番号・SNS/公式サイトへのリンクは実データですが、写真・実績数値・お客様の声等はダミーです。</p>
       <p class="note">© T×T GARAGE（ダミー表記）</p>
     </div>
@@ -497,7 +573,7 @@
       <svg class="icon"><use href="#ic-chat"/></svg><span>LINE査定</span>
       <span class="btn-endcap"><svg class="icon icon-fill"><use href="#ic-play"/></svg></span>
     </button>
-    <button class="btn btn-primary" onclick="openForm()">
+    <button class="btn btn-primary" onclick="scrollToQuiz()">
       <svg class="icon"><use href="#ic-search"/></svg><span>今すぐ無料出張査定</span>
       <span class="btn-endcap"><svg class="icon icon-fill"><use href="#ic-play"/></svg></span>
     </button>
@@ -510,123 +586,19 @@
 <!-- ============================================================ -->
 <div id="view-form" class="hidden">
 
-  <div class="form-header">
-    <div class="form-header-row">
-      <div class="form-title">
-        <a href="./" onclick="return goTop()" style="display:flex;align-items:center;">
-          <img class="logo-img" src="img/logo.svg" alt="ティーバイティーガレージ（トップへ戻る）" style="height:26px;">
-        </a>
-        <span>無料おためし査定</span>
-      </div>
-      <button class="close-x" onclick="requestExit('close-x')"><svg class="icon" style="width:14px;height:14px;"><use href="#ic-close"/></svg></button>
-    </div>
-  </div>
-  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-  <div class="progress-label" id="progress-label">STEP 1 / 3　バイク情報の入力</div>
-
   <div class="form-body">
-
-    <!-- STEP1: 情報入力 -->
     <div class="form-step active" id="step-1">
-      <h2>バイクの情報を教えてください</h2>
-      <p class="step-desc">分かる範囲でOKです。不明な項目は「わからない」を選んでください。</p>
 
-      <div class="field">
-        <label>メーカー<span class="required">必須</span></label>
-        <select id="f-maker">
-          <option value="">選択してください</option>
-          <option value="honda">ホンダ</option>
-          <option value="yamaha">ヤマハ</option>
-          <option value="suzuki">スズキ</option>
-          <option value="kawasaki">カワサキ</option>
-          <option value="other">その他・輸入車</option>
-          <option value="unknown">わからない</option>
-        </select>
+      <div class="price-notice">
+        <p>バイクの買取価格は市場の相場により変動しております。<br>ご入力いただいた内容をもとに、最新の相場を改めてご案内いたします。</p>
       </div>
 
-      <div class="field">
-        <label>車種名（分かれば）</label>
-        <input type="text" id="f-model" placeholder="例：CB400SF">
-      </div>
-
-      <div class="field">
-        <label>排気量</label>
-        <select id="f-displacement">
-          <option value="">選択してください</option>
-          <option value="〜125cc">〜125cc</option>
-          <option value="126〜250cc">126〜250cc</option>
-          <option value="251〜400cc">251〜400cc</option>
-          <option value="401cc〜">401cc〜</option>
-          <option value="わからない">わからない</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>年式</label>
-        <select id="f-year">
-          <option value="">選択してください</option>
-          <option>〜2000年</option>
-          <option>2001〜2010年</option>
-          <option>2011〜2020年</option>
-          <option>2021年〜</option>
-          <option>わからない</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>走行距離</label>
-        <select id="f-mileage">
-          <option value="">選択してください</option>
-          <option>〜5,000km</option>
-          <option>5,000〜20,000km</option>
-          <option>20,000〜50,000km</option>
-          <option>50,000km以上</option>
-          <option>わからない</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>バイクの状態（複数選択可）</label>
-        <div class="check-options" id="condition-options">
-          <label><input type="checkbox" value="壊れている（事故・故障）" onchange="toggleOptionStyle(this)">壊れている（事故・故障）</label>
-          <label><input type="checkbox" value="動かない（不動車）" onchange="toggleOptionStyle(this)">動かない（不動車）</label>
-          <label><input type="checkbox" value="長期間保管（倉庫・車庫）" onchange="toggleOptionStyle(this)">長期保管（倉庫・車庫）</label>
-          <label><input type="checkbox" value="車検切れ" onchange="toggleOptionStyle(this)">車検切れ</label>
-          <label><input type="checkbox" value="書類なし" onchange="toggleOptionStyle(this)">書類なし</label>
-          <label><input type="checkbox" value="特に問題なし" onchange="toggleOptionStyle(this)">特に問題なし</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>お住まいの都道府県（出張エリア確認用）</label>
-        <select id="f-pref">
-          <option value="">選択してください</option>
-          <option>北海道・東北</option>
-          <option>関東</option>
-          <option>中部・北陸</option>
-          <option>関西</option>
-          <option>中国・四国</option>
-          <option>九州・沖縄</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- STEP2: バイク一覧表示（参考価格） -->
-    <div class="form-step" id="step-2">
-      <h2>参考買取価格の目安です</h2>
-      <p class="step-desc">入力内容に近いバイクの参考価格帯です。実際の金額は出張査定でご提示します。</p>
-
-      <div id="bike-match-list"></div>
-
-      <div class="disclaimer-box">
-        ※価格はダミーデータによる表示イメージです。実際の相場データに差し替えて運用してください。
-      </div>
-    </div>
-
-    <!-- STEP3: 連絡先入力 -->
-    <div class="form-step" id="step-3">
-      <h2>ご連絡先を入力してください</h2>
-      <p class="step-desc">査定結果・日程調整のご連絡に使用します。</p>
+      <!-- ファーストビューのミニ査定(メーカー・排気量・車種名)で得た回答は
+           画面には出さず、送信データとして持ち回すだけの非表示項目にする。
+           heroStartAssessment() がここへ値をセットする。 -->
+      <input type="hidden" id="f-maker">
+      <input type="hidden" id="f-displacement">
+      <input type="hidden" id="f-model">
 
       <div class="field">
         <label>お名前<span class="required">必須</span></label>
@@ -637,19 +609,11 @@
         <input type="tel" id="f-tel" placeholder="例：090-1234-5678">
       </div>
       <div class="field">
-        <label>メールアドレス<span class="required">必須</span></label>
-        <input type="email" id="f-email" placeholder="例：sample@example.com">
+        <label>郵便番号<span class="field-note">（出張エリア確認用）</span><span class="required">必須</span></label>
+        <input type="text" id="f-postal" placeholder="例：123-4567" inputmode="numeric" autocomplete="postal-code">
       </div>
       <div class="field">
-        <label>ご希望の連絡方法</label>
-        <div class="radio-rows">
-          <label><input type="radio" name="contact-method" value="電話" checked>電話</label>
-          <label><input type="radio" name="contact-method" value="メール">メール</label>
-          <label><input type="radio" name="contact-method" value="LINE">LINE</label>
-        </div>
-      </div>
-      <div class="field">
-        <label>ご希望の査定日時</label>
+        <label>ご希望の査定日時<span class="optional">任意</span></label>
         <select id="f-datetime">
           <option value="">選択してください</option>
           <option>平日 午前</option>
@@ -659,25 +623,13 @@
           <option>いつでも可</option>
         </select>
       </div>
-      <div class="field">
-        <label>備考（任意）</label>
-        <textarea id="f-note" placeholder="鍵が見つからない、車検証がない、などご自由にご記入ください"></textarea>
-      </div>
 
-      <div class="confirm-box" id="confirm-summary"></div>
-
-      <label class="agree-row">
-        <input type="checkbox" id="f-agree">
-        <span><a href="#" onclick="return false;">プライバシーポリシー（ダミー）</a>に同意の上、送信します。</span>
-      </label>
     </div>
-
   </div>
 
   <div class="form-nav">
     <div class="form-nav-inner">
-      <button class="btn btn-outline hidden" id="btn-back" onclick="prevStep()">戻る</button>
-      <button class="btn btn-primary" id="btn-next" onclick="nextStep()">バイクの参考価格を見る →</button>
+      <button class="btn btn-primary" id="btn-next" onclick="submitLead()">次へ →</button>
     </div>
   </div>
 </div>
@@ -714,19 +666,6 @@
 
 
 <script>
-/* =========================================================
-   ダミーデータ：バイクの参考買取価格（メーカー別）
-   本番運用時は実際の相場データ/APIに差し替えてください
-========================================================= */
-const BIKE_PRICE_DATA = {
-  honda:   [{name:"ホンダ CB400SF", low:8, high:25},{name:"ホンダ PCX", low:5, high:18},{name:"ホンダ モンキー125", low:10, high:22}],
-  yamaha:  [{name:"ヤマハ セロー250", low:6, high:20},{name:"ヤマハ MT-07", low:15, high:40},{name:"ヤマハ トリシティ", low:4, high:15}],
-  suzuki:  [{name:"スズキ GSX-R", low:12, high:35},{name:"スズキ アドレス110", low:2, high:8},{name:"スズキ バンディット", low:7, high:22}],
-  kawasaki:[{name:"カワサキ Ninja250", low:10, high:28},{name:"カワサキ Z900", low:20, high:55},{name:"カワサキ エストレヤ", low:6, high:18}],
-  other:   [{name:"輸入車・その他モデルA", low:5, high:30},{name:"輸入車・その他モデルB", low:3, high:20}],
-  unknown: [{name:"国産バイク（一般的な相場例）", low:3, high:25}]
-};
-
 function el(id){ return document.getElementById(id); }
 
 /* ---------- ヒーロー埋め込みミニ査定（3項目を最初から表示） ---------- */
@@ -759,12 +698,31 @@ function goTop(){
   return false;
 }
 
+/* ---------- ページ内CTA：フォームへ直行せず、まず3問クイズへ誘導 ----------
+   クイズに答えないまま申し込み画面に行けてしまうのは不自然なので、
+   ページ各所の「無料出張査定を申し込む」系ボタンは、いきなり
+   openForm() を呼ばず、まず質問セクションまでスクロールさせる。
+   実際にフォームへ進むのは、3問に答えて heroStartAssessment() を
+   通ったときだけ。 */
+function scrollToQuiz(){
+  const panel = document.querySelector('.quiz-panel');
+  const target = panel || el('hero-maker');
+  if(!target){ openForm(); return; }
+  target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if(panel){
+    panel.classList.remove('quiz-panel-pulse');
+    void panel.offsetWidth; // 再生済みのアニメーションを頭から流し直すための強制リフロー
+    panel.classList.add('quiz-panel-pulse');
+    setTimeout(() => panel.classList.remove('quiz-panel-pulse'), 1600);
+  }
+}
+
 /* ---------- ビュー切り替え ---------- */
 function openForm(){
   el('view-lp').classList.add('hidden');
   el('view-form').classList.remove('hidden');
   window.scrollTo(0,0);
-  goToStep(1);
+  el('btn-next').textContent = '次へ →';
   armExitGuard();
 }
 function backToLp(){
@@ -875,6 +833,9 @@ document.addEventListener('DOMContentLoaded', function(){
                  { offset: 100, stagger: 0.5, groupBy: '.reason-block' });
   // 「０円査定致しません！」：大きい状態からバンと縮んで出る
   revealOnScroll('.why-punch', 'punch-anim', 'is-in', { offset: 60 });
+  // 「たった3つの質問で査定スタート」：見出しがポップイン→バッジ/サブコピーがふわっと続く
+  revealOnScroll('.quiz-lead', 'punch-anim', 'is-in', { offset: 40 });
+  revealOnScroll('.quiz-sub-row', 'fade-anim', 'is-in', { offset: 40 });
 });
 
 /* ---------- FAQ ---------- */
@@ -883,95 +844,17 @@ function toggleFaq(btn){
   item.classList.toggle('open');
 }
 
-/* ---------- チェックボックス見た目 ---------- */
-function toggleOptionStyle(input){
-  input.closest('label').classList.toggle('on', input.checked);
-}
-
 /* =========================================================
-   査定フォーム：ステップ制御
+   査定フォーム：単一ステップ（お名前・電話番号・郵便番号・希望日時）
+   ヒーローのミニ査定（メーカー・排気量・車種）の回答は
+   非表示フィールドに保持したまま、そのまま送信データに含める。
 ========================================================= */
-let currentStep = 1;
-const totalSteps = 3;
-const stepLabels = ['バイク情報の入力', '参考価格の確認', 'ご連絡先の入力'];
-
-function goToStep(n){
-  currentStep = n;
-  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-  el('step-' + n).classList.add('active');
-  el('progress-fill').style.width = Math.round((n/totalSteps)*100) + '%';
-  el('progress-label').textContent = 'STEP ' + n + ' / ' + totalSteps + '　' + stepLabels[n-1];
-  el('btn-back').classList.toggle('hidden', n === 1);
-
-  if(n === 1){ el('btn-next').textContent = 'バイクの参考価格を見る →'; }
-  if(n === 2){ el('btn-next').textContent = 'この内容で無料査定を申し込む →'; renderBikeMatches(); }
-  if(n === 3){ el('btn-next').textContent = '送信する'; renderConfirmSummary(); }
-
-  window.scrollTo(0,0);
-}
-
-function nextStep(){
-  if(currentStep === 1){
-    if(!el('f-maker').value){
-      alert('メーカーを選択してください。');
-      return;
-    }
-  }
-  if(currentStep === 3){
-    if(!el('f-name').value || !el('f-tel').value || !el('f-email').value){
-      alert('お名前・電話番号・メールアドレスをご入力ください。');
-      return;
-    }
-    if(!el('f-agree').checked){
-      alert('プライバシーポリシーへの同意にチェックをお願いします。');
-      return;
-    }
-    submitForm();
+function submitLead(){
+  if(!el('f-name').value || !el('f-tel').value || !el('f-postal').value){
+    alert('お名前・電話番号・郵便番号をご入力ください。');
     return;
   }
-  if(currentStep < totalSteps){
-    goToStep(currentStep + 1);
-  }
-}
-function prevStep(){
-  if(currentStep > 1){ goToStep(currentStep - 1); }
-}
-
-function renderBikeMatches(){
-  const maker = el('f-maker').value || 'unknown';
-  const list = BIKE_PRICE_DATA[maker] || BIKE_PRICE_DATA.unknown;
-  const conditions = Array.from(document.querySelectorAll('#condition-options input:checked')).map(i => i.value);
-  const isImmobile = conditions.some(c => c.includes('動かない') || c.includes('壊れている'));
-
-  let html = '';
-  list.forEach(b => {
-    html += `
-      <div class="bike-match-card">
-        <div class="bike-match-img placeholder-img"><svg class="icon"><use href="#ic-photo"/></svg>画像準備中</div>
-        <div class="bike-match-info">
-          <h4>${b.name}</h4>
-          <div class="bike-match-price">${b.low}万円 〜 ${b.high}万円（目安）</div>
-          <div class="bike-match-tags">
-            ${isImmobile ? '<span>不動車OK</span>' : ''}
-            <span>出張査定￥0</span>
-          </div>
-        </div>
-      </div>`;
-  });
-  el('bike-match-list').innerHTML = html;
-}
-
-function renderConfirmSummary(){
-  const maker = el('f-maker').selectedOptions[0]?.text || '未選択';
-  const model = el('f-model').value || '未入力';
-  const displacement = el('f-displacement').value || '未選択';
-  const conditions = Array.from(document.querySelectorAll('#condition-options input:checked')).map(i => i.value).join('、') || 'なし';
-  el('confirm-summary').innerHTML = `
-    <div class="confirm-row"><span class="k">メーカー</span><span>${maker}</span></div>
-    <div class="confirm-row"><span class="k">車種</span><span>${model}</span></div>
-    <div class="confirm-row"><span class="k">排気量</span><span>${displacement}</span></div>
-    <div class="confirm-row"><span class="k">状態</span><span>${conditions}</span></div>
-  `;
+  submitForm();
 }
 
 function submitForm(){
@@ -1021,9 +904,6 @@ function onPopStateExitIntent(){
   showExitModal();
   // ユーザーがまだフォーム上にいる想定で履歴を積み戻す
   history.pushState({txtGarageForm:true}, '');
-}
-function requestExit(source){
-  showExitModal();
 }
 function showExitModal(){
   exitIntentShown = true;

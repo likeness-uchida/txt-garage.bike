@@ -245,15 +245,6 @@
     word-break:auto-phrase;
   }
   .note{font-size:var(--fs-2xs);color:var(--gray-500);}
-  .disclaimer-box{
-    background:#fff8e1;
-    border:1px solid #f0e0a6;
-    border-radius:10px;
-    padding:10px 14px;
-    font-size:12px;
-    color:#7a6a1f;
-    margin:16px 0;
-  }
 
   /* ---------- ヘッダー ---------- */
   /* ヘッダーは公式サイト(txt-garage.jp)に合わせて白地。
@@ -303,20 +294,18 @@
   .tel-btn .icon{width:14px;height:14px;}
 
   /* ---------- ヒーロー：ファーストビューは1枚の写真に集約 ---------- */
-  /* padding-bottom が無いと、中の査定カードの下マージンが
-     マージン相殺で外へ抜け、次のセクションと接してしまう。
-     カードの影(0 10px 24px)が収まる高さも見込んでいる。 */
-  /* 背景はキービジュアルの地色と同じ水色にして、画像とヒーローを地続きに見せる */
+  /* 背景はキービジュアルの地色と同じ水色にして、画像とヒーローを地続きに見せる。
+     3項目ミニ査定は独立セクションへ切り出したので、
+     以前ここにあった余白確保用の padding-bottom は不要になった。 */
   .hero{
     background:var(--sky);color:#fff;
-    padding-bottom:calc(var(--gutter) * 1.7);
   }
   /* キービジュアルは切り抜かず全体を見せる。
      文字が焼き込まれているため object-fit:cover でトリミングすると欠ける。
      aspect-ratio で画像本来の比率(960:1219)を保持する。 */
   .hero-photo{
     position:relative;
-    aspect-ratio:960 / 1056;
+    aspect-ratio:960 / 1081;
     background:var(--sky);   /* 読み込み前のちらつき防止 */
     overflow:hidden;
   }
@@ -380,41 +369,80 @@
   .hp-cta{margin-top:2px;}
 
 
-  .hero-quiz{
-    margin:var(--gutter) var(--gutter) 0;background:#fff;color:var(--black);
-    border-radius:16px;padding:20px 18px 22px;
-    box-shadow:0 10px 24px rgba(0,0,0,.18);
-  }
-  .hero-quiz .quiz-lead{
-    text-align:center;font-weight:900;
-    /* 査定への入口なので見出し級のサイズに。幅に比例させて1行を保つ */
-    font-size:clamp(15px, 4.9vw, 23px);
-    line-height:1.4;margin-bottom:4px;
+  /* ---------- 3項目ミニ査定：白背景の独立セクション ---------- */
+  .quiz-section{background:#fff;}
+
+  .quiz-lead{
+    text-align:center;font-weight:900;color:var(--black);
+    /* 査定への入口として一番目立たせたい見出し。幅に比例して大きく */
+    font-size:clamp(22px, 7.4vw, 32px);
+    line-height:1.35;margin:0 0 14px;
     word-break:auto-phrase;
   }
-  .hero-quiz .quiz-sub{
-    text-align:center;font-size:12px;color:var(--gray-500);margin-bottom:14px;
+  /* 見出しはスクロールで画面に入った瞬間にポンと拡大しながら現れる */
+  .quiz-lead.punch-anim{opacity:0;transform:scale(.7);}
+  .quiz-lead.punch-anim.is-in{
+    opacity:1;transform:scale(1);
+    transition:opacity .2s ease-out, transform .5s cubic-bezier(.2,1.7,.4,1);
   }
+
+  .quiz-sub-row{
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    margin-bottom:20px;
+  }
+  /* リボン風バッジ。左右の三角の切り欠きで「チケット感」を出す */
   .quiz-count-badge{
-    display:block;margin:0 auto 12px;width:fit-content;
-    background:var(--accent);color:var(--black);font-weight:900;font-size:12px;
-    padding:4px 12px;border-radius:999px;
+    position:relative;
+    display:inline-block;
+    background:var(--orange);color:#fff;font-weight:900;
+    font-size:var(--fs-sm);
+    padding:6px 20px;border-radius:999px;
+    box-shadow:0 4px 10px rgba(255,89,0,.35);
+  }
+  .quiz-sub{
+    text-align:center;font-weight:700;color:#3c3c3c;
+    font-size:var(--fs-sm);margin:0;
+  }
+  /* バッジ・サブコピーも見出しに続いて、少し遅れてふわっと現れる */
+  .quiz-sub-row.fade-anim{opacity:0;transform:translateY(10px);}
+  .quiz-sub-row.fade-anim.is-in{
+    opacity:1;transform:translateY(0);
+    transition:opacity .4s ease-out .15s, transform .4s ease-out .15s;
+  }
+
+  /* 枠内を色付ける水色パネル。STYLEセクションの出張カードと同系色で揃える */
+  .quiz-panel{
+    background:#f3faff;border:2px solid var(--blue);
+    border-radius:18px;padding:22px 18px;
+    box-shadow:0 10px 24px rgba(45,176,255,.18);
+  }
+  /* ページ各所のCTAからスクロールで到着したときに、ここだと分かるよう一瞬光らせる */
+  @keyframes quizPanelPulse{
+    0%  { box-shadow:0 10px 24px rgba(45,176,255,.18), 0 0 0 0   rgba(56,161,219,.45); }
+    35% { box-shadow:0 10px 24px rgba(45,176,255,.18), 0 0 0 8px rgba(56,161,219,.35); }
+    100%{ box-shadow:0 10px 24px rgba(45,176,255,.18), 0 0 0 0   rgba(56,161,219,0); }
+  }
+  .quiz-panel-pulse{animation:quizPanelPulse 1.4s ease-out;}
+  @media (prefers-reduced-motion:reduce){
+    .quiz-panel-pulse{animation:none;}
   }
   .quiz-body{display:flex;gap:10px;align-items:flex-end;margin-bottom:16px;}
   .quiz-mascot{
     flex:none;width:64px;height:64px;border-radius:50%;
+    border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);
   }
   .quiz-mascot .icon{width:26px;height:26px;}
   .quiz-bubble{
-    flex:1;background:var(--gray-100);border-radius:12px;border-bottom-left-radius:2px;
+    flex:1;background:#fff;border-radius:12px;border-bottom-left-radius:2px;
     padding:10px 12px;font-size:12.5px;font-weight:700;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
   }
   .quiz-field-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
   .quiz-field-num{
     flex:none;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;
     display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;
   }
-  .hero-quiz select, .hero-quiz input[type="text"]{
+  .quiz-panel select, .quiz-panel input[type="text"]{
     flex:1;width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--gray-300);
     font-size:15px;background:#fff;font-family:inherit;
   }
@@ -739,31 +767,77 @@
   .fb-tel img{width:clamp(220px, 62vw, 300px);height:auto;margin:0 auto;}
   .fb-tel-hours{font-size:var(--fs-xs);font-weight:800;color:#3c3c3c;margin:6px 0 var(--gap-card);}
   .fb-cta{max-width:340px;margin:0 auto var(--gap-block);}
-  .fb-sns{display:flex;justify-content:center;gap:16px;}
-  .fb-sns a{
-    display:flex;align-items:center;justify-content:center;
-    width:44px;height:44px;border-radius:50%;
-    background:var(--gray-100);color:var(--black);
+  /* SNSアイコンは公式配布の色付きSVGをそのまま使うため、
+     枠は付けずアイコン本来の色を活かす */
+  .fb-sns{display:flex;justify-content:center;align-items:center;gap:18px;}
+  .fb-sns img{width:32px;height:32px;display:block;}
+
+  /* ---------- サイトメニュー（公式フッターのアコーディオン） ----------
+     ネイティブ <details>/<summary> を使い、開閉のJSを持たずに実装する。 */
+  .footer-nav{
+    background:var(--gray-100);
+    border-top:1px solid var(--gray-300);
+    border-bottom:1px solid var(--gray-300);
   }
-  .fb-sns .icon{width:22px;height:22px;stroke-width:1.8;}
+  .footer-nav-top,
+  .footer-nav-item summary{
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:var(--maxw);margin:0 auto;
+    padding:15px var(--gutter);
+    font-weight:800;font-size:var(--fs-sm);color:var(--black);
+    background:#fff;border-bottom:1px solid var(--gray-300);
+    cursor:pointer;
+    list-style:none;
+  }
+  .footer-nav-top::-webkit-details-marker,
+  .footer-nav-item summary::-webkit-details-marker{display:none;}
+  /* 「＋」を自前で描き、開いたら「−」に切り替える */
+  .footer-nav-item summary::after{
+    content:"+";
+    flex:none;width:22px;height:22px;margin-left:10px;
+    border-radius:50%;border:1.5px solid var(--gray-300);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;color:var(--gray-500);
+  }
+  .footer-nav-item[open] summary::after{content:"−";}
+  .footer-nav-item ul{
+    list-style:none;margin:0;padding:6px var(--gutter) 10px;
+    max-width:var(--maxw);margin:0 auto;
+    background:#fff;border-bottom:1px solid var(--gray-300);
+  }
+  .footer-nav-item li{border-top:1px dashed var(--gray-300);}
+  .footer-nav-item li:first-child{border-top:none;}
+  .footer-nav-item li a{
+    display:block;padding:11px 4px 11px 14px;
+    font-size:var(--fs-xs);color:#444;
+  }
 
   footer{
-    background:var(--black);color:var(--gray-300);
+    background:#fff;color:#555;
     padding:calc(var(--sect-y) * .62) 0 100px;font-size:12px;
   }
   footer .company-box{
-    border-top:1px solid #333;border-bottom:1px solid #333;
+    border-top:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);
     padding:16px 0;margin:16px 0;
   }
   footer .company-box dt{color:var(--gray-500);font-size:11px;}
-  footer .company-box dd{margin:0 0 10px;}
-  /* 2列グリッド：公式フッターの並びに合わせる */
+  footer .company-box dd{margin:0 0 10px;color:#333;}
+  /* 2列グリッド：公式フッターの並びに合わせる。
+     項目数が奇数(7)なので、最後の1つだけ2列ぶち抜きにする。 */
   footer .foot-links{
     display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;
     margin-top:10px;
   }
-  footer .foot-links a{text-decoration:underline;color:var(--gray-300);}
-  footer .company-box dd a{color:var(--brand-yellow);text-decoration:underline;}
+  footer .foot-links a{text-decoration:underline;color:#555;}
+  footer .foot-links a.foot-links-wide{grid-column:1 / -1;}
+  footer .company-box dd a{color:var(--blue-dark);text-decoration:underline;}
+
+  /* バナー3種。公式サイトと同じ横長比率(328:112)で縦に並べる */
+  .footer-banners{
+    display:flex;flex-direction:column;gap:10px;
+    margin-top:18px;
+  }
+  .footer-banners img{width:100%;height:auto;border-radius:8px;}
 
   /* ---------- フローティングCTA(下部固定) ---------- */
   .float-cta{
@@ -816,31 +890,7 @@
     background:var(--gray-100);
     padding-bottom:40px;
   }
-  .form-header{
-    position:sticky;top:0;z-index:40;
-    background:#fff;border-bottom:1px solid var(--gray-300);
-    padding:12px 16px;
-  }
-  .form-header-row{
-    max-width:var(--maxw);margin:0 auto;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .form-title{font-size:13px;font-weight:800;display:flex;align-items:center;gap:8px;min-width:0;}
-  .close-x{
-    width:30px;height:30px;border-radius:50%;
-    background:var(--gray-100);border:none;color:#555;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .progress-track{
-    max-width:var(--maxw);margin:10px auto 0;
-    height:6px;background:var(--gray-300);border-radius:999px;overflow:hidden;
-  }
-  .progress-fill{height:100%;background:var(--blue);width:33%;transition:width .3s ease;}
-  .progress-label{
-    max-width:var(--maxw);margin:6px auto 0;
-    font-size:11px;color:var(--gray-500);text-align:right;
-  }
-
+  /* フォーム画面専用のヘッダーは廃止（共通の site-header をそのまま使う） */
   .form-body{max-width:var(--maxw);margin:0 auto;padding:22px 16px 100px;}
   .form-step{display:none;}
   .form-step.active{display:block;animation:fadeIn .25s ease;}
@@ -848,62 +898,32 @@
   .form-step h2{font-size:18px;font-weight:800;margin:0 0 6px;}
   .form-step .step-desc{font-size:13px;color:#666;margin:0 0 22px;}
 
+  /* 市場相場は変動する旨の注記。フォーム冒頭に置く */
+  .price-notice{
+    background:#eef7fc;border-left:4px solid var(--blue);
+    border-radius:10px;padding:14px 16px;
+    font-size:var(--fs-sm);color:#2c4a5c;line-height:1.75;
+    margin-bottom:24px;
+  }
+  .price-notice p{margin:0;}
+
   .field{margin-bottom:18px;}
   .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;}
   .field .required{color:var(--danger);font-size:11px;margin-left:4px;}
+  .field .optional{color:var(--gray-500);font-size:11px;font-weight:400;margin-left:4px;}
+  .field .field-note{color:var(--gray-500);font-size:12px;font-weight:400;margin-left:2px;}
   .field select, .field input[type="text"], .field input[type="tel"], .field input[type="email"], .field textarea{
     width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--gray-300);
     font-size:15px;background:#fff;font-family:inherit;
   }
   .field select:focus, .field input:focus, .field textarea:focus{outline:2px solid var(--blue);outline-offset:1px;}
   .field textarea{resize:vertical;min-height:80px;}
-  .check-options{display:flex;flex-wrap:wrap;gap:8px;}
-  .check-options label{
-    display:flex;align-items:center;gap:6px;
-    border:1px solid var(--gray-300);border-radius:999px;
-    padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;
-    background:#fff;width:auto;margin:0;
-  }
-  .check-options input{accent-color:var(--blue);}
-  .check-options label.on{background:#eaf5fc;border-color:var(--blue);color:var(--blue-deep);}
-  .radio-rows label{
-    display:flex;align-items:center;gap:8px;
-    border:1px solid var(--gray-300);border-radius:10px;
-    padding:12px 14px;font-size:14px;margin-bottom:8px;background:#fff;
-  }
-  .radio-rows input{accent-color:var(--blue);}
-
-  .bike-match-card{
-    display:flex;gap:12px;background:#fff;border:1px solid var(--gray-300);
-    border-radius:var(--radius);padding:14px;margin-bottom:12px;
-  }
-  .bike-match-img{width:80px;height:64px;border-radius:8px;flex:none;font-size:10px;}
-  .bike-match-info h4{margin:0 0 4px;font-size:14px;font-weight:800;}
-  .bike-match-price{font-size:16px;font-weight:900;color:var(--blue-dark);}
-  .bike-match-tags{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;}
-  .bike-match-tags span{
-    font-size:10px;background:var(--black);color:var(--accent);
-    padding:2px 7px;border-radius:6px;
-  }
-
-  .confirm-box{
-    background:#fff;border:1px solid var(--gray-300);border-radius:var(--radius);
-    padding:16px;margin-bottom:18px;font-size:13px;
-  }
-  .confirm-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--gray-300);}
-  .confirm-row:last-child{border-bottom:none;}
-  .confirm-row .k{color:var(--gray-500);}
-
-  .agree-row{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#555;margin:18px 0;}
-  .agree-row a{text-decoration:underline;}
-
   .form-nav{
     position:fixed;left:0;right:0;bottom:0;z-index:55;
     background:#fff;border-top:1px solid var(--gray-300);
     padding:12px 16px calc(12px + env(safe-area-inset-bottom));
   }
   .form-nav-inner{display:flex;gap:10px;width:100%;max-width:var(--maxw);margin:0 auto;}
-  .form-nav .btn-outline{flex:0 0 90px;}
 
   /* サンクス関連のCSSは thanks/index.html 側に移動しました */
 
@@ -1053,14 +1073,6 @@
   .faq-v2 .faq-a{padding:0 14px;}
   .faq-v2.open .faq-a{padding-bottom:14px;}
 
-  /* 買取以外もT×T：クロスセル */
-  .cross-sell{display:flex;gap:10px;justify-content:center;margin-top:var(--gap-card);}
-  .cross-sell-item{
-    flex:1;max-width:100px;text-align:center;background:#fff;border:2px solid var(--black);
-    border-radius:10px;padding:10px 4px;font-size:11px;font-weight:800;
-  }
-  .cross-sell-item .placeholder-img{aspect-ratio:3 / 2;margin-bottom:6px;}
-
   /* =========================================================
      サンクスページ（thanks/index.html）専用
      ※共通部分（変数・ボタン・ヘッダー・ロゴ・電話・フッター）は
@@ -1083,7 +1095,8 @@
   .thanks-icon .icon{width:32px;height:32px;stroke:#fff;stroke-width:2.5;}
   .thanks-wrap h1{font-size:20px;font-weight:900;margin:0 0 12px;}
   .thanks-wrap p{font-size:14px;color:#555;margin:0 0 26px;}
-  .note{font-size:11px;color:var(--gray-500);line-height:1.6;}
+  /* 裸の .note{} も同じ理由でメインLP側に漏れるため .page でスコープする */
+  .page .note{font-size:11px;color:var(--gray-500);line-height:1.6;}
 
   .next-box{
     text-align:left;background:var(--gray-100);border-radius:14px;
@@ -1095,8 +1108,12 @@
 
   .thanks-cta{display:flex;flex-direction:column;gap:10px;max-width:320px;margin:0 auto;}
 
-  footer{background:var(--black);color:#fff;padding:30px 0 40px;margin-top:20px;}
-  footer .logo-mark{color:#fff;margin-bottom:14px;}
-  .company-box{font-size:11.5px;line-height:1.8;margin:0;color:#c9ccd1;}
-  .company-box dt{font-weight:700;color:#fff;}
-  .company-box dd{margin:0 0 8px;}
+  /* このスタイルシートは index.html と thanks/index.html の両方が読み込むため、
+     裸の footer{} セレクタのままだとメインLP側の <footer> にも
+     カスケードで勝ってしまう（後勝ち・同じ詳細度）。
+     thanks 側だけを囲む .page でスコープする。 */
+  .page footer{background:var(--black);color:#fff;padding:30px 0 40px;margin-top:20px;}
+  .page footer .logo-mark{color:#fff;margin-bottom:14px;}
+  .page .company-box{font-size:11.5px;line-height:1.8;margin:0;color:#c9ccd1;}
+  .page .company-box dt{font-weight:700;color:#fff;}
+  .page .company-box dd{margin:0 0 8px;}
