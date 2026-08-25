@@ -1,0 +1,1102 @@
+  :root{
+    --blue:#38a1db;        /* メインカラー(指定) */
+    --blue-dark:#2b84b8;
+    --blue-deep:#1c5a80;
+    --black:#141414;
+    --black-soft:#1d1d1d;
+    --white:#ffffff;
+    --gray-100:#f5f5f5;
+    --gray-300:#dcdde0;
+    --gray-500:#8a8d93;
+    --accent:#ffcc00;      /* 差し色イエロー(指定) */
+    --accent-dark:#e6b800;
+    --danger:#ff5a3c;
+    --line-green:#06c755;  /* LINE公式ブランドカラー */
+    /* 公式ロゴ(logo.svg)から抽出したコーポレートカラー */
+    --navy:#003b86;
+    --navy-dark:#002c66;
+    --brand-yellow:#ffd900;
+    --brand-red:#e50012;
+    --orange:#ff5900;        /* 公式CTAのオレンジ（foam_btn.svg / tel.svg より） */
+    --sky:#2db0ff;           /* キービジュアルの地色。ヒーロー全体の背景に使用 */
+    --orange-dark:#e94500;
+    --radius:14px;
+    --maxw:480px;
+
+    /* ---------- 余白スケール ----------
+       0〜480pxの範囲で画面幅に比例させ、480pxで止める。
+       個別に数値を書かず、ここを変えれば全体の余白感が一括で変わる。 */
+    --gutter:clamp(18px, 5.7vw, 27px);   /* 左右の余白（390pxで約22px） */
+    --sect-y:clamp(44px, 14vw, 66px);    /* セクション上下（390pxで約55px） */
+    --gap-title:clamp(22px, 7.2vw, 34px);/* 見出し→本文 */
+    --gap-card:clamp(14px, 4.4vw, 21px); /* カード同士 */
+    --gap-block:clamp(26px, 8.2vw, 39px);/* ブロック同士 */
+
+    /* ---------- 文字サイズのスケール ----------
+       余白と同じく 0〜480px で画面幅に比例させ、480pxで止める。
+       個別に px や clamp() を書かず、ここの7段階から選ぶ。
+       全体の文字を大きく／小さくしたいときは、この7行だけ触れば済む。 */
+    --fs-2xs:clamp( 9.5px, 2.7vw, 11.5px); /* 注釈・チップ */
+    --fs-xs :clamp(11px,   3.2vw, 13.5px); /* 補足・ラベル */
+    --fs-sm :clamp(12px,   3.5vw, 15px);   /* 副次テキスト */
+    --fs-md :clamp(13.5px, 3.9vw, 16.5px); /* 本文 */
+    --fs-lg :clamp(15px,   4.4vw, 19px);   /* 小見出し */
+    --fs-xl :clamp(17px,   5.2vw, 23px);   /* 中見出し */
+    --fs-2xl:clamp(19px,   5.9vw, 28px);   /* セクション見出し */
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,"Yu Gothic",sans-serif;
+    color:var(--black);
+    background:var(--white);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    /* 以下、タグ単位の基準サイズ。個別指定が無い要素はここに従う */
+    font-size:var(--fs-md);
+  }
+  h1{font-size:var(--fs-2xl);}
+  h2{font-size:var(--fs-2xl);}
+  h3{font-size:var(--fs-lg);}
+  h4{font-size:var(--fs-md);}
+  p,li,dd,dt,label,td,th{font-size:inherit;}
+  small{font-size:var(--fs-xs);}
+  /* height:auto が無いと、HTMLの height 属性が presentational hint として効き、
+     CSSで width だけ指定した画像の高さが元画像のままになる（縦に伸びる）。 */
+  img{max-width:100%;display:block;height:auto;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);}
+
+  /* ---------- スマホ専用LPとしての土台 ----------
+     スマホでの閲覧が大半だが、PC・タブレットで開かれたときに
+     キービジュアルが画面幅いっぱいに引き伸ばされて崩れるのを防ぐため、
+     ページ全体を480pxで止めて中央に寄せる。
+     これで「480pxより広い場合」を考える必要がなくなり、
+     レイアウトの検討範囲が 0〜480px の一次元に収まる。 */
+  body{background:#dfe4e8;}
+  #view-lp, #view-form{
+    max-width:var(--maxw);
+    margin:0 auto;
+    background:var(--white);
+    box-shadow:0 0 30px rgba(0,0,0,.13);
+  }
+  .hidden{display:none !important;}
+  /* 目には見せないが、検索エンジンと読み上げには残すテキスト */
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+
+  /* ---------- アイコン(シルエットSVG／絵文字は使用しない) ---------- */
+  .icon{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .icon-fill{fill:currentColor;stroke:none;}
+  .icon-lg{width:28px;height:28px;}
+
+  /* ---------- 共通パーツ／画像プレースホルダー ---------- */
+  .placeholder-img{
+    position:relative;
+    overflow:hidden;
+    background:repeating-linear-gradient(45deg,#e7eef3,#e7eef3 10px,#eef4f8 10px,#eef4f8 20px);
+    border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:#7597ab;
+    font-size:11px;
+    text-align:center;
+    padding:8px;
+    gap:4px;
+  }
+  /* ---------- 画像スロットの縦横比 ----------
+     横長の写真枠はすべて 3:2、丸アイコンは 1:1 に統一している。
+     高さを px で固定すると枠と写真の比率がズレて上下が切れるため、
+     必ず aspect-ratio で指定すること（object-fit:cover で切り抜かれる）。
+     → 素材は「3:2の横長」か「正方形」で用意すれば、どこにも切れずに収まる。 */
+
+  /* ---------- 画像スロット ----------
+     使い方: 枠(.placeholder-img)の中に <img> を1枚置くだけ。
+       <div class="placeholder-img"><img src="img/xxx.jpg" alt="..." onerror="this.remove()"></div>
+     img/ にファイルを置けば枠いっぱいに表示され、
+     まだファイルが無い場合は onerror で img が消え、
+     従来どおりストライプのプレースホルダー表示に自動で戻る。 */
+  .placeholder-img > img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:inherit;
+  }
+  /* 未設置を示す点線。本体の border ではなく擬似要素で描くことで、
+     各パーツが独自に持つ枠線（例：.reaction-avatar の黒フチ）を壊さない。 */
+  .placeholder-img::before{
+    content:"";
+    position:absolute;inset:0;
+    border:1px dashed #a9c3d4;
+    border-radius:inherit;
+    pointer-events:none;
+  }
+  .placeholder-dark::before{border-color:#4a6273;}
+
+  /* 写真が入ったら点線とストライプを消す。
+     :has() なので写真を置くだけで自動的に切り替わり、
+     読み込み失敗時は onerror で img が消えてプレースホルダーに戻る。 */
+  .placeholder-img:has(> img){background:none;}
+  .placeholder-img:has(> img)::before{display:none;}
+
+  /* 保存すべきファイル名を枠内に表示（画像が入ると隠れる） */
+  .ph-name{
+    font-size:10px;
+    letter-spacing:.02em;
+    word-break:break-all;
+    opacity:.85;
+  }
+  .placeholder-img .icon{width:22px;height:22px;color:#a9c3d4;}
+  .placeholder-dark{
+    background:repeating-linear-gradient(45deg,#26343d,#26343d 10px,#2c3d47 10px,#2c3d47 20px);
+    color:#8fb2c7;
+  }
+  .placeholder-dark .icon{color:#4a6273;}
+  .badge{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--black);
+    font-weight:700;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:999px;
+    letter-spacing:.02em;
+  }
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;
+    padding:16px 20px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:16px;
+    border:none;
+    text-align:center;
+  }
+  /* ページ内のメインCTA。
+     公式サイトの同名ボタン(foam_btn.svg)に合わせてオレンジ地＋白文字。
+     黄色地＋黒文字より黒ブロック上での視認性が高い。 */
+  .btn-primary{
+    background:var(--orange);
+    color:#fff;
+    box-shadow:0 6px 0 var(--orange-dark), 0 10px 18px rgba(0,0,0,.18);
+  }
+  .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--orange-dark);}
+  .btn-primary:disabled{background:#e6e6e6;color:#aaa;box-shadow:none;border-color:transparent;}
+
+  /* 追従バーは「電話・LINE・無料査定」の3つが並ぶ。
+     本命の無料査定が一番弱く見えないよう、ページ内CTAと同じオレンジで統一する。 */
+  .float-cta .btn-primary{
+    box-shadow:0 4px 0 var(--orange-dark), 0 8px 14px rgba(0,0,0,.15);
+  }
+  .float-cta .btn-primary:active{box-shadow:0 1px 0 var(--orange-dark);}
+  .btn-blue{
+    background:var(--blue);
+    color:#fff;
+    box-shadow:0 6px 0 var(--blue-dark), 0 10px 18px rgba(0,0,0,.15);
+  }
+  .btn-blue:active{transform:translateY(4px);box-shadow:0 2px 0 var(--blue-dark);}
+  .btn-line{
+    background:var(--line-green);
+    color:#fff;
+    box-shadow:0 6px 0 #05a548, 0 10px 18px rgba(0,0,0,.18);
+  }
+  .btn-line:active{transform:translateY(4px);box-shadow:0 2px 0 #05a548;}
+  .btn-outline{
+    background:transparent;
+    color:var(--black);
+    border:1.5px solid var(--black);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--gray-500);
+    font-size:13px;
+    text-decoration:underline;
+    padding:8px;
+  }
+  .section{padding:var(--sect-y) 0;}
+  .section.dark{background:var(--black);color:var(--white);}
+  .section.gray{background:var(--gray-100);}
+  .section.tight{padding-top:0;}
+  .eyebrow{
+    color:var(--blue);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-align:center;
+    margin-bottom:8px;
+  }
+  .section.dark .eyebrow{color:var(--blue);}
+  h2.h-title{
+    /* 幅に比例させることで、狭い端末でも短い見出しが1行に収まる */
+    font-size:var(--fs-2xl);
+    font-weight:800;
+    text-align:center;
+    margin:0 0 var(--gap-title);
+    line-height:1.5;
+    /* 万一1行に収まらない場合の保険。
+       balance=2行を均等に割る／auto-phrase=日本語の文節で折る
+       （どちらも未対応ブラウザでは通常の折り返しに戻るだけ） */
+    text-wrap:balance;
+    word-break:auto-phrase;
+  }
+  .note{font-size:var(--fs-2xs);color:var(--gray-500);}
+  .disclaimer-box{
+    background:#fff8e1;
+    border:1px solid #f0e0a6;
+    border-radius:10px;
+    padding:10px 14px;
+    font-size:12px;
+    color:#7a6a1f;
+    margin:16px 0;
+  }
+
+  /* ---------- ヘッダー ---------- */
+  /* ヘッダーは公式サイト(txt-garage.jp)に合わせて白地。
+     ロゴの主色がネイビーのため、水色地だと沈んで読めないため。 */
+  header.site-header{
+    position:sticky;top:0;z-index:50;
+    background:#fff;
+    color:var(--black);
+    border-bottom:1px solid var(--gray-300);
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+  }
+  .header-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    /* ヘッダーはロゴと電話が並ぶため本文よりわずかに詰める */
+    padding:10px calc(var(--gutter) - 5px);
+    gap:10px;
+  }
+  .logo-mark{display:flex;align-items:center;gap:7px;min-width:0;}
+  /* 公式ロゴ。縦横比 274:82 を維持したまま高さで揃える */
+  /* 幅に比例して縮む。480pxで上限、狭い端末でも下限を割らない。
+     段階的に切り替えるメディアクエリより、常に画像と同じ比率で
+     スケールするほうがデザインの見え方が安定する。 */
+  .logo-img{height:clamp(27px, 8.7vw, 42px);width:auto;flex:none;}
+  /* このLPがバイク買取であることを示す小さなラベル */
+  .logo-sub{
+    flex:none;
+    background:var(--navy);color:#fff;
+    font-size:clamp(8.5px, 2.44vw, 11.7px);font-weight:800;line-height:1.2;
+    padding:3px 6px;border-radius:4px;
+    letter-spacing:.02em;text-align:center;
+  }
+  /* 黒背景のフッターではネイビーが沈むのでイエローに反転 */
+  footer .logo-sub{background:var(--brand-yellow);color:var(--black);}
+  .header-cta{display:flex;gap:8px;}
+  /* 電話まわりは公式サイト(txt-garage.jp)のヘッダーと同じ
+     フリーダイヤル画像(tel.svg)＋受付時間テキストの組み合わせ */
+  .tel-btn{
+    display:flex;flex-direction:column;align-items:flex-end;gap:3px;
+    flex:none;
+  }
+  .tel-btn .tel-img{width:clamp(128px, 42.3vw, 203px);height:auto;max-width:100%;}
+  .tel-btn .tel-hours{
+    font-size:clamp(8.4px, 2.44vw, 11.7px);font-weight:800;line-height:1;
+    color:#3c3c3c;letter-spacing:.01em;white-space:nowrap;
+  }
+  .tel-btn .icon{width:14px;height:14px;}
+
+  /* ---------- ヒーロー：ファーストビューは1枚の写真に集約 ---------- */
+  /* padding-bottom が無いと、中の査定カードの下マージンが
+     マージン相殺で外へ抜け、次のセクションと接してしまう。
+     カードの影(0 10px 24px)が収まる高さも見込んでいる。 */
+  /* 背景はキービジュアルの地色と同じ水色にして、画像とヒーローを地続きに見せる */
+  .hero{
+    background:var(--sky);color:#fff;
+    padding-bottom:calc(var(--gutter) * 1.7);
+  }
+  /* キービジュアルは切り抜かず全体を見せる。
+     文字が焼き込まれているため object-fit:cover でトリミングすると欠ける。
+     aspect-ratio で画像本来の比率(960:1219)を保持する。 */
+  .hero-photo{
+    position:relative;
+    aspect-ratio:960 / 1056;
+    background:var(--sky);   /* 読み込み前のちらつき防止 */
+    overflow:hidden;
+  }
+  .hero-photo > .hero-key{
+    display:block;
+    width:100%;height:100%;
+    object-fit:contain;
+  }
+  .hero-photo-note{
+    position:absolute;top:50%;left:20px;right:20px;transform:translateY(-50%);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    text-align:center;color:rgba(255,255,255,.55);font-size:11px;
+  }
+  .hero-photo-note .icon{width:22px;height:22px;}
+
+  /* ---------- キービジュアル直下の訴求ブロック（アセット8を再現） ----------
+     色はアセット8から抽出した実測値:
+       地色 #191919 ／ 強調 #f4e100 ／ 本文 #ffffff              */
+  .hero-points{
+    background:#191919;color:#fff;
+    padding:calc(var(--sect-y) * .58) 0 calc(var(--sect-y) * .64);
+  }
+  /* 「ティーバイティーなら」の吹き出し。
+     下辺がV字に切れ込む形は罫線では作れないため、枠線だけSVGで描き、
+     文字はHTMLのまま重ねている（検索・読み上げ・文言修正に対応するため）。
+     viewBoxと同じ縦横比をCSSで固定しているので線幅もV字も歪まない。 */
+  .hp-label{
+    position:relative;
+    width:clamp(155px, 46.2vw, 222px);
+    aspect-ratio:180 / 42;
+    margin-bottom:calc(var(--gap-card) * .95);
+    max-height:52px;
+  }
+  .hp-label-frame{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+  }
+  /* 枠(42)のうち上の28がコピー領域、下の14がV字の吹き出し部分 */
+  .hp-label span{
+    position:absolute;left:0;right:0;top:0;height:66.7%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:clamp(11.6px, 3.46vw, 16.6px);
+    font-weight:800;letter-spacing:.02em;white-space:nowrap;
+  }
+
+  .hp-list{list-style:none;margin:0 0 var(--gap-card);padding:0;}
+  .hp-list li{
+    display:flex;align-items:flex-start;gap:.55em;
+    font-size:clamp(13.2px, 4.23vw, 20.3px);
+    font-weight:800;line-height:1.5;
+    margin-bottom:.7em;
+  }
+  .hp-list li:last-child{margin-bottom:0;}
+  .hp-check{
+    flex:none;width:1.33em;height:1.33em;margin-top:.1em;
+    fill:none;stroke:#f4e100;stroke-width:3.2;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+  .hp-list em{color:#f4e100;font-style:normal;}
+
+  .hp-cta{margin-top:2px;}
+
+
+  .hero-quiz{
+    margin:var(--gutter) var(--gutter) 0;background:#fff;color:var(--black);
+    border-radius:16px;padding:20px 18px 22px;
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+  }
+  .hero-quiz .quiz-lead{
+    text-align:center;font-weight:900;
+    /* 査定への入口なので見出し級のサイズに。幅に比例させて1行を保つ */
+    font-size:clamp(15px, 4.9vw, 23px);
+    line-height:1.4;margin-bottom:4px;
+    word-break:auto-phrase;
+  }
+  .hero-quiz .quiz-sub{
+    text-align:center;font-size:12px;color:var(--gray-500);margin-bottom:14px;
+  }
+  .quiz-count-badge{
+    display:block;margin:0 auto 12px;width:fit-content;
+    background:var(--accent);color:var(--black);font-weight:900;font-size:12px;
+    padding:4px 12px;border-radius:999px;
+  }
+  .quiz-body{display:flex;gap:10px;align-items:flex-end;margin-bottom:16px;}
+  .quiz-mascot{
+    flex:none;width:64px;height:64px;border-radius:50%;
+  }
+  .quiz-mascot .icon{width:26px;height:26px;}
+  .quiz-bubble{
+    flex:1;background:var(--gray-100);border-radius:12px;border-bottom-left-radius:2px;
+    padding:10px 12px;font-size:12.5px;font-weight:700;
+  }
+  .quiz-field-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .quiz-field-num{
+    flex:none;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;
+  }
+  .hero-quiz select, .hero-quiz input[type="text"]{
+    flex:1;width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--gray-300);
+    font-size:15px;background:#fff;font-family:inherit;
+  }
+
+  /* ---------- 悩みチェック ---------- */
+  .check-grid{display:flex;flex-direction:column;gap:var(--gap-card);}
+  .check-card{
+    display:flex;align-items:center;gap:12px;
+    background:#fff;border:1px solid var(--gray-300);
+    border-radius:var(--radius);
+    padding:14px;
+  }
+  .check-photo{
+    flex:none;border-radius:12px;
+    width:clamp(64px, 20vw, 92px);
+    height:clamp(64px, 20vw, 92px);
+  }
+  .check-card > div:not([class]){min-width:0;}
+  .check-card h3{margin:0 0 5px;word-break:auto-phrase;font-size:var(--fs-lg);font-weight:800;display:flex;align-items:center;gap:6px;}
+  .check-card h3 .icon{color:var(--blue);width:16px;height:16px;}
+  .check-card p{margin:0;font-size:var(--fs-sm);color:#555;line-height:1.55;}
+  /* ハンコ風の丸バッジ。画面に入った瞬間にポンと押される動き。 */
+  .check-ok{
+    flex:none;margin-left:auto;
+    width:clamp(50px, 14.5vw, 66px);
+    height:clamp(50px, 14.5vw, 66px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:var(--accent);color:var(--black);
+    font-size:clamp(11.5px, 3.3vw, 14.5px);font-weight:900;line-height:1.15;
+    border-radius:50%;border:2.5px solid var(--black);
+    text-align:center;
+    transform:rotate(-8deg);
+  }
+  /* 初期状態の非表示はJSが .check-ok-anim を付けたときだけ効かせる。
+     JSが動かない環境ではバッジが消えないようにするため。 */
+  /* transition は「見せる側」にだけ付ける。
+     隠す側に付けると、JSがクラスを足した瞬間に
+     表示→非表示のアニメーションが走ってしまう。 */
+  .check-ok-anim{
+    opacity:0;
+    transform:rotate(-30deg) scale(.3);
+  }
+  .check-ok-anim.is-in{
+    opacity:1;
+    transform:rotate(-8deg) scale(1);
+    transition:opacity .25s ease, transform .5s cubic-bezier(.34,1.56,.64,1);
+  }
+  /* 動きを減らす設定の端末では即表示 */
+  @media (prefers-reduced-motion:reduce){
+    .check-ok-anim{opacity:1;transform:rotate(-8deg);transition:none;}
+  }
+  .check-lead{
+    text-align:center;font-weight:700;margin:26px 0 14px;
+    /* 21文字を1行に収めるため幅に比例させる */
+    font-size:clamp(13px, 4.0vw, 18px);
+    white-space:nowrap;
+  }
+
+  /* ---------- 査定スタイル選択（2択カード） ---------- */
+  .style-cards{display:flex;flex-direction:column;gap:calc(var(--gap-card) + 3px);}
+  .style-card{
+    position:relative;overflow:hidden;
+    background:#fff;border:2px solid var(--black);border-radius:16px;
+    padding:22px 18px 20px;
+  }
+  /* 人物カットはカード右側に重ねる。
+     テキストより下のレイヤーに置き、さらに本文へ padding-right を入れて
+     文字と人物が被らないようにしている。 */
+  .style-photo{
+    position:absolute;z-index:1;
+    pointer-events:none;user-select:none;
+  }
+  /* 「！」が切れないよう右端は 0。カード上部に収める */
+  .style-photo-rush{top:40px;right:0;width:47%;}
+  .style-photo-shinjo{bottom:14px;right:-8px;width:46%;}
+  .style-card > *:not(.style-photo){position:relative;z-index:2;}
+  /* 出張＝ブルー、LINE＝グリーンで枠と地色を揃える */
+  .style-card-main{border-color:var(--blue);background:#f3faff;}
+  .style-card-line{border-color:var(--line-green);background:#f1fbf5;}
+  /* アイコンと「★おすすめ」を横並びにする行 */
+  .style-head{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+  /* ピル型から、アイコン横に置く青文字＋星へ変更 */
+  .style-badge{
+    display:inline-flex;align-items:center;gap:4px;
+    color:var(--blue);font-weight:900;
+    font-size:clamp(11.5px, 3.4vw, 14.5px);
+    letter-spacing:.02em;white-space:nowrap;
+  }
+  .style-badge .icon{width:1.05em;height:1.05em;}
+  /* 黒一色だと人物カットと競合するため、査定手段が伝わる色に分ける。
+     出張＝コーポレートのブルー／LINE＝LINEブランドのグリーン。 */
+  .style-icon{
+    flex:none;
+    width:46px;height:46px;border-radius:12px;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+  }
+  /* 査定手段が伝わるようアイコンを色分けする */
+  .style-card-main .style-icon{background:var(--blue);}
+  .style-card-line .style-icon{background:var(--line-green);}
+  .style-card h3{
+    font-size:clamp(14.5px, 4.3vw, 19px);font-weight:900;margin:0 0 10px;
+    padding-right:32%;word-break:auto-phrase;
+  }
+  .style-card ul{
+    margin:0;padding-left:18px;padding-right:40%;
+    font-size:clamp(11.5px, 3.3vw, 14px);color:#444;
+  }
+  .style-card li{margin-bottom:5px;}
+
+  /* ---------- REASONブロック ---------- */
+  .reason-block{margin-bottom:var(--gap-block);}
+  .reason-block:last-child{margin-bottom:0;}
+  .reason-tag{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--black);color:var(--accent);
+    font-weight:900;font-size:var(--fs-xs);
+    padding:5px 13px;border-radius:999px;margin-bottom:11px;
+  }
+  .reason-block h3{
+    font-size:calc(var(--fs-lg) + 1px);
+    font-weight:900;margin:0 0 8px;word-break:auto-phrase;
+  }
+  /* 見出し内の強調はコーポレートのオレンジ */
+  .hl-orange{color:var(--orange);}
+  .reason-photo{aspect-ratio:3 / 2;border-radius:var(--radius);margin-bottom:10px;}
+  .reason-block p{font-size:var(--fs-md);color:#555;margin:0;line-height:1.8;}
+  /* 蛍光ペンで線を引いたような黄色のベース。
+     背景を横幅0から100%へ伸ばすことで「引かれる」動きを作る。 */
+  .reason-block mark{
+    /* mark はブラウザ標準で background-color:yellow が付く。
+       消しておかないと、background-size で伸ばす演出が効かず
+       最初から塗られたままになる。 */
+    background-color:transparent;
+    background-image:linear-gradient(#ffe680, #ffe680);
+    background-repeat:no-repeat;
+    background-position:0 100%;
+    background-size:100% 100%;      /* JSが動かない環境では最初から塗られた状態 */
+    color:inherit;
+    padding:1px 0;
+    font-weight:700;
+    border-radius:2px;
+    /* 複数行に折り返したとき、行ごとに背景を描く。
+       既定(slice)だと2行目以降に線が引かれない。 */
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
+  }
+  /* JSが付けたときだけ「引かれる前」の状態にする */
+  /* ベースの .reason-block mark（詳細度0-1-1）に負けないよう、
+     こちらも要素セレクタを含めて詳細度を揃える。
+     クラスだけだと後から書いても上書きできない。 */
+  .reason-block mark.mark-anim{
+    background-size:0 100%;
+  }
+  .reason-block mark.mark-anim.is-drawn{
+    background-size:100% 100%;
+    transition:background-size .85s cubic-bezier(.22,.61,.36,1);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reason-block mark.mark-anim{background-size:100% 100%;transition:none;}
+  }
+
+  /* ---------- WHY：買取実績写真を敷いた訴求ブロック ---------- */
+  .section.why{
+    position:relative;
+    overflow:hidden;
+    color:#fff;
+    text-align:center;
+    background:#12181d url("../img/rush2.jpg") center / cover no-repeat;
+  }
+  /* 写真の上に暗幕を敷いて文字を読ませる */
+  .section.why::before{
+    content:"";
+    position:absolute;inset:0;
+    background:rgba(8,14,20,.58);
+  }
+  .section.why > .wrap{position:relative;z-index:1;}
+  .section.why .eyebrow{color:#7fd4ff;}
+
+  .why-title{
+    font-size:var(--fs-xl);font-weight:900;
+    margin:0 0 10px;line-height:1.4;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+  }
+  /* 「０円査定致しません！」＝この節の主役。画面に入るとバンと出る */
+  .why-punch{
+    font-size:clamp(25px, 7.9vw, 40px);
+    font-weight:900;color:var(--accent);
+    margin:0 0 var(--gap-card);line-height:1.3;
+    text-shadow:0 3px 0 rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.5);
+  }
+  .why-lead{
+    font-size:var(--fs-md);font-weight:700;
+    margin:0 0 var(--gap-card);line-height:1.9;
+    text-shadow:0 2px 6px rgba(0,0,0,.6);
+  }
+  .why-close{
+    font-size:var(--fs-lg);font-weight:900;
+    margin:0;line-height:1.7;
+    text-shadow:0 2px 6px rgba(0,0,0,.6);
+  }
+  .hl-yellow{color:var(--accent);}
+
+  /* 出現前の状態。JSが付けるので、JS無効時は最初から表示される */
+  .punch-anim{
+    opacity:0;
+    transform:scale(2.3);
+  }
+  .punch-anim.is-in{
+    opacity:1;
+    transform:scale(1);
+    transition:opacity .18s ease-out,
+               transform .42s cubic-bezier(.18,1.6,.4,1);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .punch-anim{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ---------- FLOW：3ステップ ---------- */
+  .flow-list{display:flex;flex-direction:column;}
+  .flow-card{
+    position:relative;
+    background:#fff;border-radius:14px;
+    padding:20px 18px 22px;
+    text-align:center;
+  }
+  /* カード間の下向き三角。最後のカードには付けない */
+  .flow-card:not(:last-child){margin-bottom:34px;}
+  .flow-card:not(:last-child)::after{
+    content:"";
+    position:absolute;left:50%;bottom:-26px;
+    transform:translateX(-50%);
+    border-left:15px solid transparent;
+    border-right:15px solid transparent;
+    border-top:18px solid var(--orange);
+  }
+  /* 大きな連番。塗りを抜いて線だけにする */
+  .flow-num{
+    position:absolute;top:14px;left:16px;
+    font-size:clamp(36px, 10.5vw, 50px);
+    font-weight:900;line-height:1;
+    color:transparent;
+    -webkit-text-stroke:2px var(--orange);
+    letter-spacing:.02em;
+  }
+  .flow-icon{
+    display:flex;align-items:center;justify-content:center;
+    height:clamp(86px, 25vw, 118px);
+    margin-bottom:6px;
+  }
+  /* イラストは縦横比がそれぞれ違うので、高さを揃えて幅は成り行きにする */
+  .flow-icon img{
+    height:100%;
+    width:auto;
+    max-width:100%;
+  }
+  .flow-card h3{
+    color:var(--orange);
+    font-size:var(--fs-lg);font-weight:900;
+    margin:0 0 8px;
+  }
+  .flow-card p{
+    font-size:var(--fs-sm);color:#444;margin:0;
+    text-align:left;line-height:1.75;
+  }
+  .flow-note{font-size:var(--fs-2xs);color:var(--gray-500);}
+  .flow-cta{margin-top:16px;}
+
+  /* ---------- 実績/声(写真タイプ) ---------- */
+  .voice-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;}
+  .voice-scroll::-webkit-scrollbar{display:none;}
+  .voice-card-v2{
+    flex:none;width:210px;
+    background:#fff;border:1px solid var(--gray-300);border-radius:var(--radius);overflow:hidden;
+  }
+  .voice-photo{aspect-ratio:3 / 2;position:relative;}
+  .voice-age{
+    position:absolute;left:8px;bottom:8px;
+    background:var(--black);color:var(--accent);
+    font-size:11px;font-weight:800;padding:3px 9px;border-radius:6px;
+  }
+  .voice-headline{
+    background:var(--blue);color:#fff;font-weight:800;font-size:12.5px;
+    padding:8px 10px;
+  }
+  .voice-body{padding:10px;}
+  .voice-model{font-size:11px;color:var(--gray-500);margin-bottom:4px;}
+  .voice-body p{font-size:12px;color:#444;margin:0;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--gray-300);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;
+    padding:16px 4px;font-weight:700;font-size:13.5px;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  .faq-q .q-mark{color:var(--blue);font-weight:900;flex:none;}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .25s ease;
+    font-size:var(--fs-sm);color:#555;padding:0 4px;
+  }
+  .faq-item.open .faq-a{max-height:200px;padding-bottom:16px;}
+  .faq-toggle-icon{transition:transform .2s ease;flex:none;color:var(--blue);}
+  .faq-item.open .faq-toggle-icon{transform:rotate(135deg);}
+
+  /* ---------- 最終CTA/フッター ---------- */
+  .final-cta{
+    background:linear-gradient(180deg,var(--blue-dark),var(--blue-deep));
+    color:#fff;text-align:center;
+  }
+  .final-cta h2{font-size:21px;font-weight:900;margin:0 0 8px;}
+  .final-cta p{font-size:var(--fs-sm);color:#eaf4fb;margin:0 0 22px;}
+  /* ---------- フッター直前のブランドブロック（公式サイト下部に合わせた構成） ---------- */
+  .footer-brand{
+    background:#fff;color:var(--black);
+    text-align:center;
+    padding:calc(var(--sect-y) * .8) 0;
+    border-top:1px solid var(--gray-300);
+  }
+  .fb-logo{width:clamp(150px, 42vw, 200px);height:auto;margin:0 auto var(--gap-card);}
+  .fb-tagline{font-weight:800;font-size:var(--fs-md);line-height:1.6;margin:0 0 var(--gap-card);}
+  .fb-tel{display:inline-block;}
+  .fb-tel img{width:clamp(220px, 62vw, 300px);height:auto;margin:0 auto;}
+  .fb-tel-hours{font-size:var(--fs-xs);font-weight:800;color:#3c3c3c;margin:6px 0 var(--gap-card);}
+  .fb-cta{max-width:340px;margin:0 auto var(--gap-block);}
+  .fb-sns{display:flex;justify-content:center;gap:16px;}
+  .fb-sns a{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--gray-100);color:var(--black);
+  }
+  .fb-sns .icon{width:22px;height:22px;stroke-width:1.8;}
+
+  footer{
+    background:var(--black);color:var(--gray-300);
+    padding:calc(var(--sect-y) * .62) 0 100px;font-size:12px;
+  }
+  footer .company-box{
+    border-top:1px solid #333;border-bottom:1px solid #333;
+    padding:16px 0;margin:16px 0;
+  }
+  footer .company-box dt{color:var(--gray-500);font-size:11px;}
+  footer .company-box dd{margin:0 0 10px;}
+  /* 2列グリッド：公式フッターの並びに合わせる */
+  footer .foot-links{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;
+    margin-top:10px;
+  }
+  footer .foot-links a{text-decoration:underline;color:var(--gray-300);}
+  footer .company-box dd a{color:var(--brand-yellow);text-decoration:underline;}
+
+  /* ---------- フローティングCTA(下部固定) ---------- */
+  .float-cta{
+    position:fixed;left:50%;transform:translateX(-50%);bottom:0;z-index:60;
+    width:100%;max-width:var(--maxw);
+    background:#fff;border-top:1px solid var(--gray-300);
+    /* 左右余白・ボタン間隔は狭い端末でも詰められるよう可変にする */
+    padding:10px clamp(10px, 3vw, 16px) calc(10px + env(safe-area-inset-bottom));
+    display:flex;gap:clamp(6px, 2vw, 8px);
+    box-shadow:0 -6px 16px rgba(0,0,0,.08);
+  }
+  /* 電話は削除（ヘッダーにフリーダイヤルが常時あるため重複）。
+     主役は出張査定の申し込み。LINEは幅と文字を抑えて主従をつける。 */
+  /* 2つとも1行に揃える。片方だけ2行だと、もう片方の中身が
+     間延びして落ち着かないため。主従は幅と文字サイズで付ける。 */
+  .float-cta .btn{
+    position:relative;
+    /* 丸アイコン分の右余白も可変にする。固定34pxだと305px幅の端末で
+       ボタンの最小幅を超えてはみ出す。 */
+    padding:14px clamp(26px, 8vw, 34px) 14px 8px;
+    line-height:1.3;
+    gap:clamp(4px, 1.5vw, 6px);
+    white-space:nowrap;
+  }
+  /* 公式サイトの下部固定バーに合わせた「白丸＋再生三角」の飾り */
+  .btn-endcap{
+    position:absolute;right:clamp(4px, 1.5vw, 8px);top:50%;transform:translateY(-50%);
+    width:clamp(16px, 5vw, 22px);height:clamp(16px, 5vw, 22px);border-radius:50%;
+    background:rgba(255,255,255,.9);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .btn-endcap .icon{width:52%;height:52%;color:inherit;}
+  .btn-line .btn-endcap .icon{color:var(--line-green);}
+  .btn-primary .btn-endcap .icon{color:var(--orange);}
+  .float-cta .btn-line{
+    flex:0.85;
+    font-size:clamp(10.5px, 3.3vw, 14.5px);
+    white-space:nowrap;
+  }
+  .float-cta .btn-line .icon{width:16px;height:16px;}
+  .float-cta .btn-primary{
+    flex:1.55;
+    font-size:clamp(11.5px, 3.9vw, 17px);
+  }
+  .float-cta .btn-primary .icon{width:20px;height:20px;}
+
+  /* ================= 査定フォーム ビュー ================= */
+  #view-form{
+    min-height:100vh;
+    background:var(--gray-100);
+    padding-bottom:40px;
+  }
+  .form-header{
+    position:sticky;top:0;z-index:40;
+    background:#fff;border-bottom:1px solid var(--gray-300);
+    padding:12px 16px;
+  }
+  .form-header-row{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .form-title{font-size:13px;font-weight:800;display:flex;align-items:center;gap:8px;min-width:0;}
+  .close-x{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--gray-100);border:none;color:#555;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .progress-track{
+    max-width:var(--maxw);margin:10px auto 0;
+    height:6px;background:var(--gray-300);border-radius:999px;overflow:hidden;
+  }
+  .progress-fill{height:100%;background:var(--blue);width:33%;transition:width .3s ease;}
+  .progress-label{
+    max-width:var(--maxw);margin:6px auto 0;
+    font-size:11px;color:var(--gray-500);text-align:right;
+  }
+
+  .form-body{max-width:var(--maxw);margin:0 auto;padding:22px 16px 100px;}
+  .form-step{display:none;}
+  .form-step.active{display:block;animation:fadeIn .25s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .form-step h2{font-size:18px;font-weight:800;margin:0 0 6px;}
+  .form-step .step-desc{font-size:13px;color:#666;margin:0 0 22px;}
+
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;}
+  .field .required{color:var(--danger);font-size:11px;margin-left:4px;}
+  .field select, .field input[type="text"], .field input[type="tel"], .field input[type="email"], .field textarea{
+    width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--gray-300);
+    font-size:15px;background:#fff;font-family:inherit;
+  }
+  .field select:focus, .field input:focus, .field textarea:focus{outline:2px solid var(--blue);outline-offset:1px;}
+  .field textarea{resize:vertical;min-height:80px;}
+  .check-options{display:flex;flex-wrap:wrap;gap:8px;}
+  .check-options label{
+    display:flex;align-items:center;gap:6px;
+    border:1px solid var(--gray-300);border-radius:999px;
+    padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;
+    background:#fff;width:auto;margin:0;
+  }
+  .check-options input{accent-color:var(--blue);}
+  .check-options label.on{background:#eaf5fc;border-color:var(--blue);color:var(--blue-deep);}
+  .radio-rows label{
+    display:flex;align-items:center;gap:8px;
+    border:1px solid var(--gray-300);border-radius:10px;
+    padding:12px 14px;font-size:14px;margin-bottom:8px;background:#fff;
+  }
+  .radio-rows input{accent-color:var(--blue);}
+
+  .bike-match-card{
+    display:flex;gap:12px;background:#fff;border:1px solid var(--gray-300);
+    border-radius:var(--radius);padding:14px;margin-bottom:12px;
+  }
+  .bike-match-img{width:80px;height:64px;border-radius:8px;flex:none;font-size:10px;}
+  .bike-match-info h4{margin:0 0 4px;font-size:14px;font-weight:800;}
+  .bike-match-price{font-size:16px;font-weight:900;color:var(--blue-dark);}
+  .bike-match-tags{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;}
+  .bike-match-tags span{
+    font-size:10px;background:var(--black);color:var(--accent);
+    padding:2px 7px;border-radius:6px;
+  }
+
+  .confirm-box{
+    background:#fff;border:1px solid var(--gray-300);border-radius:var(--radius);
+    padding:16px;margin-bottom:18px;font-size:13px;
+  }
+  .confirm-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--gray-300);}
+  .confirm-row:last-child{border-bottom:none;}
+  .confirm-row .k{color:var(--gray-500);}
+
+  .agree-row{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#555;margin:18px 0;}
+  .agree-row a{text-decoration:underline;}
+
+  .form-nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:55;
+    background:#fff;border-top:1px solid var(--gray-300);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  }
+  .form-nav-inner{display:flex;gap:10px;width:100%;max-width:var(--maxw);margin:0 auto;}
+  .form-nav .btn-outline{flex:0 0 90px;}
+
+  /* サンクス関連のCSSは thanks/index.html 側に移動しました */
+
+  /* ---------- 離脱防止モーダル（バイク王の実際の挙動を参考に再現） ---------- */
+  #exit-modal-overlay{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(0,0,0,.6);
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+  }
+  #exit-modal-overlay.hidden{display:none;}
+  .exit-modal{
+    position:relative;
+    width:100%;max-width:340px;
+    background:#fff;border-radius:14px;
+    overflow:hidden;
+    animation:popIn .2s ease;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+  }
+  @keyframes popIn{from{transform:scale(.92);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .exit-modal-close{
+    position:absolute;top:8px;right:8px;z-index:2;
+    width:26px;height:26px;border-radius:50%;
+    background:rgba(255,255,255,.9);border:none;color:#333;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .exit-modal-banner{
+    /* サムネイルを3:2にした分、バナーの高さも確保する */
+    position:relative;height:214px;padding:16px;
+    background:linear-gradient(120deg, #fff 0%, #fff 55%, #eef7f0 55%, #eef7f0 100%);
+  }
+  .exit-modal-badge{
+    position:absolute;top:10px;right:10px;
+    background:var(--line-green);color:#fff;font-weight:800;font-size:9.5px;
+    padding:4px 8px;border-radius:6px;line-height:1.3;text-align:center;max-width:90px;
+  }
+  .exit-modal-copy{position:relative;z-index:1;max-width:66%;}
+  .exit-modal-copy .lead{font-size:12px;color:#333;font-weight:700;margin:0 0 2px;}
+  .exit-modal-copy .headline{font-size:19px;font-weight:900;line-height:1.35;margin:0 0 8px;color:#111;}
+  .exit-modal-copy .sub{font-size:11.5px;color:#555;font-weight:700;margin:0;}
+  .exit-modal-phone{
+    position:absolute;top:44px;right:16px;width:54px;height:54px;border-radius:50%;
+    background:#fff;border:2px solid var(--line-green);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
+  }
+  .exit-modal-thumbrow{display:flex;gap:4px;position:absolute;left:16px;right:16px;bottom:14px;}
+  .exit-modal-thumbrow .placeholder-img{flex:1;aspect-ratio:3 / 2;font-size:0;}
+  .exit-modal-body{padding:14px 18px 20px;}
+  .exit-modal .btn{margin-bottom:8px;}
+  .exit-modal-detail{
+    display:block;text-align:center;font-size:12.5px;color:#444;
+    text-decoration:underline;
+  }
+
+  /* ==========================================================
+     ティーバイティー「らしさ」パーツ
+     （公式サイトのコミック調・実写スポークスパーソン・
+       サインボード風実績カードのトーンを参考に追加）
+  ========================================================== */
+
+  /* 「え!?こんなバイクまで!?」リアクション */
+  .reaction-strip{background:var(--accent);padding:calc(var(--sect-y) * .56) 0;}
+  .reaction-inner{display:flex;align-items:center;gap:14px;}
+  .reaction-inner h3{word-break:auto-phrase;}
+  .reaction-avatar{
+    /* 枠線は隣の吹き出し(.reaction-bubble)と同じ 2px 黒。
+       アイコンの円が黄色背景と同化するのを防ぐ。 */
+    flex:none;width:60px;height:60px;border-radius:50%;border:2px solid var(--black);
+  }
+  .reaction-bubble{
+    background:#fff;border:2px solid var(--black);border-radius:14px;border-bottom-left-radius:2px;
+    padding:6px 12px;font-weight:900;font-size:13px;display:inline-block;margin-bottom:6px;
+  }
+  .reaction-strip h3{font-size:22px;margin:0 0 4px;line-height:1.3;}
+  .reaction-strip p{font-size:12px;color:#4a4116;margin:0;font-weight:700;}
+  .reaction-lead{font-weight:900;margin:8px 0 0;}
+  .reaction-photorow{display:flex;gap:9px;margin-top:var(--gap-card);}
+  .reaction-photorow .placeholder-img{flex:1;aspect-ratio:3 / 2;}
+
+  /* お客様の声：実績カード（サインボード風） */
+  .proof-card{
+    background:#fff;border:2px solid var(--black);border-radius:14px;overflow:hidden;margin-bottom:16px;
+  }
+  .proof-photo{aspect-ratio:3 / 2;position:relative;}
+  .proof-sign{
+    position:absolute;bottom:10px;right:10px;
+    background:#ffe6f2;border:2px solid var(--black);border-radius:50%;
+    width:70px;height:70px;display:flex;align-items:center;justify-content:center;
+    text-align:center;font-size:11px;font-weight:900;color:#c02a72;transform:rotate(-8deg);
+    line-height:1.2;
+  }
+  .proof-body{padding:14px;}
+  .proof-type-row{display:flex;gap:8px;align-items:center;font-size:12px;margin-bottom:8px;}
+  .proof-type-row .lbl{background:var(--black);color:#fff;font-weight:800;padding:3px 8px;border-radius:4px;font-size:11px;}
+  /* ラベルと金額を横一列に並べる */
+  .proof-price-row{
+    display:flex;align-items:baseline;flex-wrap:wrap;
+    gap:4px 9px;margin-bottom:10px;
+  }
+  .proof-price-lbl{
+    background:var(--black);color:#fff;font-weight:800;font-size:11px;
+    padding:3px 10px;border-radius:4px;white-space:nowrap;
+  }
+  .proof-price{
+    font-size:clamp(24px, 7.4vw, 34px);font-weight:900;color:var(--blue-dark);
+    line-height:1.1;white-space:nowrap;
+  }
+  .proof-price span{font-size:13px;font-weight:700;color:var(--gray-500);}
+  .proof-comment{
+    background:var(--gray-100);border-radius:12px;border-top-left-radius:2px;
+    padding:10px 12px;font-size:var(--fs-sm);color:#444;display:flex;gap:10px;align-items:flex-start;
+  }
+  .proof-comment .mini-avatar{flex:none;width:32px;height:32px;border-radius:50%;}
+
+  .mini-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:var(--gap-card);}
+  .mini-proof{background:#fff;border:2px solid var(--black);border-radius:10px;overflow:hidden;}
+  .mini-proof-photo{aspect-ratio:3 / 2;}
+  .mini-proof-tags{padding:8px;}
+  /* 1行目＝地域チップ＋お名前、2行目＝車種 */
+  .mini-proof-tags .name{
+    display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+    font-weight:800;font-size:var(--fs-xs);margin-bottom:5px;
+  }
+  .mini-proof-tags .name .chip{margin:0;}
+  .mini-proof-tags .chip{
+    display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;margin:0 4px 4px 0;
+    line-height:1.45;
+  }
+  .chip-loc{background:#e2defa;color:#4d3fa8;}
+  .chip-model{background:var(--black);color:#fff;}
+
+  /* FAQ：黒枠ボックス型 */
+  .faq-title-bar{
+    display:inline-block;background:var(--black);color:#fff;font-weight:900;
+    font-size:13px;padding:6px 16px;margin-bottom:14px;
+  }
+  .faq-v2{border:2px solid var(--black);border-radius:10px;margin-bottom:10px;overflow:hidden;background:#fff;}
+  .faq-v2 .faq-q{padding:14px;}
+  .faq-v2 .q-mark{
+    flex:none;width:24px;height:24px;border:2px solid var(--black);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--black);
+  }
+  .faq-v2 .faq-toggle-icon{
+    width:22px;height:22px;border-radius:50%;background:var(--gray-100);color:var(--black);padding:3px;
+  }
+  .faq-v2 .faq-a{padding:0 14px;}
+  .faq-v2.open .faq-a{padding-bottom:14px;}
+
+  /* 買取以外もT×T：クロスセル */
+  .cross-sell{display:flex;gap:10px;justify-content:center;margin-top:var(--gap-card);}
+  .cross-sell-item{
+    flex:1;max-width:100px;text-align:center;background:#fff;border:2px solid var(--black);
+    border-radius:10px;padding:10px 4px;font-size:11px;font-weight:800;
+  }
+  .cross-sell-item .placeholder-img{aspect-ratio:3 / 2;margin-bottom:6px;}
+
+  /* =========================================================
+     サンクスページ（thanks/index.html）専用
+     ※共通部分（変数・ボタン・ヘッダー・ロゴ・電話・フッター）は
+       上の定義をそのまま使います。二重管理を避けるため、
+       ここにはサンクス固有のものだけを置いてください。
+  ========================================================= */
+  /* LPの #view-lp と同じ枠。480pxで止めて中央に寄せる */
+  .page{
+    max-width:var(--maxw);
+    margin:0 auto;
+    background:var(--white);
+    box-shadow:0 0 30px rgba(0,0,0,.13);
+  }
+  /* ---------- 本文 ---------- */
+  .thanks-wrap{max-width:var(--maxw);margin:0 auto;padding:56px 20px;text-align:center;}
+  .thanks-icon{
+    width:70px;height:70px;border-radius:50%;background:var(--blue);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;
+  }
+  .thanks-icon .icon{width:32px;height:32px;stroke:#fff;stroke-width:2.5;}
+  .thanks-wrap h1{font-size:20px;font-weight:900;margin:0 0 12px;}
+  .thanks-wrap p{font-size:14px;color:#555;margin:0 0 26px;}
+  .note{font-size:11px;color:var(--gray-500);line-height:1.6;}
+
+  .next-box{
+    text-align:left;background:var(--gray-100);border-radius:14px;
+    padding:18px 18px 14px;margin:0 0 26px;
+  }
+  .next-box h2{font-size:14px;font-weight:900;margin:0 0 10px;}
+  .next-box ol{margin:0;padding-left:1.2em;font-size:13px;color:#444;}
+  .next-box li{margin-bottom:6px;}
+
+  .thanks-cta{display:flex;flex-direction:column;gap:10px;max-width:320px;margin:0 auto;}
+
+  footer{background:var(--black);color:#fff;padding:30px 0 40px;margin-top:20px;}
+  footer .logo-mark{color:#fff;margin-bottom:14px;}
+  .company-box{font-size:11.5px;line-height:1.8;margin:0;color:#c9ccd1;}
+  .company-box dt{font-weight:700;color:#fff;}
+  .company-box dd{margin:0 0 8px;}
