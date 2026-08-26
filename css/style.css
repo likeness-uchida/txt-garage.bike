@@ -541,10 +541,10 @@
   }
   .style-poster-osusume{
     display:inline-flex;align-items:center;
-    background:#fff;color:var(--black);
+    background:#fff;color:var(--sky);
     font-size:var(--fs-2xs);font-weight:800;
     padding:2px 9px;border-radius:999px;
-    border:1.5px solid var(--black);
+    border:none;
     margin-left:4px;vertical-align:2px;
   }
   .style-poster-big{
