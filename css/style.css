@@ -546,7 +546,7 @@
     margin-left:4px;vertical-align:2px;
   }
   .style-poster-big{
-    color:var(--accent);font-weight:900;
+    color:#ffff00;font-weight:900;
     font-size:clamp(26px, 8.6vw, 38px);
     line-height:1.15;margin:2px 0 12px;
     text-shadow:1px 1px 0 rgba(0,0,0,.18);
