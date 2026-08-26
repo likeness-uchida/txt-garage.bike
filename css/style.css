@@ -516,9 +516,11 @@
     background:var(--line-green);
     padding:calc(var(--gap-block) * 1.6) 0 calc(var(--sect-y) * .4);
     position:relative;
-    /* 左が大きく低く、右が高い、より急な斜めの継ぎ目（px指定で高さに依存させない） */
-    clip-path:polygon(0 130px, 100% 0, 100% 100%, 0 100%);
-    margin-top:-100px;
+    /* 左が大きく低く、右が高い、より急な斜めの継ぎ目。
+       固定pxだと画面幅が変わったときに写真の位置とズレるため、
+       画面幅に比例して480pxでキャップするmin()/max()にする。 */
+    clip-path:polygon(0 min(130px, 32vw), 100% 0, 100% 100%, 0 100%);
+    margin-top:max(-100px, -24.6vw);
   }
 
   .style-poster-row{position:relative;min-height:270px;padding-bottom:6px;}
@@ -532,7 +534,7 @@
     margin-left:8%;max-width:50%;padding-top:30px;
   }
   .style-poster-row-rev .style-poster-text{
-    margin-left:6%;max-width:60%;padding-top:88px;
+    margin-left:4%;max-width:72%;padding-top:88px;
   }
   .style-poster-lead{
     font-size:var(--fs-md);font-weight:800;margin:0 0 2px;color:var(--black);
@@ -546,13 +548,13 @@
     margin-left:4px;vertical-align:2px;
   }
   .style-poster-big{
-    color:var(--accent);font-weight:900;
+    color:#ffe14d;font-weight:900;
     font-size:clamp(26px, 8.6vw, 38px);
     line-height:1.15;margin:2px 0 12px;
     text-shadow:1px 1px 0 rgba(0,0,0,.18);
   }
   .style-poster-big-1line{
-    font-size:clamp(20px, 6.6vw, 30px);white-space:nowrap;
+    font-size:clamp(26px, 8.6vw, 38px);white-space:nowrap;
   }
   .style-poster-list{
     list-style:none;margin:0;padding:0;
@@ -571,12 +573,12 @@
   }
   /* 斜めの継ぎ目に沿うよう、写真の下側を同じ角度で切り落とす */
   .style-poster-blue .style-poster-photo{
-    width:54%;bottom:-7px;right:calc(var(--gutter) * -0.3);
+    width:54%;bottom:max(-13px, -3.2vw);right:calc(var(--gutter) * -0.3);
     clip-path:polygon(0 0, 100% 0, 100% 65%, 0 100%);
-    transform:rotate(2deg);
+    transform:rotate(0deg);
   }
   .style-poster-blue .style-poster-photo img{display:block;width:100%;height:auto;}
-  .style-poster-green .style-poster-photo{width:34%;bottom:25px;right:calc(var(--gutter) * 0.6);}
+  .style-poster-green .style-poster-photo{width:26%;bottom:25px;right:calc(var(--gutter) * 0.6);}
   .style-poster-green .style-poster-photo img{display:block;width:100%;height:auto;}
 
   /* 「査定させていただきます」の吹き出し。写真の右上に重ねる（枠内に収める） */
