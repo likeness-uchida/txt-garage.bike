@@ -531,7 +531,7 @@
   }
   /* 出張査定側は左側に余白を作って右へ寄せ、LINE側も揃うよう軽く余白を付ける */
   .style-poster-row:not(.style-poster-row-rev) .style-poster-text{
-    margin-left:8%;max-width:50%;padding-top:30px;
+    margin-left:4%;max-width:50%;padding-top:30px;
   }
   .style-poster-row-rev .style-poster-text{
     margin-left:4%;max-width:72%;padding-top:88px;
@@ -808,6 +808,7 @@
     border-top:16px solid #fff;
   }
   .final-cta h2{font-size:21px;font-weight:900;margin:0;color:var(--black);}
+  .final-cta-emphasis{font-size:1.5em;color:var(--orange);}
   /* 透過PNGなので枠は付けず、黄色地にそのまま乗せる */
   .final-cta-photo{
     display:block;width:100%;height:auto;
@@ -884,7 +885,7 @@
     background:#fff;color:#555;
     padding:calc(var(--sect-y) * .5) 0 100px;font-size:12px;
   }
-  /* 罫線つきの表組み。公式フッターの2列リンクに合わせる（文字は黒） */
+  /* 罫線つきの表組み。公式フッターの2列リンクに合わせる（実機確認の結果、文字はオレンジ） */
   footer .foot-links{
     display:grid;grid-template-columns:1fr 1fr;
     border-top:1px solid var(--gray-300);
@@ -902,7 +903,7 @@
     display:grid;grid-template-columns:1fr 1fr;gap:10px;
     margin-top:18px;
   }
-  .footer-banners img{display:block;width:100%;height:auto;border-radius:8px;}
+  .footer-banners img{display:block;width:100%;height:auto;}
   .footer-banner-wide{grid-column:1 / -1;max-width:calc(50% - 5px);margin:0 auto;width:100%;}
 
   /* ---------- フローティングCTA(下部固定) ---------- */

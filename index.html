@@ -56,7 +56,7 @@
   <div class="header-inner">
     <a class="logo-mark" href="./" onclick="return goTop()">
       <img class="logo-img" src="img/logo.svg" alt="ティーバイティーガレージ">
-      <span class="logo-sub">バイク<br>買取</span>
+      <span class="logo-sub">バイク<br>買取り</span>
     </a>
     <div class="header-cta">
       <a class="tel-btn" href="tel:0120999999">
@@ -381,7 +381,7 @@
   <section class="section gray">
     <div class="wrap">
       <div class="eyebrow">FLOW</div>
-      <h2 class="h-title">申し込みから買取まで<br>迷わない3ステップ</h2>
+      <h2 class="h-title">申し込みから買取りまで<br>迷わない3ステップ</h2>
       <div class="flow-list">
 
         <div class="flow-card">
@@ -414,7 +414,7 @@
   <section class="section">
     <div class="wrap">
       <div class="faq-title-bar">FAQ</div>
-      <h2 class="h-title" style="text-align:left;margin-top:0;">バイク買取のよくあるご質問</h2>
+      <h2 class="h-title" style="text-align:left;margin-top:0;">バイク買取りのよくあるご質問</h2>
       <div id="faq-list">
         <div class="faq-item faq-v2">
           <button class="faq-q" onclick="toggleFaq(this)">
@@ -459,7 +459,7 @@
   <section class="section final-cta">
     <div class="wrap">
       <div class="final-cta-bubble">
-        <h2>そのバイク、眠らせておくのは<br>もったいない。</h2>
+        <h2>そのバイク、眠らせておくのは<br><span class="final-cta-emphasis punch-anim">もったいない。</span></h2>
       </div>
       <!-- 背景が透過のスタッフ3名の写真。額縁は付けず、黄色地に直接乗せる -->
       <img class="final-cta-photo" src="img/staff-3.png" width="760" height="519" alt="ティーバイティーガレージのスタッフ3名" loading="lazy">
@@ -859,6 +859,7 @@ document.addEventListener('DOMContentLoaded', function(){
                  { offset: 100, stagger: 0.5, groupBy: '.reason-block' });
   // 「０円査定致しません！」：大きい状態からバンと縮んで出る
   revealOnScroll('.why-punch', 'punch-anim', 'is-in', { offset: 60 });
+  revealOnScroll('.final-cta-emphasis', 'punch-anim', 'is-in', { offset: 60 });
   // 「たった3つの質問で査定スタート」：見出しがポップイン→バッジ/サブコピーがふわっと続く
   revealOnScroll('.quiz-lead-3', 'punch-anim', 'is-in', { offset: 140 });
   revealOnScroll('.quiz-sub-row', 'fade-anim', 'is-in', { offset: 40 });
