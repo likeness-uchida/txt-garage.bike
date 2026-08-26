@@ -24,6 +24,11 @@
      </script>
 ========================================================= -->
 
+<!-- 端末ごとの日本語フォントのばらつきを無くすため Noto Sans JP を直接配信 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800;900&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -63,42 +68,112 @@
     </ol>
   </div>
 
-  <p>お急ぎの方は、お電話またはLINEでも<br>ご相談いただけます。</p>
-
   <div class="thanks-cta">
-    <a class="btn btn-primary" href="tel:0120999999">
-      <svg class="icon"><use href="#ic-phone"/></svg> 電話をかける
-    </a>
-    <button class="btn btn-line" onclick="openLineDummy('thanks')">
-      <svg class="icon"><use href="#ic-chat"/></svg> LINEで相談する
-    </button>
     <a class="btn btn-outline" href="../">トップページに戻る</a>
   </div>
 
-  <p class="note" style="margin-top:26px;">※本ページはデザイン確認用のモックアップです。<br>実際の送信・メール転送・LINE連携は行われていません。</p>
+
 </main>
+
+<section class="footer-brand">
+  <div class="wrap">
+    <img class="fb-logo" src="../img/logo.svg" alt="ティーバイティーガレージ" width="274" height="82">
+    <p class="fb-tagline">あなたのバイク買取ります！<br>今すぐ無料出張査定申し込み！</p>
+    <a class="fb-tel" href="tel:0120999999">
+      <img src="../img/tel.svg" alt="フリーダイヤル 0120-999-999" width="326" height="36">
+    </a>
+    <p class="fb-tel-hours">【受付時間】8：00〜20：00</p>
+    <a class="btn btn-primary fb-cta" href="../">無料出張査定に申し込む</a>
+
+    <div class="fb-sns">
+      <a href="https://www.facebook.com/txtgarage/" target="_blank" rel="noopener" aria-label="Facebook"><img src="../img/icon_facebook.svg" width="32" height="32" alt=""></a>
+      <a href="https://x.com/txtgarage" target="_blank" rel="noopener" aria-label="X（旧Twitter）"><img src="../img/icon_x.svg" width="32" height="32" alt=""></a>
+      <a href="https://www.instagram.com/txtgarage/" target="_blank" rel="noopener" aria-label="Instagram"><img src="../img/icon_instagram.svg" width="32" height="32" alt=""></a>
+    </div>
+  </div>
+</section>
+
+<nav class="footer-nav">
+  <a class="footer-nav-top" href="https://www.txt-garage.jp/" target="_blank" rel="noopener">TOP</a>
+
+  <details class="footer-nav-item">
+    <summary>クルマを売りたい</summary>
+    <ul>
+      <li><a href="https://www.txt-garage.jp/" target="_blank" rel="noopener">クルマ買取</a></li>
+      <li><a href="https://www.txt-garage.jp/selltire/" target="_blank" rel="noopener">タイヤ・ホイール買取</a></li>
+      <li><a href="https://www.txt-garage.jp/selljobcar/" target="_blank" rel="noopener">農機具買取</a></li>
+      <li><a href="https://www.txt-garage.jp/jobmachine/" target="_blank" rel="noopener">建機買取</a></li>
+      <li><a href="https://www.txt-garage.jp/scrap/" target="_blank" rel="noopener">廃車</a></li>
+      <li><a href="https://www.txt-garage.jp/sellhobby/" target="_blank" rel="noopener">バイク・ホビー・ボート買取</a></li>
+      <li><a href="https://www.txt-garage.jp/truck/" target="_blank" rel="noopener">トラック買取</a></li>
+    </ul>
+  </details>
+
+  <details class="footer-nav-item">
+    <summary>クルマを買いたい</summary>
+    <ul>
+      <li><a href="https://www.txt-garage.jp/imamiru/" target="_blank" rel="noopener">クルマ販売</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/" target="_blank" rel="noopener">店舗を探す</a></li>
+    </ul>
+  </details>
+
+  <details class="footer-nav-item">
+    <summary>店舗一覧</summary>
+    <ul>
+      <li><a href="https://www.txt-garage.jp/shop/hokkaido/" target="_blank" rel="noopener">北海道エリア</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/tohoku/" target="_blank" rel="noopener">東北エリア</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/hokuriku/" target="_blank" rel="noopener">北陸エリア</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/kanto/" target="_blank" rel="noopener">関東エリア</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/tokai/" target="_blank" rel="noopener">東海エリア</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/kansai/" target="_blank" rel="noopener">関西エリア</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/nishinihon/" target="_blank" rel="noopener">西日本エリア</a></li>
+      <li><a href="https://www.txt-garage.jp/shop/okinawa/" target="_blank" rel="noopener">沖縄エリア</a></li>
+    </ul>
+  </details>
+
+  <details class="footer-nav-item">
+    <summary>ティーバイティーを知る</summary>
+    <ul>
+      <li><a href="https://www.txt-garage.jp/sell/" target="_blank" rel="noopener">ティーバイティーガレージとは</a></li>
+      <li><a href="https://www.txt-garage.jp/flow/" target="_blank" rel="noopener">詳しい無料査定の流れ</a></li>
+      <li><a href="https://www.txt-garage.jp/faqs/" target="_blank" rel="noopener">よくあるご質問</a></li>
+      <li><a href="https://www.txt-garage.jp/cm/" target="_blank" rel="noopener">テレビCMを見る</a></li>
+      <li><a href="https://www.txt-garage.jp/guinness/" target="_blank" rel="noopener">ギネス世界記録</a></li>
+    </ul>
+  </details>
+
+  <details class="footer-nav-item">
+    <summary>その他</summary>
+    <ul>
+      <li><a href="https://www.txt-garage.jp/topics/" target="_blank" rel="noopener">お知らせ</a></li>
+      <li><a href="https://www.txt-garage.jp/results/" target="_blank" rel="noopener">わたしたちティーバイティーに売りました</a></li>
+      <li><a href="https://www.txt-garage.jp/valuation/" target="_blank" rel="noopener">買取相場</a></li>
+      <li><a href="https://www.txt-garage.jp/review/" target="_blank" rel="noopener">クチコミを見る</a></li>
+    </ul>
+  </details>
+</nav>
 
 <footer>
   <div class="wrap">
-    <div class="logo-mark" style="margin-bottom:14px;">
-      <img class="logo-img" src="../img/logo.svg" alt="ティーバイティーガレージ" style="height:38px;">
-      <span class="logo-sub">バイク<br>買取</span>
+    <div class="foot-links">
+      <a href="https://txt-holdings.com/" target="_blank" rel="noopener">企業情報</a>
+      <a href="https://txt-holdings.com/recruit/" target="_blank" rel="noopener">採用情報</a>
+      <a href="https://www.txt-garage.jp/privacypolicy/" target="_blank" rel="noopener">個人情報保護方針</a>
+      <a href="https://txt-holdings.com/trademark/" target="_blank" rel="noopener">商標利用規約</a>
+      <a href="https://www.txt-garage.jp/terms/" target="_blank" rel="noopener">利用規約</a>
+      <a href="https://www.txt-garage.jp/sitemap/" target="_blank" rel="noopener">サイトマップ</a>
     </div>
-    <dl class="company-box">
-      <dt>運営会社</dt><dd>株式会社ティーバイティーガレージ（表記ダミー）</dd>
-      <dt>フリーダイヤル</dt><dd>0120-999-999（受付時間 8:00〜20:00）</dd>
-    </dl>
-    <p class="note" style="margin-top:16px;">© T×T GARAGE（ダミー表記）</p>
+
+    <div class="footer-banners">
+      <a href="https://www.youtube.com/@txt_garage" target="_blank" rel="noopener"><img src="../img/bnr_youtube.png" width="328" height="112" alt="T×T公式チャンネル CM公開中"></a>
+      <a href="https://www.tiktok.com/@txt_garage" target="_blank" rel="noopener"><img src="../img/bnr_tiktok.jpg" width="328" height="112" alt="TikTok CMでおなじみのあの方も！お得情報発信！"></a>
+      <a class="footer-banner-wide" href="https://www.txt-garage.jp/guinness/" target="_blank" rel="noopener"><img src="../img/bnr_gwr.png" width="328" height="112" alt="T×T GARAGE ギネス世界記録™達成!!"></a>
+    </div>
+
+    <p class="note">©T×T GARAGE Inc.</p>
   </div>
 </footer>
 </div>
-
-<script>
-const LINE_URL = 'https://page.line.me/936rygvj';
-function openLineDummy(source){
-  window.open(LINE_URL, '_blank', 'noopener');
-}
-</script>
 
 </body>
 </html>

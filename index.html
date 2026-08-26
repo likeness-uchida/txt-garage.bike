@@ -6,6 +6,12 @@
 <title>バイク買取 ティーバイティーガレージ｜動かなくても、壊れていても無料出張査定</title>
 <meta name="description" content="故障車・不動車・倉庫に眠ったバイクもOK。ティーバイティーガレージの無料出張査定で、あなたのバイクの価値をチェック。">
 
+<!-- 端末ごとに入っている日本語フォントが違うと太さがバラつくため、
+     Noto Sans JP を直接配信して全端末で同じ見た目にする -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800;900&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -122,9 +128,18 @@
   <!-- ============================================================ -->
   <section class="section quiz-section">
     <div class="wrap">
-      <p class="quiz-lead punch-anim">たった3つの質問で<br class="quiz-lead-br">査定スタート</p>
+      <!-- 見出しは画像2枚を同じ座標で重ねた構成。
+           question_2.png ＝ 赤い「3」の部分だけ透明に抜いた本体、
+           question_3.png ＝ その「3」だけを切り出したもの（同じキャンバスサイズ）。
+           重ねると元のロゴになり、「3」だけを別レイヤーとして
+           スクロール時にポンと弾ませて出せる。
+           画像だけだと読み上げに残らないため、見出しはsr-onlyで別途用意する。 -->
+      <h2 class="sr-only">たった3つの質問で査定スタート</h2>
+      <div class="quiz-lead-wrap">
+        <img class="quiz-lead-base" src="img/question_2.png" width="1933" height="814" alt="" aria-hidden="true">
+        <img class="quiz-lead-3 punch-anim" src="img/question_3.png" width="1933" height="814" alt="" aria-hidden="true">
+      </div>
       <div class="quiz-sub-row fade-anim">
-        <span class="quiz-count-badge">たった3項目！</span>
         <p class="quiz-sub">無料でお試し査定！ご所有のバイクについて教えてください</p>
       </div>
 
@@ -222,38 +237,47 @@
     </div>
   </section>
 
-  <!-- 査定は選べます：出張 or LINE（表ではなく2択カードで提示） -->
-  <section class="section gray">
-    <div class="wrap">
-      <div class="eyebrow">STYLE</div>
-      <h2 class="h-title">査定は、好きなスタイルで。</h2>
-      <div class="style-cards">
-        <div class="style-card style-card-main">
-          <img class="style-photo style-photo-rush" src="img/rush.png" width="490" height="396"
-               alt="全国どこでも駆けつけます！" loading="lazy">
-          <div class="style-head">
-            <div class="style-icon"><svg class="icon"><use href="#ic-truck"/></svg></div>
-            <span class="style-badge"><svg class="icon icon-fill"><use href="#ic-star"/></svg>おすすめ</span>
-          </div>
-          <h3>スタッフが自宅まで出張</h3>
-          <ul>
+  <!-- 査定は選べます：出張 or LINE。
+       アセット30（ポスター風デザイン）に合わせ、白カード2枚ではなく
+       水色→LINEグリーンの一続きのポスターとして構成する。 -->
+  <section class="style-poster">
+    <div class="wrap style-poster-head">
+      <div class="eyebrow" style="color:#fff;">STYLE</div>
+      <h2 class="style-poster-title">査定は、好きなスタイルで</h2>
+    </div>
+
+    <div class="style-poster-blue">
+      <div class="wrap style-poster-row">
+        <div class="style-poster-text">
+          <p class="style-poster-lead">スタッフが <span class="style-poster-osusume">★おススメ</span></p>
+          <p class="style-poster-big">自宅まで<br>出張査定</p>
+          <ul class="style-poster-list">
             <li>その場で金額を提示</li>
-            <li>立ち会うだけでOK。</li>
+            <li>立ち会うだけでOK</li>
             <li>搬出作業もお任せ</li>
           </ul>
         </div>
-        <div class="style-card style-card-line">
-          <img class="style-photo style-photo-shinjo" src="img/shinjo02.jpg" width="320" height="336"
-               alt="LINEオンライン査定を案内するスタッフ" loading="lazy">
-          <div class="style-head">
-            <div class="style-icon"><svg class="icon"><use href="#ic-chat"/></svg></div>
-          </div>
-          <h3>LINEでオンライン査定</h3>
-          <ul>
-            <li>おうちから出ずに、その場で査定</li>
+        <div class="style-poster-photo">
+          <span class="style-poster-bubble">査定させて<br>いただきます</span>
+          <img src="img/satei.png" width="640" height="596" alt="ご自宅まで出張査定に伺うティーバイティーガレージのスタッフ" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="style-poster-green">
+      <div class="wrap style-poster-row style-poster-row-rev">
+        <div class="style-poster-text">
+          <p class="style-poster-lead">LINE で</p>
+          <p class="style-poster-big">オンライン<br>査定</p>
+          <ul class="style-poster-list">
+            <li>LINEで友だち追加</li>
+            <li>トーク画面で「バイクオンライン」と送信</li>
             <li>ビデオ通話でバイクを映すだけ</li>
             <li>通話開始から10分程度で完了</li>
           </ul>
+        </div>
+        <div class="style-poster-photo">
+          <img src="img/line.png" width="493" height="715" alt="LINEのビデオ通話でオンライン査定を受けている様子" loading="lazy">
         </div>
       </div>
     </div>
@@ -315,7 +339,7 @@
           </div>
           <div class="proof-comment">
             <div class="mini-avatar placeholder-img"><img src="img/04_staff.jpg" width="120" height="120" alt="担当スタッフ" loading="lazy" onerror="this.remove()"><svg class="icon" style="width:14px;height:14px;"><use href="#ic-user"/></svg></div>
-            <p>長年大切にされてきた愛車をご売却いただきました！エンジンがかからない不動車や、ホコリをかぶって眠っているバイクでも大丈夫。まずはお気軽にご相談ください！（サンプル文言）</p>
+            <p>長年ガレージで大切にされてきた相棒（バイク）をご売却いただきました！ 査定額はもちろん、面倒な廃車手続きや引き取り作業も「すべて丸投げできてラクだった」と多くのお客様から喜んでいただいております。</p>
           </div>
         </div>
       </div>
@@ -427,9 +451,14 @@
     </div>
   </section>
 
+  <!-- アセット31準拠：黄色地＋吹き出し＋スタッフ写真の構成 -->
   <section class="section final-cta">
     <div class="wrap">
-      <h2>そのバイク、眠らせておくのは<br>もったいない。</h2>
+      <div class="final-cta-bubble">
+        <h2>そのバイク、眠らせておくのは<br>もったいない。</h2>
+      </div>
+      <!-- 背景が透過のスタッフ3名の写真。額縁は付けず、黄色地に直接乗せる -->
+      <img class="final-cta-photo" src="img/staff-3.png" width="760" height="519" alt="ティーバイティーガレージのスタッフ3名" loading="lazy">
       <p>動かなくても、古くても、壊れていても。<br>ティーバイティーが無料で出張査定します。</p>
       <div class="hero-cta-group" style="display:flex;flex-direction:column;gap:10px;">
         <button class="btn btn-primary" onclick="scrollToQuiz()">
@@ -530,21 +559,13 @@
 
   <footer>
     <div class="wrap">
-      <div class="logo-mark" style="margin-bottom:14px;">
-        <img class="logo-img" src="img/logo.svg" alt="ティーバイティーガレージ" style="height:38px;">
-        <span class="logo-sub">バイク<br>買取</span>
-      </div>
-      <dl class="company-box">
-        <dt>運営会社</dt><dd>株式会社ティーバイティーガレージ（表記ダミー）</dd>
-        <dt>フリーダイヤル</dt><dd>0120-999-999（受付時間 8:00〜20:00）</dd>
-        <dt>LINE公式アカウント</dt><dd><a href="https://page.line.me/936rygvj" target="_blank" rel="noopener">友だち追加はこちら</a></dd>
-        <dt>対応エリア</dt><dd>全国対応（ダミー記載・一部離島を除く）</dd>
-      </dl>
+      <!-- ロゴ＋会社情報ブロックは公式フッターに存在しないため削除。
+           運営会社名・電話・LINE・対応エリアの情報自体は、
+           上の footer-brand セクションと LP冒頭のヘッダーに既に出ている。 -->
 
-      <!-- 2列リンクは公式サイト(txt-garage.jp)の並び順そのまま。
+      <!-- 2列リンクは公式サイト(txt-garage.jp)の並び順・罫線つき表組みに合わせる。
            企業情報・採用情報・商標利用規約は親会社(txt-holdings.com)の実ページ、
-           個人情報保護方針・利用規約・サイトマップは txt-garage.jp の実ページ。
-           特定商取引法の表記のみ対応URLが確認できなかったためダミーのまま7項目目に追加。 -->
+           個人情報保護方針・利用規約・サイトマップは txt-garage.jp の実ページ。 -->
       <div class="foot-links">
         <a href="https://txt-holdings.com/" target="_blank" rel="noopener">企業情報</a>
         <a href="https://txt-holdings.com/recruit/" target="_blank" rel="noopener">採用情報</a>
@@ -552,18 +573,17 @@
         <a href="https://txt-holdings.com/trademark/" target="_blank" rel="noopener">商標利用規約</a>
         <a href="https://www.txt-garage.jp/terms/" target="_blank" rel="noopener">利用規約</a>
         <a href="https://www.txt-garage.jp/sitemap/" target="_blank" rel="noopener">サイトマップ</a>
-        <a href="#" onclick="return false;" class="foot-links-wide">特定商取引法に基づく表記（ダミー）</a>
       </div>
 
-      <!-- バナー3種（公式サイト下部と同じ並び：YouTube→TikTok→ギネス世界記録） -->
+      <!-- バナーは公式サイトと同じ並び：YouTube・TikTokを2列、
+           ギネス世界記録はその下に1列ぶん幅で中央寄せ -->
       <div class="footer-banners">
         <a href="https://www.youtube.com/@txt_garage" target="_blank" rel="noopener"><img src="img/bnr_youtube.png" width="328" height="112" alt="T×T公式チャンネル CM公開中"></a>
         <a href="https://www.tiktok.com/@txt_garage" target="_blank" rel="noopener"><img src="img/bnr_tiktok.jpg" width="328" height="112" alt="TikTok CMでおなじみのあの方も！お得情報発信！"></a>
-        <a href="https://www.txt-garage.jp/guinness/" target="_blank" rel="noopener"><img src="img/bnr_gwr.png" width="328" height="112" alt="T×T GARAGE ギネス世界記録™達成!!"></a>
+        <a class="footer-banner-wide" href="https://www.txt-garage.jp/guinness/" target="_blank" rel="noopener"><img src="img/bnr_gwr.png" width="328" height="112" alt="T×T GARAGE ギネス世界記録™達成!!"></a>
       </div>
 
-      <p class="note" style="margin-top:16px;">※本ページはデザイン確認用のモックアップです。ロゴ・電話番号・SNS/公式サイトへのリンクは実データですが、写真・実績数値・お客様の声等はダミーです。</p>
-      <p class="note">© T×T GARAGE（ダミー表記）</p>
+      <p class="note">©T×T GARAGE Inc.</p>
     </div>
   </footer>
 
@@ -590,7 +610,10 @@
     <div class="form-step active" id="step-1">
 
       <div class="price-notice">
-        <p>バイクの買取価格は市場の相場により変動しております。<br>ご入力いただいた内容をもとに、最新の相場を改めてご案内いたします。</p>
+        <div class="quiz-mascot placeholder-img"><img src="img/shinjo01.png" width="192" height="192" alt="ティーバイティーガレージの査定スタッフ" loading="lazy" onerror="this.remove()"><svg class="icon"><use href="#ic-user"/></svg></div>
+        <div class="price-notice-bubble">
+          <p>バイクの買取価格は市場の相場により変動しております。<br>ご入力いただいた内容をもとに、最新の相場を改めてご案内いたします。</p>
+        </div>
       </div>
 
       <!-- ファーストビューのミニ査定(メーカー・排気量・車種名)で得た回答は
@@ -606,11 +629,15 @@
       </div>
       <div class="field">
         <label>電話番号<span class="required">必須</span></label>
-        <input type="tel" id="f-tel" placeholder="例：090-1234-5678">
+        <input type="tel" id="f-tel" placeholder="例：09012345678" inputmode="numeric">
       </div>
       <div class="field">
         <label>郵便番号<span class="field-note">（出張エリア確認用）</span><span class="required">必須</span></label>
-        <input type="text" id="f-postal" placeholder="例：123-4567" inputmode="numeric" autocomplete="postal-code">
+        <input type="text" id="f-postal" placeholder="例：1234567" inputmode="numeric" autocomplete="postal-code" maxlength="8">
+      </div>
+      <div class="field">
+        <label>ご住所<span class="field-note">（郵便番号から自動表示）</span></label>
+        <input type="text" id="f-address" readonly placeholder="郵便番号を入力すると表示されます">
       </div>
       <div class="field">
         <label>ご希望の査定日時<span class="optional">任意</span></label>
@@ -642,20 +669,9 @@
   <div class="exit-modal">
     <button class="exit-modal-close" onclick="closeExitModal()"><svg class="icon" style="width:13px;height:13px;"><use href="#ic-close"/></svg></button>
     <div class="exit-modal-banner">
-      <span class="exit-modal-badge">査定でのやり取り不要！<br>LINEで完結</span>
-      <div class="exit-modal-copy">
-        <p class="lead">バイクのオンライン査定を</p>
-        <p class="headline">もっと簡単に。</p>
-        <p class="sub">ビデオ通話でバイクを映すだけ<br>10分程度で査定できます</p>
-      </div>
-      <div class="exit-modal-phone">
-        <svg class="icon" style="width:26px;height:26px;color:var(--line-green);"><use href="#ic-chat"/></svg>
-      </div>
-      <div class="exit-modal-thumbrow">
-        <div class="placeholder-img"><img src="img/line-step-01.jpg" alt="LINE査定の手順1" loading="lazy" onerror="this.remove()"><svg class="icon" style="width:12px;height:12px;"><use href="#ic-photo"/></svg></div>
-        <div class="placeholder-img"><img src="img/line-step-02.jpg" alt="LINE査定の手順2" loading="lazy" onerror="this.remove()"><svg class="icon" style="width:12px;height:12px;"><use href="#ic-photo"/></svg></div>
-        <div class="placeholder-img"><img src="img/line-step-03.jpg" alt="LINE査定の手順3" loading="lazy" onerror="this.remove()"><svg class="icon" style="width:12px;height:12px;"><use href="#ic-photo"/></svg></div>
-      </div>
+      <!-- 文言はline.jpg側に焼き込み済みで、以前は文字と画像が重なって
+           見えていたため、テキストのオーバーレイは廃止して画像だけにする -->
+      <img class="exit-modal-img" src="img/line.jpg" alt="LINEオンライン査定でもっと簡単に。ビデオ通話でバイクを映すだけ、10分程度で査定できます。手順：01 LINEから査定スタート／02 通話ボタンをタップ／03 ビデオ通話でその場で査定" loading="lazy" onerror="this.parentElement.remove()">
     </div>
     <div class="exit-modal-body">
       <button class="btn btn-line" onclick="openLineDummy('exit-modal')">LINE査定</button>
@@ -718,17 +734,23 @@ function scrollToQuiz(){
 }
 
 /* ---------- ビュー切り替え ---------- */
+function scrollTopHard(){
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0,0);
+  requestAnimationFrame(() => window.scrollTo(0,0));
+}
 function openForm(){
   el('view-lp').classList.add('hidden');
   el('view-form').classList.remove('hidden');
-  window.scrollTo(0,0);
+  scrollTopHard();
   el('btn-next').textContent = '次へ →';
   armExitGuard();
 }
 function backToLp(){
   el('view-form').classList.add('hidden');
   el('view-lp').classList.remove('hidden');
-  window.scrollTo(0,0);
+  scrollTopHard();
   disarmExitGuard();
 }
 /* サンクスページは /thanks/ に分離済み。
@@ -834,7 +856,7 @@ document.addEventListener('DOMContentLoaded', function(){
   // 「０円査定致しません！」：大きい状態からバンと縮んで出る
   revealOnScroll('.why-punch', 'punch-anim', 'is-in', { offset: 60 });
   // 「たった3つの質問で査定スタート」：見出しがポップイン→バッジ/サブコピーがふわっと続く
-  revealOnScroll('.quiz-lead', 'punch-anim', 'is-in', { offset: 40 });
+  revealOnScroll('.quiz-lead-3', 'punch-anim', 'is-in', { offset: 40 });
   revealOnScroll('.quiz-sub-row', 'fade-anim', 'is-in', { offset: 40 });
 });
 
@@ -843,6 +865,22 @@ function toggleFaq(btn){
   const item = btn.closest('.faq-item');
   item.classList.toggle('open');
 }
+
+/* ---------- 郵便番号 → 住所の自動表示（zipcloud API） ---------- */
+const postalInput = el('f-postal');
+const addressInput = el('f-address');
+postalInput.addEventListener('input', () => {
+  const digits = postalInput.value.replace(/[^0-9]/g, '');
+  if(digits.length !== 7){ addressInput.value = ''; return; }
+  addressInput.value = '検索中...';
+  fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${digits}`)
+    .then(res => res.json())
+    .then(data => {
+      const r = data && data.results && data.results[0];
+      addressInput.value = r ? `${r.address1}${r.address2}${r.address3}` : '該当する住所が見つかりませんでした';
+    })
+    .catch(() => { addressInput.value = ''; });
+});
 
 /* =========================================================
    査定フォーム：単一ステップ（お名前・電話番号・郵便番号・希望日時）

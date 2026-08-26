@@ -1,0 +1,4 @@
+backup_*/
+*.bak
+.claude/
+素材/
