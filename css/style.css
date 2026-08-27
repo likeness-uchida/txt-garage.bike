@@ -590,7 +590,7 @@
     line-height:1;pointer-events:none;
   }
   .style-poster-blue .style-poster-letter{top:-10px;left:-10px;}
-  .style-poster-green .style-poster-letter{top:10px;left:auto;right:70px;}
+  .style-poster-green .style-poster-letter{top:40px;left:auto;right:90px;}
 
   /* 「査定させていただきます」の吹き出し。写真の右上に重ねる（枠内に収める） */
   .style-poster-bubble{
@@ -619,6 +619,7 @@
   }
   /* 見出し内の強調はコーポレートのオレンジ。改行して少し大きく見せる */
   .hl-orange{color:var(--orange);display:block;font-size:1.5em;margin-top:2px;}
+  .hl-orange-sm{font-size:1.25em;}
   .reason-photo{aspect-ratio:3 / 2;border-radius:var(--radius);margin-bottom:10px;}
   .reason-block p{font-size:var(--fs-md);color:#555;margin:0;line-height:1.8;}
   /* 蛍光ペンで線を引いたような黄色のベース。
