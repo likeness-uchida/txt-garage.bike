@@ -531,21 +531,22 @@
   }
   /* 出張査定側は写真を左・文字を右に入れ替え */
   .style-poster-row:not(.style-poster-row-rev) .style-poster-text{
-    margin-left:53%;max-width:43%;padding-top:15px;
+    margin-left:50%;max-width:48%;padding-top:15px;
   }
   .style-poster-row-rev .style-poster-text{
     margin-left:4%;max-width:72%;padding-top:88px;
   }
   .style-poster-lead{
     font-size:var(--fs-md);font-weight:800;margin:0 0 2px;color:var(--black);
+    white-space:nowrap;
   }
   .style-poster-osusume{
     display:inline-flex;align-items:center;
     background:#fff;color:var(--sky);
     font-size:var(--fs-2xs);font-weight:800;
-    padding:2px 9px;border-radius:999px;
-    border:none;
-    margin-left:4px;vertical-align:2px;
+    padding:2px 7px;border-radius:999px;
+    border:none;white-space:nowrap;
+    margin-left:3px;vertical-align:2px;
   }
   .style-poster-big{
     color:#ffe14d;font-weight:900;
