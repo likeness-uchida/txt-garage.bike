@@ -529,9 +529,9 @@
     position:relative;z-index:2;max-width:60%;color:#fff;
     box-sizing:border-box;
   }
-  /* 出張査定側は左側に余白を作って右へ寄せ、LINE側も揃うよう軽く余白を付ける */
+  /* 出張査定側は写真を左・文字を右に入れ替え */
   .style-poster-row:not(.style-poster-row-rev) .style-poster-text{
-    margin-left:4%;max-width:50%;padding-top:80px;
+    margin-left:57%;max-width:39%;padding-top:20px;
   }
   .style-poster-row-rev .style-poster-text{
     margin-left:4%;max-width:72%;padding-top:88px;
@@ -573,7 +573,7 @@
   }
   /* 斜めの継ぎ目に沿うよう、写真の下側を同じ角度で切り落とす */
   .style-poster-blue .style-poster-photo{
-    width:54%;bottom:max(-13px, -3.2vw);right:calc(var(--gutter) * -0.3);
+    width:54%;bottom:max(-93px, -22.7vw);left:calc(var(--gutter) * -0.3);right:auto;
     clip-path:polygon(0 0, 100% 0, 100% 65%, 0 100%);
     transform:rotate(0deg);
   }
@@ -589,13 +589,13 @@
     color:rgba(255,255,255,.35);
     line-height:1;pointer-events:none;
   }
-  .style-poster-blue .style-poster-letter{top:-10px;left:-10px;}
+  .style-poster-blue .style-poster-letter{top:-15px;left:60px;right:auto;}
   .style-poster-green .style-poster-letter{top:40px;left:auto;right:90px;}
 
   /* 「査定させていただきます」の吹き出し。写真の右上に重ねる（枠内に収める） */
   .style-poster-bubble{
     /* 画像コンテナに対する%指定にして、画面幅が変わっても写真と重ならないようにする */
-    position:absolute;top:2%;left:50%;z-index:2;
+    position:absolute;top:calc(2% + 35px);left:calc(50% + 15px);z-index:2;
     max-width:100px;box-sizing:border-box;
     background:#fff;color:var(--black);
     font-size:var(--fs-2xs);font-weight:800;line-height:1.35;
