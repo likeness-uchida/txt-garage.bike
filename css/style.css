@@ -590,7 +590,7 @@
     line-height:1;pointer-events:none;
   }
   .style-poster-blue .style-poster-letter{top:-10px;left:-10px;}
-  .style-poster-green .style-poster-letter{top:-20px;left:auto;right:70px;}
+  .style-poster-green .style-poster-letter{top:10px;left:auto;right:70px;}
 
   /* 「査定させていただきます」の吹き出し。写真の右上に重ねる（枠内に収める） */
   .style-poster-bubble{
@@ -617,8 +617,8 @@
     font-size:calc(var(--fs-lg) + 1px);
     font-weight:900;margin:0 0 8px;word-break:auto-phrase;
   }
-  /* 見出し内の強調はコーポレートのオレンジ */
-  .hl-orange{color:var(--orange);}
+  /* 見出し内の強調はコーポレートのオレンジ。改行して少し大きく見せる */
+  .hl-orange{color:var(--orange);display:block;font-size:1.5em;margin-top:2px;}
   .reason-photo{aspect-ratio:3 / 2;border-radius:var(--radius);margin-bottom:10px;}
   .reason-block p{font-size:var(--fs-md);color:#555;margin:0;line-height:1.8;}
   /* 蛍光ペンで線を引いたような黄色のベース。
@@ -790,6 +790,9 @@
     width:100%;text-align:left;background:none;border:none;
     padding:16px 4px;font-weight:700;font-size:13.5px;
     display:flex;justify-content:space-between;align-items:center;gap:10px;
+    /* iOS Safariは-webkit-appearanceが残っていると文字色までシステムの
+       青を当ててしまうため、色を明示しつつネイティブ見た目をリセットする */
+    -webkit-appearance:none;appearance:none;color:var(--black);font-family:inherit;
   }
   .faq-q .q-mark{color:var(--blue);font-weight:900;flex:none;}
   .faq-a{
