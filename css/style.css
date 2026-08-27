@@ -618,7 +618,7 @@
     font-weight:900;margin:0 0 8px;word-break:auto-phrase;
   }
   /* 見出し内の強調はコーポレートのオレンジ。改行して少し大きく見せる */
-  .hl-orange{color:var(--orange);display:block;font-size:1.5em;margin-top:2px;}
+  .hl-orange{color:var(--orange);display:block;font-size:1.4em;margin-top:2px;}
   .hl-orange-sm{font-size:1.25em;}
   .reason-photo{aspect-ratio:3 / 2;border-radius:var(--radius);margin-bottom:10px;}
   .reason-block p{font-size:var(--fs-md);color:#555;margin:0;line-height:1.8;}
@@ -1066,6 +1066,7 @@
 
   /* 「え!?こんなバイクまで!?」リアクション */
   .reaction-strip{background:var(--accent);padding:calc(var(--sect-y) * .56) 0;}
+  .reaction-section-img{display:block;width:100%;height:auto;margin:0 0 var(--gap-card);}
   .reaction-inner{display:flex;align-items:center;gap:14px;}
   .reaction-inner h3{word-break:auto-phrase;}
   .reaction-avatar{
