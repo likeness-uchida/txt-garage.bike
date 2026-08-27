@@ -1067,6 +1067,10 @@
 
   /* 「え!?こんなバイクまで!?」リアクション */
   .reaction-strip{background:var(--accent);padding:calc(var(--sect-y) * .56) 0;}
+
+  /* バイク買取あるある漫画。余白なしで画面いっぱいに縦に並べる */
+  .comic-strip{display:block;}
+  .comic-strip img{display:block;width:100%;height:auto;}
   .reaction-section-img{display:block;width:100%;height:auto;margin:0 0 var(--gap-card);}
   .reaction-inner{display:flex;align-items:center;gap:14px;}
   .reaction-inner h3{word-break:auto-phrase;}
