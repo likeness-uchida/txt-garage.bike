@@ -52,6 +52,16 @@
      フォームに進むとヘッダーが差し替わって見えていた。
      view-lp / view-form の外に置き、どちらの表示状態でも隠さない。 -->
 <!-- ============================================================ -->
+<!-- PCの広い画面（1100px〜）だけ、参考サイト（takaone.jp/media/）風に
+     左：大きいロゴの装飾パネル／中央：LP本体／右：目次パネル、の3カラムにする。
+     スマホでは.pc-left/.pc-rightは非表示になり、レイアウトへの影響はない。 -->
+<div class="pc-left">
+  <div class="pc-left-inner">
+    <img class="pc-left-logo" src="img/logo.svg" alt="ティーバイティーガレージ">
+    <p class="pc-left-tagline">全国どこでも無料出張査定に伺います<br>バイクを売るのもティーバイティー</p>
+  </div>
+</div>
+<div class="lp-main">
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-mark" href="./" onclick="return goTop()">
@@ -130,7 +140,7 @@
   <!-- 3項目ミニ査定：ヒーローから切り離し、白背景の独立セクションに。
        枠内は水色パネルで色を持たせ、見出しはスクロールでポップイン。 -->
   <!-- ============================================================ -->
-  <section class="section quiz-section">
+  <section class="section quiz-section" id="sec-quiz">
     <div class="wrap">
       <!-- 見出しは画像2枚を同じ座標で重ねた構成。
            question_2.png ＝ 赤い「3」の部分だけ透明に抜いた本体、
@@ -245,7 +255,7 @@
   <!-- 査定は選べます：出張 or LINE。
        アセット30（ポスター風デザイン）に合わせ、白カード2枚ではなく
        水色→LINEグリーンの一続きのポスターとして構成する。 -->
-  <section class="style-poster">
+  <section class="style-poster" id="sec-style">
     <div class="wrap style-poster-head">
       <h2 class="style-poster-title">査定は、好きなスタイルで</h2>
     </div>
@@ -327,7 +337,7 @@
     </div>
   </section>
 
-  <section class="section gray">
+  <section class="section gray" id="sec-voice">
     <div class="wrap">
       <div class="eyebrow">VOICE</div>
       <h2 class="h-title">皆さんの大切なバイク<br>買取らせていただきました！</h2>
@@ -370,7 +380,7 @@
     </div>
   </section>
 
-  <section class="section why">
+  <section class="section why" id="sec-why">
     <div class="wrap">
       <div class="eyebrow">WHY T×T GARAGE</div>
       <h2 class="why-title">ティーバイティーは、全部買取り</h2>
@@ -387,7 +397,7 @@
     <img src="img/bikeLPcomic4.png" alt="" loading="lazy">
   </section>
 
-  <section class="section gray">
+  <section class="section gray" id="sec-flow">
     <div class="wrap">
       <div class="eyebrow">FLOW</div>
       <h2 class="h-title">申し込みから買取りまで<br>迷わない3ステップ</h2>
@@ -420,7 +430,7 @@
   </section>
 
 
-  <section class="section">
+  <section class="section" id="sec-faq">
     <div class="wrap">
       <div class="faq-title-bar">FAQ</div>
       <h2 class="h-title" style="text-align:left;margin-top:0;">バイク買取りのよくあるご質問</h2>
@@ -671,6 +681,23 @@
     <div class="form-nav-inner">
       <button class="btn btn-primary" id="btn-next" onclick="submitLead()">次へ →</button>
     </div>
+  </div>
+</div>
+</div><!-- /.lp-main -->
+
+<div class="pc-right">
+  <div class="pc-right-inner">
+    <nav class="pc-toc">
+      <a href="#sec-quiz">無料査定スタート</a>
+      <a href="#sec-style">査定スタイル</a>
+      <a href="#sec-why">選ばれる理由</a>
+      <a href="#sec-voice">お客様の声</a>
+      <a href="#sec-flow">お申し込みの流れ</a>
+      <a href="#sec-faq">よくあるご質問</a>
+    </nav>
+    <a class="pc-right-cta" href="tel:0120999999">
+      <img src="img/tel.svg" alt="フリーダイヤル 0120-999-999">
+    </a>
   </div>
 </div>
 
