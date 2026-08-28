@@ -123,7 +123,7 @@
     .pc-left-logo{display:block;width:min(34vw, 700px);height:auto;margin:0 auto 24px;}
     .pc-left-tagline{font-size:17px;font-weight:800;color:var(--black);line-height:1.9;}
 
-    .lp-main{flex:none;margin-left:60px;}
+    .lp-main{flex:none;}
 
     .pc-right{
       display:block;flex:1 1 auto;min-width:260px;
